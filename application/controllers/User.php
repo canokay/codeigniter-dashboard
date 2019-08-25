@@ -28,48 +28,41 @@ class User extends CI_Controller {
 			$this->load->view("$this->project/user/base",$context);
         }
         else if ($this->input->server('REQUEST_METHOD')=='POST'){
-            $this->form_validation->set_rules('user_username', 'input_username', 'required');
-            $this->form_validation->set_rules('user_password', 'input_password', 'required');
+            $this->form_validation->set_rules('input_username', 'input_username', 'required');
+            $this->form_validation->set_rules('input_password', 'input_password', 'required');
             
             if($this->form_validation->run() == TRUE){
-            $user = $this->UserModel->get(
-                array(
-                    "username"     => $this->input->post("user_username"),
-                    "password"  => md5($this->input->post("user_password")),
-                    "is_active"  => 1
-                )
-            );
+				$user = $this->UserModel->get(
+					array(
+						"username"     => $this->input->post("input_username"),
+						"password"  => md5($this->input->post("input_password")),
+						"is_active"  => 1
+					)
+				);
 
-            if($user){
-
-
-                $this->session->set_userdata("user", $user);
-
-                //echo "giriş yapıldı";
-                redirect(base_url(''));
-
-            } else {
-
-                // Hata Verilecek...
+				if($user){
 
 
-                echo "Hata verildi";
-                //redirect(base_url("login"));
+					$this->session->set_userdata("user", $user);
 
-            }
+					//echo "giriş yapıldı";
+					redirect(base_url(''));
 
+				} 
+				else {
+					echo "Hata verildi";
+					//redirect(base_url("login"));
+				}
             }
             else{
                 $context=array(
-                "title"					=>	"Login",
+                "title"					=>	"asd",
                 "project" 				=> 	$this->project,
                 "category" 				=>	$this->category,
                 "view" 					=>  $this->router->fetch_method(),
                 "form_error"      =>  "Hata oluştu",
             );
-            $this->load->view("$this->project/base",$context);
-
-            //TODO redirect olarak yap
+            $this->load->view("$this->project/user/base",$context);
             }
 
 
