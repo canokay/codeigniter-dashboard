@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class User extends CI_Controller {
 
 
 	public $project = "";
@@ -84,5 +84,27 @@ class Login extends CI_Controller {
         $this->session->unset_userdata("user");
         redirect(base_url("/"));
 
+	}
+	
+    public function register(){
+
+            $context=array(
+                "title"					=>	"Login",
+                "project" 				=> 	$this->project,
+                "category" 				=>	$this->category,
+                "view" 					=>  $this->router->fetch_method(),
+            );
+			$this->load->view("$this->project/user/base",$context);
+	}
+	
+	public function forgot_password(){
+
+		$context=array(
+			"title"					=>	"Login",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/user/base",$context);
     }
 }
