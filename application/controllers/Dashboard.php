@@ -25,6 +25,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"view_footer_include"	=> "homepage_footer",
 		);
 		$this->load->view("$this->project/base",$context);
 	}
