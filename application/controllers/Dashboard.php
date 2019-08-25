@@ -20,7 +20,8 @@ class Dashboard extends CI_Controller {
 	public function homepage()
 	{
 		$context=array(
-			"title"					=>	"Welcome to CodeIgniter",
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),

@@ -168,8 +168,17 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+					<?php
+						if (isset($sub_title)) {
+						echo "<h1 class='h3 mb-4 text-gray-800'>$sub_title</h1>";
+						}
+						else{
+							echo "<h1 class='h3 mb-4 text-gray-800'>Dashboard</h1>";
+						}
+					?>
+          
 
+					<?php $this->load->view("$project/$category/$view")   ?>
         </div>
         <!-- /.container-fluid -->
 
