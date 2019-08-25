@@ -28,13 +28,13 @@ class User extends CI_Controller {
 			$this->load->view("$this->project/user/base",$context);
         }
         else if ($this->input->server('REQUEST_METHOD')=='POST'){
-            $this->form_validation->set_rules('user_email', 'input_username', 'required');
+            $this->form_validation->set_rules('user_username', 'input_username', 'required');
             $this->form_validation->set_rules('user_password', 'input_password', 'required');
             
             if($this->form_validation->run() == TRUE){
             $user = $this->UserModel->get(
                 array(
-                    "email"     => $this->input->post("user_email"),
+                    "username"     => $this->input->post("user_username"),
                     "password"  => md5($this->input->post("user_password")),
                     "is_active"  => 1
                 )
