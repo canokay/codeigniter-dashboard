@@ -64,5 +64,5 @@ $route['register'] = 'User/register';
 $route['forgot_password'] = 'User/forgot_password';
 $route["logout"] = "User/logout";
 
-$route['404_override'] = '';
+$route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
