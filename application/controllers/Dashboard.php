@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
             redirect(base_url("/login"));
         }
 		$this->project = "dashboard";
-		$this->category = "homepage";
+		$this->category = "example";
 	}
 
 
@@ -29,4 +29,108 @@ class Dashboard extends CI_Controller {
 		);
 		$this->load->view("$this->project/base",$context);
 	}
+
+
+	public function animations()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+	public function borders()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+
+	public function buttons()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+
+	public function cards()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+
+	public function charts()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+	public function colors()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+
+	public function tables()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+
+	public function other()
+	{
+		$context=array(
+			"title"					=>	"Dashboard",
+			"sub_title"				=>	"Kontrol Paneli",
+			"project" 				=> 	$this->project,
+			"category" 				=>	$this->category,
+			"view" 					=>  $this->router->fetch_method(),
+		);
+		$this->load->view("$this->project/base",$context);
+	}
+
+
 }
