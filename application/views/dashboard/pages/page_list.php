@@ -7,7 +7,7 @@
             <?php if(empty($items)){ ?>
             
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php $uri = $this->uri->segment(2); echo base_url("$uri/ekle"); ?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php $uri = $this->uri->segment(2); echo base_url("admin/$uri/ekle"); ?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 
