@@ -75,7 +75,7 @@ class User extends CI_Controller {
     public function logout(){
 
         $this->session->unset_userdata("user");
-        redirect(base_url("/"));
+        redirect(base_url("/admin"));
 
 	}
 	
@@ -118,9 +118,9 @@ class User extends CI_Controller {
 					)
 				);
 				if($insert){
-					redirect(base_url("/"));
+					redirect(base_url("/admin"));
 				} else {
-					redirect(base_url("/"));
+					redirect(base_url("/admin"));
 				}
 			} else {
 				$context=array(

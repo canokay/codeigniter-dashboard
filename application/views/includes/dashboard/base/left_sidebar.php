@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url("/")?>">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url("/admin")?>">
   <div class="sidebar-brand-icon rotate-n-15">
 	<i class="fas fa-laugh-wink"></i>
   </div>
@@ -13,7 +13,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-  <a class="nav-link" href="<?php echo base_url("/")?>">
+  <a class="nav-link" href="<?php echo base_url("/admin")?>">
 	<i class="fas fa-fw fa-tachometer-alt"></i>
 	<span>Dashboard</span></a>
 </li>
@@ -35,8 +35,8 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 	<div class="bg-white py-2 collapse-inner rounded">
 	  <h6 class="collapse-header">Custom Components:</h6>
-	  <a class="collapse-item" href="<?php echo base_url("buttons")?>">Buttons</a>
-	  <a class="collapse-item" href="<?php echo base_url("cards")?>">Cards</a>
+	  <a class="collapse-item" href="<?php echo base_url("/admin/buttons")?>">Buttons</a>
+	  <a class="collapse-item" href="<?php echo base_url("/admin/cards")?>">Cards</a>
 	</div>
   </div>
 </li>
@@ -50,10 +50,10 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 	<div class="bg-white py-2 collapse-inner rounded">
 	  <h6 class="collapse-header">Custom Utilities:</h6>
-	  <a class="collapse-item" href="<?php echo base_url("colors")?>">Colors</a>
-	  <a class="collapse-item" href="<?php echo base_url("borders")?>">Borders</a>
-	  <a class="collapse-item" href="<?php echo base_url("animations")?>">Animations</a>
-	  <a class="collapse-item" href="<?php echo base_url("other")?>">Other</a>
+	  <a class="collapse-item" href="<?php echo base_url("/admin/colors")?>">Colors</a>
+	  <a class="collapse-item" href="<?php echo base_url("/admin/borders")?>">Borders</a>
+	  <a class="collapse-item" href="<?php echo base_url("/admin/animations")?>">Animations</a>
+	  <a class="collapse-item" href="<?php echo base_url("/admin/other")?>">Other</a>
 	</div>
   </div>
 </li>
@@ -87,14 +87,14 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-  <a class="nav-link" href="<?php echo base_url("charts")?>">
+  <a class="nav-link" href="<?php echo base_url("/admin/charts")?>">
 	<i class="fas fa-fw fa-chart-area"></i>
 	<span>Charts</span></a>
 </li>
 
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-  <a class="nav-link" href="<?php echo base_url("tables")?>">
+  <a class="nav-link" href="<?php echo base_url("/admin/tables")?>">
 	<i class="fas fa-fw fa-table"></i>
 	<span>Tables</span></a>
 </li>

@@ -49,15 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Dashboard/homepage';
-$route['animations'] = 'Dashboard/animations';
-$route['borders'] = 'Dashboard/borders';
-$route['buttons'] = 'Dashboard/buttons';
-$route['cards'] = 'Dashboard/cards';
-$route['charts'] = 'Dashboard/charts';
-$route['colors'] = 'Dashboard/colors';
-$route['other'] = 'Dashboard/other';
-$route['tables'] = 'Dashboard/tables';
+$route['default_controller'] = 'Web/homepage';
+
+$route['admin'] = 'Dashboard/homepage';
+$route['admin/animations'] = 'Dashboard/animations';
+$route['admin/borders'] = 'Dashboard/borders';
+$route['admin/buttons'] = 'Dashboard/buttons';
+$route['admin/cards'] = 'Dashboard/cards';
+$route['admin/charts'] = 'Dashboard/charts';
+$route['admin/colors'] = 'Dashboard/colors';
+$route['admin/other'] = 'Dashboard/other';
+$route['admin/tables'] = 'Dashboard/tables';
+$route['admin/form'] = 'Dashboard/form';
 
 $route['login'] = 'User/login';
 $route['register'] = 'User/register';

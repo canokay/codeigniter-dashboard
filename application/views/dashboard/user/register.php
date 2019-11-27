@@ -34,7 +34,7 @@
 				<input type="password" name="user_password_check" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Şifre Tekrarı">
 			  </div>
 			</div>
-            <button type="submit" class="btn btn-primary btn-user btn-block">Kayıt Ol</button>
+            <button type="submit" name="submit"  class="btn btn-primary btn-user btn-block">Kayıt Ol</button>
 		  </form>
 		  <hr>
 		  <div class="text-center">

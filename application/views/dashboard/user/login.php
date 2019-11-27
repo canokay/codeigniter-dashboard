@@ -29,7 +29,7 @@
 					<label class="custom-control-label" for="customCheck">Remember Me</label>
 				  </div>
 				</div>
-            	<button type="submit" class="btn btn-primary btn-user btn-block">Giriş Yap</button>
+            	<button type="submit" name="submit"  class="btn btn-primary btn-user btn-block">Giriş Yap</button>
 			  </form>
     		<?php echo @$form_error;?>
 			  <hr>
