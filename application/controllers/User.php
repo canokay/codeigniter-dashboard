@@ -46,7 +46,7 @@ class User extends CI_Controller {
 					$this->session->set_userdata("user", $user);
 
 					//echo "giriş yapıldı";
-					redirect(base_url(''));
+					redirect(base_url('/admin'));
 
 				} 
 				else {
