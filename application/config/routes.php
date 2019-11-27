@@ -75,5 +75,11 @@ $route['register'] = 'User/register';
 $route['forgot_password'] = 'User/forgot_password';
 $route["logout"] = "User/logout";
 
+
+$route['api/login'] = 'ApiUser/login';
+$route['api/register'] = 'ApiUser/register';
+$route['api/forgot_password'] = 'ApiUser/forgot_password';
+$route["api/logout"] = "ApiUser/logout";
+
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
