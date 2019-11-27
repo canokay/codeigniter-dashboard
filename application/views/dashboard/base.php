@@ -27,6 +27,22 @@
   <link href="<?php echo base_url("assets/dashboard/")?>css/sb-admin-2.css" rel="stylesheet">
 
 	<?php
+		if(isset($CKEditorField))
+		{	
+			echo "<!-- CKEditor JS -->";
+			echo "	<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>";
+		}
+	?>
+
+	<?php
+		if(isset($DropzoneField))
+		{
+			echo "<!-- Dropzone Css -->";
+			echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>";
+		}
+	?>
+
+	<?php
 		if (isset($view_header_include)) {
 			echo "<!-- Page Style -->";
 			$this->load->view("includes/$project/$category/$view/$view_header_include");
@@ -99,6 +115,27 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?php echo base_url("assets/dashboard/")?>js/sb-admin-2.min.js"></script>
+
+	<?php
+			if(isset($CKEditorField))
+			{	
+				echo "<script>";
+				foreach ($CKEditorField as $i) {
+					echo "CKEDITOR.replace( '$i' );";
+				}	
+				echo "</script>";
+			}		
+		?>
+
+		<?php
+			if(isset($DropzoneField))
+			{
+				echo "<!-- Dropzone Js -->";
+				echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js'></script>";
+			}
+		?>
+
+		
 	<?php
 			if (isset($view_footer_include)) {
 				echo "<!-- Page JS -->";
