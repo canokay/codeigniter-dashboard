@@ -12,16 +12,6 @@ class Page extends CI_Controller {
 
 
 
-    public function homepage(){  
-        $context=array(
-			"title"		=>	"Anasayfa",
-			"sub_title"	=>	"Anasayfa",
-			"project" 	=>	"web",
-			"category" 	=>  "pages",
-			"view" 		=>  $this->router->fetch_method(),
-		);
-		$this->load->view("web/base",$context);
-	}
 
 	public function page(){
 		$page_url = $this->uri->segment(1);
@@ -124,16 +114,6 @@ class Page extends CI_Controller {
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 	public function page_update()

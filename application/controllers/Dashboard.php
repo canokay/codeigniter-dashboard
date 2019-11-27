@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	public $project = "";
-	public $category = "";
+	public $project = "dashboard";
+	public $category = "example";
 	
 	public function __construct()
 	{
@@ -12,8 +12,6 @@ class Dashboard extends CI_Controller {
 		if(!get_active_user()){
             redirect(base_url("/login"));
         }
-		$this->project = "dashboard";
-		$this->category = "example";
 	}
 
 
