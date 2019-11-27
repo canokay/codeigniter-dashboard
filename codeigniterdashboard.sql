@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2019 at 12:44 PM
+-- Generation Time: Nov 27, 2019 at 01:40 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `codeigniterdashboard`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` int(11) NOT NULL,
+  `url` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `description` text COLLATE utf8_turkish_ci,
+  `isActive` tinyint(4) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -48,7 +63,20 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `profile_photo`) VALUES
-(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', '', '', 'admin@admin.com', 0, 1, '0000-00-00 00:00:00.000000', NULL);
+(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', '', '', 'admin@admin.com', 0, 1, '0000-00-00 00:00:00.000000', NULL),
+(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'asd', 'can', 'asd', 'asd@asd.com', 0, 1, '2019-08-25 15:57:38.000000', NULL),
+(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'test', 'test', 'test', 'test@test.com', 0, 1, '2019-08-25 18:30:20.000000', NULL),
+(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'asd', 'asd', 'asdasdasda', 'asd@asdsada.com', 0, 1, '2019-08-27 00:24:32.000000', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
