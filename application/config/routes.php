@@ -62,6 +62,14 @@ $route['admin/other'] = 'Dashboard/other';
 $route['admin/tables'] = 'Dashboard/tables';
 $route['admin/form'] = 'Dashboard/form';
 
+
+$route['admin/page'] = 'Page/page_list';
+$route['admin/page/ekle'] = 'Page/page_add';
+$route['admin/page/sil/(:num)'] = 'Page/page_delete';
+$route['admin/page/durum/(:num)'] = 'Page/isActiveSetter';
+$route['admin/page/(:num)'] = 'Page/page_update/';
+
+
 $route['login'] = 'User/login';
 $route['register'] = 'User/register';
 $route['forgot_password'] = 'User/forgot_password';
