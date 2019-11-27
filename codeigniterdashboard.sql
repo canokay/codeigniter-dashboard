@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2019 at 01:40 AM
+-- Generation Time: Nov 27, 2019 at 02:08 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -63,10 +63,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `profile_photo`) VALUES
-(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', '', '', 'admin@admin.com', 0, 1, '0000-00-00 00:00:00.000000', NULL),
-(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'asd', 'can', 'asd', 'asd@asd.com', 0, 1, '2019-08-25 15:57:38.000000', NULL),
-(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'test', 'test', 'test', 'test@test.com', 0, 1, '2019-08-25 18:30:20.000000', NULL),
-(0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'asd', 'asd', 'asdasdasda', 'asd@asdsada.com', 0, 1, '2019-08-27 00:24:32.000000', NULL);
+(1, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', 'Admin', 'User', 'admin@admin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL);
 
 --
 -- Indexes for dumped tables
@@ -77,6 +74,22 @@ INSERT INTO `user` (`id`, `password`, `last_login`, `is_superuser`, `username`, 
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
