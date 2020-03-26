@@ -103,5 +103,7 @@ $route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
 
 $route['sp-login'] = 'sp_dashboard/User/login';
 $route["sp-logout"] = "sp_dashboard/User/logout";
+
+$route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
