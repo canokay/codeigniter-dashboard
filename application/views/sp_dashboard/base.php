@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
   <!-- Custom styles for this template-->
-  <link href="<?php echo base_url("assets/dashboard/")?>css/sb-admin-2.css" rel="stylesheet">  
+  <link href="<?php echo base_url("assets/sp_dashboard/")?>css/sb-admin-2.css" rel="stylesheet">  
 
   <!-- IziToastField Css -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css'>
@@ -119,7 +119,7 @@
 
 
   <!-- Custom scripts for all pages-->
-  <script src="<?php echo base_url("assets/dashboard/")?>js/sb-admin-2.min.js"></script>
+  <script src="<?php echo base_url("assets/sp_dashboard/")?>js/sb-admin-2.min.js"></script>
 
   <!-- IziToast JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>

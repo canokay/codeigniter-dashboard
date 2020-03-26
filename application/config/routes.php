@@ -51,35 +51,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Web/homepage';
 
-$route['admin'] = 'Dashboard/homepage';
-$route['admin/animations'] = 'Dashboard/animations';
-$route['admin/borders'] = 'Dashboard/borders';
-$route['admin/buttons'] = 'Dashboard/buttons';
-$route['admin/cards'] = 'Dashboard/cards';
-$route['admin/charts'] = 'Dashboard/charts';
-$route['admin/colors'] = 'Dashboard/colors';
-$route['admin/other'] = 'Dashboard/other';
-$route['admin/tables'] = 'Dashboard/tables';
-$route['admin/form'] = 'Dashboard/form';
+$route['admin'] = 'dashboard/Dashboard/homepage';
+$route['admin/animations'] = 'dashboard/Dashboard/animations';
+$route['admin/borders'] = 'dashboard/Dashboard/borders';
+$route['admin/buttons'] = 'dashboard/Dashboard/buttons';
+$route['admin/cards'] = 'dashboard/Dashboard/cards';
+$route['admin/charts'] = 'dashboard/Dashboard/charts';
+$route['admin/colors'] = 'dashboard/Dashboard/colors';
+$route['admin/other'] = 'dashboard/Dashboard/other';
+$route['admin/tables'] = 'dashboard/Dashboard/tables';
+$route['admin/form'] = 'dashboard/Dashboard/form';
 
 
-$route['admin/page'] = 'Page/page_list';
-$route['admin/page/ekle'] = 'Page/page_add';
-$route['admin/page/sil/(:num)'] = 'Page/page_delete';
-$route['admin/page/durum/(:num)'] = 'Page/isActiveSetter';
-$route['admin/page/(:num)'] = 'Page/page_update/';
+$route['admin/page'] = 'dashboard/Page/page_list';
+$route['admin/page/ekle'] = 'dashboard/Page/page_add';
+$route['admin/page/sil/(:num)'] = 'dashboard/Page/page_delete';
+$route['admin/page/durum/(:num)'] = 'dashboard/Page/isActiveSetter';
+$route['admin/page/(:num)'] = 'dashboard/Page/page_update/';
 
 
-$route['login'] = 'User/login';
-$route['register'] = 'User/register';
-$route['forgot_password'] = 'User/forgot_password';
-$route["logout"] = "User/logout";
+$route['login'] = 'dashboard/User/login';
+$route['register'] = 'dashboard/User/register';
+$route['forgot_password'] = 'dashboard/User/forgot_password';
+$route["logout"] = "dashboard/User/logout";
 
 
-$route['api/login'] = 'ApiUser/login';
-$route['api/register'] = 'ApiUser/register';
-$route['api/forgot_password'] = 'ApiUser/forgot_password';
-$route["api/logout"] = "ApiUser/logout";
+$route['api/login'] = 'api/ApiUser/login';
+$route['api/register'] = 'api/ApiUser/register';
+$route['api/forgot_password'] = 'api/ApiUser/forgot_password';
+$route["api/logout"] = "api/ApiUser/logout";
 
+
+$route['sp-admin'] = 'sp_dashboard/Dashboard/homepage';
+$route['sp-admin/animations'] = 'sp_dashboard/Dashboard/animations';
+$route['sp-admin/borders'] = 'sp_dashboard/Dashboard/borders';
+$route['sp-admin/buttons'] = 'sp_dashboard/Dashboard/buttons';
+$route['sp-admin/cards'] = 'sp_dashboard/Dashboard/cards';
+$route['sp-admin/charts'] = 'sp_dashboard/Dashboard/charts';
+$route['sp-admin/colors'] = 'sp_dashboard/Dashboard/colors';
+$route['sp-admin/other'] = 'sp_dashboard/Dashboard/other';
+$route['sp-admin/tables'] = 'sp_dashboard/Dashboard/tables';
+$route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
+
+
+$route['sp-admin/page'] = 'sp_dashboard/Page/page_list';
+$route['sp-admin/page/ekle'] = 'sp_dashboard/Page/page_add';
+$route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/page_delete';
+$route['sp-admin/page/durum/(:num)'] = 'sp_dashboard/Page/isActiveSetter';
+$route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
+
+
+$route['sp-login'] = 'sp_dashboard/User/login';
+$route["sp-logout"] = "sp_dashboard/User/logout";
+
+$route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;

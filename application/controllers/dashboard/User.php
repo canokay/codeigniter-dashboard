@@ -4,14 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 
 
-	public $project = "";
-	public $category = "";
+	public $project = "dashboard";
+	public $category = "user";
 	
 	public function __construct()
 	{
 		parent::__construct();
-		$this->project = "dashboard";
-        $this->category = "user";
+
         $this->load->model('UserModel');
 	}
 
@@ -36,22 +35,20 @@ class User extends CI_Controller {
 					array(
 						"username"     => $this->input->post("input_username"),
 						"password"  => md5($this->input->post("input_password")),
-						"is_active"  => 1
 					)
 				);
 
 				if($user){
-
-
 					$this->session->set_userdata("user", $user);
-
-					//echo "giriş yapıldı";
-					redirect(base_url('/admin'));
-
+					if($user->is_active == 1){
+						redirect(base_url('/admin'));
+					}
+					else if($user->is_active == 0){
+						redirect(base_url('/welcome'));
+					}
 				} 
 				else {
-					echo "Hata verildi";
-					//redirect(base_url("login"));
+					redirect(base_url("login"));
 				}
             }
             else{
@@ -105,23 +102,50 @@ class User extends CI_Controller {
 			);
 			$validate = $this->form_validation->run();
 			if($validate){
-				$insert = $this->UserModel->add(
+
+
+				$username = $this->input->post("user_username");
+				$email = $this->input->post("user_email");
+
+
+				$username_control = $this->UserModel->get(
 					array(
-						"first_name"    =>	$this->input->post("user_first_name"),
-						"last_name"   	=>	$this->input->post("user_last_name"),
-						"email"   		=>	$this->input->post("user_email"),
-						"username"		=>	AutoSlugField($this->input->post("user_username")),
-						"password"      =>	md5($this->input->post("user_password")),
-						"is_active"     =>	1,
-						"is_superuser"  =>	0,
-						"date_joined"   =>	date("Y-m-d H:i:s")
+						"username"	=> $username,
 					)
 				);
-				if($insert){
-					redirect(base_url("/admin"));
-				} else {
-					redirect(base_url("/admin"));
+
+
+				$email_control = $this->UserModel->get(
+					array(
+						"email"	=> $email,
+					)
+				);
+
+				if (isset($username_control) || isset($email_control) ) {
+					echo "Kullanıcı kayıtlı";
 				}
+				else {
+					$insert = $this->UserModel->add(
+						array(
+							"first_name"    =>	$this->input->post("user_first_name"),
+							"last_name"   	=>	$this->input->post("user_last_name"),
+							"email"   		=>	$this->input->post("user_email"),
+							"username"		=>	AutoSlugField($this->input->post("user_username")),
+							"password"      =>	md5($this->input->post("user_password")),
+							"is_active"     =>	0,
+							"is_superuser"  =>	0,
+							"date_joined"   =>	date("Y-m-d H:i:s")
+						)
+					);
+					if($insert){
+						redirect(base_url("/welcome"));
+					} 
+					else {
+						redirect(base_url("/welcome"));
+					}
+
+				}
+
 			} else {
 				$context=array(
 					"title"					=>	"Login",

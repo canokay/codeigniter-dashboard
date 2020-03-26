@@ -7,7 +7,7 @@
             <?php if(empty($items)){ ?>
             
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php $uri = $this->uri->segment(2); echo base_url("admin/$uri/ekle"); ?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php $uri = $this->uri->segment(2); echo base_url("sp-admin/$uri/ekle"); ?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 
@@ -24,13 +24,13 @@
                         
                     <tr>
                         <td><?php echo $item->id; ?></td>
-                        <td><a href="<?php echo base_url("admin/page/$item->id"); ?>"> <?php echo $item->url; ?></a></td>
+                        <td><a href="<?php echo base_url("sp-admin/page/$item->id"); ?>"> <?php echo $item->url; ?></a></td>
                         <td><?php echo $item->title; ?></td>
                         <td>
 							<div class="m-b-lg m-r-xl inline-block">
                                 <input 
-                                    data-url="<?php echo base_url("admin/page/durum/$item->id"); ?>"
-                                    class="isActive"
+                                    data-url="<?php echo base_url("sp-admin/page/durum/$item->id"); ?>"
+                                    class="is_active"
                                     type="checkbox" 
                                     data-switchery
                                     data-color="#10c469"
@@ -40,12 +40,12 @@
                         </td>
                         <td>
                             <button  
-                                data-url="<?php echo base_url("admin/page/sil/$item->id"); ?>" 
+                                data-url="<?php echo base_url("sp-admin/page/sil/$item->id"); ?>" 
                                 data-title="<?php echo $item->title; ?>" 
                                 class="btn btn-sm btn-danger btn-outline remove-btn">
                                 <i class="fa fa-trash"></i> Sil
                             </button>
-                            <a href="<?php echo base_url("admin/page/$item->id"); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
+                            <a href="<?php echo base_url("sp-admin/page/$item->id"); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
                         </td>
                     </tr>
                     <?php } ?>

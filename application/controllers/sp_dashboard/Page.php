@@ -6,7 +6,14 @@ class Page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+
+		if(!get_superuser_user()){
+            redirect(base_url("/sp-login"));
+		}
+		else{
+			$this->user = get_superuser_user();
+		}
+
 		$this->load->model("PageModel");
 	}
 
@@ -30,6 +37,7 @@ class Page extends CI_Controller {
 			"project" 	=>	"web",
 			"category" 	=>  "pages",
 			"view" 		=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 			"page"		=>	$page,
 			);
 		$this->load->view("web/base",$context);
@@ -44,12 +52,13 @@ class Page extends CI_Controller {
 		$context=array(
 			"title"		=>	"Sayfalar",
 			"sub_title"	=>	"Sayfa Listesi",
-			"project" 	=> "dashboard",
+			"project" 	=> "sp_dashboard",
 			"category" 	=>	"pages",
 			"view" 		=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 			"items" 	=>	$pages,
 		);
-		$this->load->view("dashboard/base",$context);
+		$this->load->view("sp_dashboard/base",$context);
 	}
 
 	public function page_add()
@@ -58,14 +67,15 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"		=>	"Sayfa Ekle",
 				"sub_title"	=>	"Yeni Sayfa Ekle",
-				"project" 	=> "dashboard",
+				"project" 	=> "sp_dashboard",
 				"category" 	=>	"pages",
 				"view" 		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 			);
-			$this->load->view("dashboard/base",$context);
+			$this->load->view("sp_dashboard/base",$context);
 		}
 
 		else if ($this->input->server('REQUEST_METHOD')=='POST'){
@@ -88,28 +98,40 @@ class Page extends CI_Controller {
 						"title"         =>	$this->input->post("title"),
 						"description"   =>	$this->input->post("description"),
 						"url"           =>	AutoSlugField($this->input->post("title")),
-						"isActive"      =>	1,
-						"createdAt"     =>	date("Y-m-d H:i:s"),
+						"is_active"      =>	1,
+						"created_at"     =>	date("Y-m-d H:i:s"),
 					)
 				);
 
 				if($insert){
-					redirect(base_url("admin/page"));
+					$ToastField	=	array(
+						"status"	=> "success",
+						"title"		=>	"İşlem Başarılı.",
+						"message"		=>"Başarılı bir şekilde kayıt oldu.",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
+					redirect(base_url("sp-admin/page"));
 				} else {
-					redirect(base_url("admin/page"));
+					$ToastField	=	array(
+						"status"	=> "error",
+						"title"		=>	"İşlem başarısız.",
+						"message"		=>"İşlem kayıt olamadı :(",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
+					redirect(base_url("sp-admin/page"));
 				}
 
 			} else {
 				$context=array(
 					"title"			=>	"Sayfa Ekle",
 					"sub_title"		=>	"Yeni Sayfa Ekle",
-					"project" 		=> 	"dashboard",
+					"project" 		=> 	"sp_dashboard",
 					"category" 		=>	"pages",
 					"view" 			=>	"page_add",
 					"form_error" 	=>	"true",
 				);
 
-				$this->load->view("dashboard/base",$context);
+				$this->load->view("sp_dashboard/base",$context);
 
 			}
 		}
@@ -131,15 +153,16 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"		=>	"Etkinlik Güncelle",
 				"sub_title"	=>	"Etkinlik Güncelle",
-				"project"	=>	"dashboard",
+				"project"	=>	"sp_dashboard",
 				"category"	=>	"pages",
 				"view"		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"item" 		=>	$item,
 			);
-			$this->load->view("dashboard/base",$context);
+			$this->load->view("sp_dashboard/base",$context);
 		}
 		else if ($this->input->server('REQUEST_METHOD')=='POST'){
 
@@ -169,9 +192,22 @@ class Page extends CI_Controller {
 				
 
 				if($update){
-					redirect(base_url("admin/page"));
-				}else {
-					redirect(base_url("admin/page"));
+					$ToastField	=	array(
+						"status"	=> "success",
+						"title"		=>	"İşlem Başarılı.",
+						"message"		=>"Başarılı bir şekilde güncellendi.",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
+					redirect(base_url("sp-admin/page"));
+				} 
+				else {
+					$ToastField	=	array(
+						"status"	=> "error",
+						"title"		=>	"İşlem başarısız.",
+						"message"		=>"Güncelleme olmadı :(",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
+					redirect(base_url("sp-admin/page"));
 				}
 
 			} else {
@@ -184,12 +220,13 @@ class Page extends CI_Controller {
 				$context=array(
 					"title"		=>	"Sayfalar",
 					"sub_title"	=>	"Sayfa Listesi",
-					"project" 	=>	"dashboard",
+					"project" 	=>	"sp_dashboard",
 					"category"	=>	"pages",
 					"view" 		=>	"page_list",
+					"user" 					=>	$this->user,
 					"item" 		=>	$item,
 				);
-				$this->load->view("dashboard/base",$context);
+				$this->load->view("sp_dashboard/base",$context);
 			}
     	}
 	}
@@ -203,26 +240,39 @@ class Page extends CI_Controller {
                 "id"	=>	$id
             )
 		);
-        if($delete){
-            redirect(base_url("admin/page"));
-        } else {
-            redirect(base_url("admin/page"));
-        }
+		if($delete){
+			$ToastField	=	array(
+				"status"	=> "success",
+				"title"		=>	"İşlem Başarılı.",
+				"message"		=>"Başarılı bir şekilde silindi.",
+			);
+			$this->session->set_flashdata("ToastField", $ToastField);
+			redirect(base_url("sp-admin/page"));
+		} 
+		else {
+			$ToastField	=	array(
+				"status"	=> "error",
+				"title"		=>	"İşlem başarısız.",
+				"message"		=>"Silme işlemi olmadı :(",
+			);
+			$this->session->set_flashdata("ToastField", $ToastField);
+			redirect(base_url("sp-admin/page"));
+		}
 	}
 
-	public function isActiveSetter()
+	public function is_activeSetter()
 	{
 		$id = $this->uri->segment(4);
         if($id){
 
-            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+            $is_active = ($this->input->post("data") === "true") ? 1 : 0;
 
             $this->PageModel->update(
                 array(
                     "id"    => $id
                 ),
                 array(
-                    "isActive"  => $isActive
+                    "is_active"  => $is_active
                 )
             );
         }
