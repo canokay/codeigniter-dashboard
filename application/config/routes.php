@@ -76,10 +76,10 @@ $route['forgot_password'] = 'dashboard/User/forgot_password';
 $route["logout"] = "dashboard/User/logout";
 
 
-$route['api/login'] = 'ApiUser/login';
-$route['api/register'] = 'ApiUser/register';
-$route['api/forgot_password'] = 'ApiUser/forgot_password';
-$route["api/logout"] = "ApiUser/logout";
+$route['api/login'] = 'api/ApiUser/login';
+$route['api/register'] = 'api/ApiUser/register';
+$route['api/forgot_password'] = 'api/ApiUser/forgot_password';
+$route["api/logout"] = "api/ApiUser/logout";
 
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
