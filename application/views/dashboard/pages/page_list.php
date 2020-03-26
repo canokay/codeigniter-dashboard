@@ -34,12 +34,17 @@
                                     type="checkbox" 
                                     data-switchery
                                     data-color="#10c469"
-                                    <?php echo ($item->isActive) ? "checked" : ""; ?>
+                                    <?php echo ($item->is_active) ? "checked" : ""; ?>
                                 />
 							</div>
                         </td>
                         <td>
-                            <a  href="<?php echo base_url("admin/page/sil/$item->id"); ?>" class="btn btn-sm btn-danger btn-outline remove-btn"><i class="fa fa-trash"></i> Sil</a>
+                            <button  
+                                data-url="<?php echo base_url("admin/page/sil/$item->id"); ?>" 
+                                data-title="<?php echo $item->title; ?>" 
+                                class="btn btn-sm btn-danger btn-outline remove-btn">
+                                <i class="fa fa-trash"></i> Sil
+                            </button>
                             <a href="<?php echo base_url("admin/page/$item->id"); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
                         </td>
                     </tr>
