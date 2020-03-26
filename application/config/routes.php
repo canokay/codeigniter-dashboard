@@ -81,5 +81,27 @@ $route['api/register'] = 'api/ApiUser/register';
 $route['api/forgot_password'] = 'api/ApiUser/forgot_password';
 $route["api/logout"] = "api/ApiUser/logout";
 
+
+$route['sp-admin'] = 'sp_dashboard/Dashboard/homepage';
+$route['sp-admin/animations'] = 'sp_dashboard/Dashboard/animations';
+$route['sp-admin/borders'] = 'sp_dashboard/Dashboard/borders';
+$route['sp-admin/buttons'] = 'sp_dashboard/Dashboard/buttons';
+$route['sp-admin/cards'] = 'sp_dashboard/Dashboard/cards';
+$route['sp-admin/charts'] = 'sp_dashboard/Dashboard/charts';
+$route['sp-admin/colors'] = 'sp_dashboard/Dashboard/colors';
+$route['sp-admin/other'] = 'sp_dashboard/Dashboard/other';
+$route['sp-admin/tables'] = 'sp_dashboard/Dashboard/tables';
+$route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
+
+
+$route['sp-admin/page'] = 'sp_dashboard/Page/page_list';
+$route['sp-admin/page/ekle'] = 'sp_dashboard/Page/page_add';
+$route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/page_delete';
+$route['sp-admin/page/durum/(:num)'] = 'sp_dashboard/Page/isActiveSetter';
+$route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
+
+
+$route['sp-login'] = 'sp_dashboard/User/login';
+$route["sp-logout"] = "sp_dashboard/User/logout";
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
