@@ -17,11 +17,10 @@
 			  </div>
     		<form class="user" action="<?php echo base_url("/login")?>" method="post">
 				<div class="form-group">
-				<input type="text" name="input_username" class="form-control form-control-user" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Eposta">
-				
+				<input type="text" name="input_username" class="form-control form-control-user" id="inputEmail" aria-describedby="emailHelp" placeholder="Eposta">
 				</div>
 				<div class="form-group">
-				<input type="password" name="input_password" class="form-control form-control-user" id="exampleInputPassword1" placeholder="Şifre">
+				<input type="password" name="input_password" class="form-control form-control-user" id="inputPassword" placeholder="Şifre">
 				</div>
 				<div class="form-group">
 				  <div class="custom-control custom-checkbox small">
