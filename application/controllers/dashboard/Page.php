@@ -6,7 +6,14 @@ class Page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+
+		if(!get_active_user()){
+            redirect(base_url("/login"));
+		}
+		else{
+			$this->user = get_active_user();
+		}
+
 		$this->load->model("PageModel");
 	}
 
@@ -30,6 +37,7 @@ class Page extends CI_Controller {
 			"project" 	=>	"web",
 			"category" 	=>  "pages",
 			"view" 		=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 			"page"		=>	$page,
 			);
 		$this->load->view("web/base",$context);
@@ -47,6 +55,7 @@ class Page extends CI_Controller {
 			"project" 	=> "dashboard",
 			"category" 	=>	"pages",
 			"view" 		=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 			"items" 	=>	$pages,
 		);
 		$this->load->view("dashboard/base",$context);
@@ -61,6 +70,7 @@ class Page extends CI_Controller {
 				"project" 	=> "dashboard",
 				"category" 	=>	"pages",
 				"view" 		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -89,13 +99,25 @@ class Page extends CI_Controller {
 						"description"   =>	$this->input->post("description"),
 						"url"           =>	AutoSlugField($this->input->post("title")),
 						"isActive"      =>	1,
-						"createdAt"     =>	date("Y-m-d H:i:s"),
+						"created_at"     =>	date("Y-m-d H:i:s"),
 					)
 				);
 
 				if($insert){
+					$ToastField	=	array(
+						"status"	=> "success",
+						"title"		=>	"İşlem Başarılı.",
+						"message"		=>"Başarılı bir şekilde kayıt oldu.",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
 					redirect(base_url("admin/page"));
 				} else {
+					$ToastField	=	array(
+						"status"	=> "error",
+						"title"		=>	"İşlem başarısız.",
+						"message"		=>"İşlem kayıt olamadı :(",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
 					redirect(base_url("admin/page"));
 				}
 
@@ -134,6 +156,7 @@ class Page extends CI_Controller {
 				"project"	=>	"dashboard",
 				"category"	=>	"pages",
 				"view"		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -169,8 +192,21 @@ class Page extends CI_Controller {
 				
 
 				if($update){
+					$ToastField	=	array(
+						"status"	=> "success",
+						"title"		=>	"İşlem Başarılı.",
+						"message"		=>"Başarılı bir şekilde güncellendi.",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
 					redirect(base_url("admin/page"));
-				}else {
+				} 
+				else {
+					$ToastField	=	array(
+						"status"	=> "error",
+						"title"		=>	"İşlem başarısız.",
+						"message"		=>"Güncelleme olmadı :(",
+					);
+					$this->session->set_flashdata("ToastField", $ToastField);
 					redirect(base_url("admin/page"));
 				}
 
@@ -187,6 +223,7 @@ class Page extends CI_Controller {
 					"project" 	=>	"dashboard",
 					"category"	=>	"pages",
 					"view" 		=>	"page_list",
+					"user" 					=>	$this->user,
 					"item" 		=>	$item,
 				);
 				$this->load->view("dashboard/base",$context);
@@ -203,11 +240,24 @@ class Page extends CI_Controller {
                 "id"	=>	$id
             )
 		);
-        if($delete){
-            redirect(base_url("admin/page"));
-        } else {
-            redirect(base_url("admin/page"));
-        }
+		if($delete){
+			$ToastField	=	array(
+				"status"	=> "success",
+				"title"		=>	"İşlem Başarılı.",
+				"message"		=>"Başarılı bir şekilde silindi.",
+			);
+			$this->session->set_flashdata("ToastField", $ToastField);
+			redirect(base_url("admin/page"));
+		} 
+		else {
+			$ToastField	=	array(
+				"status"	=> "error",
+				"title"		=>	"İşlem başarısız.",
+				"message"		=>"Silme işlemi olmadı :(",
+			);
+			$this->session->set_flashdata("ToastField", $ToastField);
+			redirect(base_url("admin/page"));
+		}
 	}
 
 	public function isActiveSetter()

@@ -51,29 +51,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Web/homepage';
 
-$route['admin'] = 'Dashboard/homepage';
-$route['admin/animations'] = 'Dashboard/animations';
-$route['admin/borders'] = 'Dashboard/borders';
-$route['admin/buttons'] = 'Dashboard/buttons';
-$route['admin/cards'] = 'Dashboard/cards';
-$route['admin/charts'] = 'Dashboard/charts';
-$route['admin/colors'] = 'Dashboard/colors';
-$route['admin/other'] = 'Dashboard/other';
-$route['admin/tables'] = 'Dashboard/tables';
-$route['admin/form'] = 'Dashboard/form';
+$route['admin'] = 'dashboard/Dashboard/homepage';
+$route['admin/animations'] = 'dashboard/Dashboard/animations';
+$route['admin/borders'] = 'dashboard/Dashboard/borders';
+$route['admin/buttons'] = 'dashboard/Dashboard/buttons';
+$route['admin/cards'] = 'dashboard/Dashboard/cards';
+$route['admin/charts'] = 'dashboard/Dashboard/charts';
+$route['admin/colors'] = 'dashboard/Dashboard/colors';
+$route['admin/other'] = 'dashboard/Dashboard/other';
+$route['admin/tables'] = 'dashboard/Dashboard/tables';
+$route['admin/form'] = 'dashboard/Dashboard/form';
 
 
-$route['admin/page'] = 'Page/page_list';
-$route['admin/page/ekle'] = 'Page/page_add';
-$route['admin/page/sil/(:num)'] = 'Page/page_delete';
-$route['admin/page/durum/(:num)'] = 'Page/isActiveSetter';
-$route['admin/page/(:num)'] = 'Page/page_update/';
+$route['admin/page'] = 'dashboard/Page/page_list';
+$route['admin/page/ekle'] = 'dashboard/Page/page_add';
+$route['admin/page/sil/(:num)'] = 'dashboard/Page/page_delete';
+$route['admin/page/durum/(:num)'] = 'dashboard/Page/isActiveSetter';
+$route['admin/page/(:num)'] = 'dashboard/Page/page_update/';
 
 
-$route['login'] = 'User/login';
-$route['register'] = 'User/register';
-$route['forgot_password'] = 'User/forgot_password';
-$route["logout"] = "User/logout";
+$route['login'] = 'dashboard/User/login';
+$route['register'] = 'dashboard/User/register';
+$route['forgot_password'] = 'dashboard/User/forgot_password';
+$route["logout"] = "dashboard/User/logout";
 
 
 $route['api/login'] = 'ApiUser/login';

@@ -11,7 +11,10 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		if(!get_active_user()){
             redirect(base_url("/login"));
-        }
+		}
+		else{
+			$this->user = get_active_user();
+		}
 	}
 
 
@@ -23,7 +26,9 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 			"view_footer_include"	=> "homepage_script",
+			
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -37,6 +42,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -49,6 +55,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -62,6 +69,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -75,6 +83,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -88,6 +97,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -100,6 +110,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -113,6 +124,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 			"view_header_include"	=> "tables_style",
 			"view_footer_include"	=> "tables_script",
 		);
@@ -128,6 +140,7 @@ class Dashboard extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
+			"user" 					=>	$this->user,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
