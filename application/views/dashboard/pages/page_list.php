@@ -11,7 +11,7 @@
                 </div>
             <?php } else { ?>
 
-			<table class="table table-hover table-striped">
+			<table id="datatable" class="table table-hover table-striped">
                 <thead>
                     <th>#id</th>
                     <th>Url</th>
