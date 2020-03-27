@@ -66,7 +66,6 @@ $route['admin/form'] = 'dashboard/Dashboard/form';
 $route['admin/page'] = 'dashboard/Page/page_list';
 $route['admin/page/ekle'] = 'dashboard/Page/page_add';
 $route['admin/page/sil/(:num)'] = 'dashboard/Page/page_delete';
-$route['admin/page/durum/(:num)'] = 'dashboard/Page/isActiveSetter';
 $route['admin/page/(:num)'] = 'dashboard/Page/page_update/';
 
 
@@ -97,7 +96,6 @@ $route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
 $route['sp-admin/page'] = 'sp_dashboard/Page/page_list';
 $route['sp-admin/page/ekle'] = 'sp_dashboard/Page/page_add';
 $route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/page_delete';
-$route['sp-admin/page/durum/(:num)'] = 'sp_dashboard/Page/isActiveSetter';
 $route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
 
 

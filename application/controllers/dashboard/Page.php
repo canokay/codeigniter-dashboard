@@ -260,24 +260,4 @@ class Page extends CI_Controller {
 		}
 	}
 
-	public function isActiveSetter()
-	{
-		$id = $this->uri->segment(4);
-        if($id){
-
-            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
-
-            $this->PageModel->update(
-                array(
-                    "id"    => $id
-                ),
-                array(
-                    "isActive"  => $isActive
-                )
-            );
-        }
-    }
-
-	
-
 }
