@@ -26,6 +26,24 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url("assets/dashboard/")?>css/sb-admin-2.css" rel="stylesheet">
 
+  <!-- IziToastField Css -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css'>
+	<?php
+		if(isset($CKEditorField))
+		{	
+			echo "<!-- CKEditor JS -->";
+			echo "	<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>";
+		}
+	?>
+
+	<?php
+		if(isset($DropzoneField))
+		{
+			echo "<!-- Dropzone Css -->";
+			echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>";
+		}
+	?>
+
 	<?php
 		if (isset($view_header_include)) {
 			echo "<!-- Page Style -->";
@@ -58,14 +76,35 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
+		  <div class="row">
+				<div class="col col-md-8 text-left">
 					<?php
 						if (isset($sub_title)) {
-						echo "<h1 class='h3 mb-4 text-gray-800'>$sub_title</h1>";
+							echo "<h1 class='h3 mb-4 text-gray-800'>$sub_title</h1>";
+							}
+							else{
+								echo "<h1 class='h3 mb-4 text-gray-800'>Dashboard</h1>";
+							}
+						?>
+				</div>
+				<div class="col col-md-4 text-right" >
+					<?php
+						if (isset($page_title_add_button)) {
+							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle") .'"'.' class="btn btn-xs btn-primary btn-outline  " style="text-align: right" > Ekle</a>';
 						}
-						else{
-							echo "<h1 class='h3 mb-4 text-gray-800'>Dashboard</h1>";
+						else if (isset($page_title_list_button)) {
+							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Listele</a>';
+						}
+						else if (isset($page_title_delete_button)) {
+							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/sil") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
+						}
+						else if(isset($page_title_button)){
+							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $page_title_button) .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Git</a>';
 						}
 					?>
+				</div>
+			</div>
+
           <!-- End Page Heading -->
 
 					<?php $this->load->view("$project/$category/$view")   ?>
