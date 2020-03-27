@@ -3,15 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page extends CI_Controller {
 	
+	public $project = "dashboard";
+	public $category = "page";
+	
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->model("NotificationModel");
 
 		if(!get_active_user()){
             redirect(base_url("/login"));
 		}
 		else{
 			$this->user = get_active_user();
+			$this->notification_alerts = $this->NotificationModel->get_all();
 		}
 
 		$this->load->model("PageModel");
@@ -38,6 +44,7 @@ class Page extends CI_Controller {
 			"category" 	=>  "pages",
 			"view" 		=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 			"page"		=>	$page,
 			);
 		$this->load->view("web/base",$context);
@@ -52,11 +59,13 @@ class Page extends CI_Controller {
 		$context=array(
 			"title"		=>	"Sayfalar",
 			"sub_title"	=>	"Sayfa Listesi",
-			"project" 	=> "dashboard",
-			"category" 	=>	"pages",
+			"project" 	=> $this->project,
+			"category" 				=>	$this->category,
 			"view" 		=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 			"items" 	=>	$pages,
+			"DataTablesField"	=> "datatable",
 		);
 		$this->load->view("dashboard/base",$context);
 	}
@@ -67,10 +76,11 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"		=>	"Sayfa Ekle",
 				"sub_title"	=>	"Yeni Sayfa Ekle",
-				"project" 	=> "dashboard",
-				"category" 	=>	"pages",
+				"project" 	=> $this->project,
+				"category" 				=>	$this->category,
 				"view" 		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -125,7 +135,7 @@ class Page extends CI_Controller {
 				$context=array(
 					"title"			=>	"Sayfa Ekle",
 					"sub_title"		=>	"Yeni Sayfa Ekle",
-					"project" 		=> 	"dashboard",
+					"project" 		=> 	$this->project,
 					"category" 		=>	"pages",
 					"view" 			=>	"page_add",
 					"form_error" 	=>	"true",
@@ -153,10 +163,11 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"		=>	"Etkinlik Güncelle",
 				"sub_title"	=>	"Etkinlik Güncelle",
-				"project"	=>	"dashboard",
+				"project"	=>	$this->project,
 				"category"	=>	"pages",
 				"view"		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -220,10 +231,11 @@ class Page extends CI_Controller {
 				$context=array(
 					"title"		=>	"Sayfalar",
 					"sub_title"	=>	"Sayfa Listesi",
-					"project" 	=>	"dashboard",
+					"project" 	=>	$this->project,
 					"category"	=>	"pages",
 					"view" 		=>	"page_list",
 					"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 					"item" 		=>	$item,
 				);
 				$this->load->view("dashboard/base",$context);

@@ -98,6 +98,10 @@ $route['sp-admin/page/ekle'] = 'sp_dashboard/Page/page_add';
 $route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/page_delete';
 $route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
 
+$route['sp-admin/notification'] = 'sp_dashboard/Notification/notification_list';
+$route['sp-admin/notification/ekle'] = 'sp_dashboard/Notification/notification_add';
+$route['sp-admin/notification/sil/(:num)'] = 'sp_dashboard/Notification/notification_delete';
+$route['sp-admin/notification/(:num)'] = 'sp_dashboard/Notification/notification_update/';
 
 $route['sp-login'] = 'sp_dashboard/User/login';
 $route["sp-logout"] = "sp_dashboard/User/logout";
