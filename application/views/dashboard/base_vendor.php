@@ -21,18 +21,18 @@
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url("assets/dashboard/")?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="<?php echo base_url("assets/dashboard/")?>https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="<?php echo base_url("assets/dashboard/")?>css/sb-admin-2.css" rel="stylesheet">
+  <link href="<?php echo base_url("assets/dashboard/")?>css/sb-admin-2.css" rel="stylesheet">  
 
   <!-- IziToastField Css -->
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css'>
+  <link rel='stylesheet' href="<?php echo base_url("assets/dashboard/")?>vendor/izitoast/css/iziToast.min.css">
 	<?php
 		if(isset($CKEditorField))
 		{	
 			echo "<!-- CKEditor JS -->";
-			echo "	<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>";
+			echo "	<script src='base_url('assets/dashboard/')?>vendor/ckeditor/ckeditor.js'></script>";
 		}
 	?>
 
@@ -40,7 +40,7 @@
 		if(isset($DropzoneField))
 		{
 			echo "<!-- Dropzone Css -->";
-			echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>";
+			echo "<link rel='stylesheet' href='base_url('assets/dashboard/')?>vendor/dropzone/css/dropzone.min.css'>";
 		}
 	?>
 
@@ -114,10 +114,6 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-			<?php $this->load->view("includes/$project/base/footer")   ?>
-      <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
 
@@ -136,14 +132,111 @@
   <!-- Core plugin JavaScript-->
   <script src="<?php echo base_url("assets/dashboard/")?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
+  <!-- SweetAlert2 JS -->
+  <script src="<?php echo base_url("assets/dashboard/")?>vendor/sweetalert2/js/sweetalert.min.js"></script>
+
+
   <!-- Custom scripts for all pages-->
   <script src="<?php echo base_url("assets/dashboard/")?>js/sb-admin-2.min.js"></script>
+
+  <!-- IziToast JS -->
+  <script src="<?php echo base_url("assets/dashboard/")?>vendor/izitoast/js/iziToast.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="<?php echo base_url("assets/dashboard/")?>vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?php echo base_url("assets/dashboard/")?>vendor/izitoast/js/iziToast.min.js"></script>
+  
+  <script>
+	
+	$(document).ready(function(){
+	
+		$(".remove-btn").click(function(e){
+	
+	
+			Swal.fire({
+			title: $(this).data("title") + ' - Silinecek?',
+			text: "Bu işlem geri alınamaz!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Evet!',
+			cancelButtonText: 'Hayır!',
+			}).then((result) => {
+			if (result.value) {
+	
+				window.location.href = $(this).data("url");
+	
+			}
+			})
+		})
+	
+	})
+	
+	
+	</script>
+
+	<?php
+			if(isset($CKEditorField))
+			{	
+				echo "<script>";
+				foreach ($CKEditorField as $i) {
+					echo "CKEDITOR.replace( '$i' );";
+				}	
+				echo "</script>";
+			}		
+		?>
+
+		<?php
+			if(isset($DropzoneField))
+			{
+				echo "<!-- Dropzone Js -->";
+				echo "<script src='<?php echo base_url('assets/dashboard/')?>vendor/dropzone/js/dropzone.min.js'></script>";
+			}
+		?>
+
+
+
+		
+		<?php 
+			$ToastField = $this->session->userdata("ToastField");
+			if($ToastField){ ?>
+				<script>
+					iziToast.<?php echo $ToastField['status']; ?> ({
+						title: "<?php echo $ToastField['title']; ?>" ,
+						message: "<?php echo $ToastField['message']; ?>" ,
+						position : "topCenter"
+					});
+				</script>
+		<?php }?>
+
+
+		<?php if(isset($DataTablesField)){?>
+				<script>
+					$(document).ready(function() {
+						$('#datatable').DataTable({
+                        "order": [[0, "desc"]],
+                        "language":{"sDecimal":",","sEmptyTable":"Tabloda herhangi bir veri mevcut değil","sInfo":"_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor","sInfoEmpty":"Kayıt yok","sInfoFiltered":"(_MAX_ kayıt içerisinden bulunan)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"Sayfada _MENU_ kayıt göster","sLoadingRecords":"Yükleniyor...","sProcessing":"İşleniyor...","sSearch":"Ara:","sZeroRecords":"Eşleşen kayıt bulunamadı","oPaginate":{"sFirst":"İlk","sLast":"Son","sNext":"Sonraki","sPrevious":"Önceki"},"oAria":{"sSortAscending":": artan sütun sıralamasını aktifleştir","sSortDescending":": azalan sütun sıralamasını aktifleştir"},"select":{"rows":{"0":"","1":"1 kayıt seçildi","_":"%d kayıt seçildi"}}}
+						});
+					} );
+				</script>
+		<?php }?>
+						
+
+
+
+
+
+
 	<?php
 			if (isset($view_footer_include)) {
 				echo "<!-- Page JS -->";
 				$this->load->view("includes/$project/$category/$view/$view_footer_include");
 			}
 		?>
+
+
+
 
 </body>
 
