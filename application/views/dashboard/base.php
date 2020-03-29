@@ -53,7 +53,17 @@
 			$this->load->view("includes/$project/$category/$view/$view_header_include");
 		}
 	?>
-
+<style>
+.dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 5px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 </head>
 
 <body id="page-top">

@@ -69,6 +69,14 @@ $route['admin/page/sil/(:num)'] = 'dashboard/Page/page_delete';
 $route['admin/page/(:num)'] = 'dashboard/Page/page_update/';
 
 
+$route['admin/media-upload'] = 'dashboard/Media/media_add';
+
+$route['admin/media'] = 'dashboard/Media/media_list';
+$route['admin/media/ekle'] = 'dashboard/Media/media_add';
+$route['admin/media/sil/(:num)'] = 'dashboard/Media/media_delete';
+$route['admin/media/(:num)'] = 'dashboard/Media/media_update/';
+
+
 $route['login'] = 'dashboard/User/login';
 $route['register'] = 'dashboard/User/register';
 $route['forgot_password'] = 'dashboard/User/forgot_password';
