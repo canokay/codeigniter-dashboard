@@ -258,11 +258,22 @@ class Media extends CI_Controller {
 	public function media_delete()
 	{
 		$id = $this->uri->segment(4);
+
+		$get_image = $this->MediaModel->get(
+            array(
+                "id"	=>	$id
+			)
+		);
+
+		@unlink($get_image->url);  
 		$delete = $this->MediaModel->delete(
             array(
                 "id"	=>	$id
-            )
+			)
 		);
+
+
+
 		if($delete){
 			$ToastField	=	array(
 				"status"	=> "success",
