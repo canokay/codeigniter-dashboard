@@ -111,6 +111,15 @@ $route['sp-admin/notification/ekle'] = 'sp_dashboard/Notification/notification_a
 $route['sp-admin/notification/sil/(:num)'] = 'sp_dashboard/Notification/notification_delete';
 $route['sp-admin/notification/(:num)'] = 'sp_dashboard/Notification/notification_update/';
 
+
+$route['sp-admin/media-upload'] = 'sp_dashboard/Media/media_add';
+
+$route['sp-admin/media'] = 'sp_dashboard/Media/media_list';
+$route['sp-admin/media/ekle'] = 'sp_dashboard/Media/media_add';
+$route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/media_delete';
+$route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/media_update/';
+
+
 $route['sp-login'] = 'sp_dashboard/User/login';
 $route["sp-logout"] = "sp_dashboard/User/logout";
 

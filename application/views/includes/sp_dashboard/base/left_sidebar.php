@@ -49,6 +49,28 @@
   </div>
 
 </li>
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+	<i class="fas fa-fw fa-cog"></i>
+	<span>Ortam</span>
+  </a>
+	<?php 
+		if ($category=="media"){
+			echo ' <div id="collapseFour" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionSidebar">';
+		}
+		else{
+			echo ' <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">';
+
+		}
+
+	?>
+	<div class="bg-white py-2 collapse-inner rounded">
+	  <a class="collapse-item" href="<?php echo base_url("sp-admin/media/ekle")?>">Yeni Ortam Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url("sp-admin/media")?>">Ortamları Listeleyin</a>
+	</div>
+  </div>
+
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider">
