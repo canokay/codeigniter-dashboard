@@ -9,11 +9,15 @@ class Dashboard extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->model("NotificationModel");
+
 		if(!get_superuser_user()){
             redirect(base_url("/sp-login"));
 		}
 		else{
 			$this->user = get_superuser_user();
+			$this->notification_alerts = $this->NotificationModel->get_all();
 		}
 	}
 
@@ -27,6 +31,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 			"view_footer_include"	=> "homepage_script",
 			
 		);
@@ -43,6 +48,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -56,6 +62,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -70,6 +77,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -84,6 +92,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -98,6 +107,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -111,6 +121,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}
@@ -125,6 +136,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 			"view_header_include"	=> "tables_style",
 			"view_footer_include"	=> "tables_script",
 		);
@@ -141,6 +153,7 @@ class Dashboard extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
+			"notification_alerts" 	=>	$this->notification_alerts,
 		);
 		$this->load->view("$this->project/base",$context);
 	}

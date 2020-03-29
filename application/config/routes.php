@@ -66,8 +66,15 @@ $route['admin/form'] = 'dashboard/Dashboard/form';
 $route['admin/page'] = 'dashboard/Page/page_list';
 $route['admin/page/ekle'] = 'dashboard/Page/page_add';
 $route['admin/page/sil/(:num)'] = 'dashboard/Page/page_delete';
-$route['admin/page/durum/(:num)'] = 'dashboard/Page/isActiveSetter';
 $route['admin/page/(:num)'] = 'dashboard/Page/page_update/';
+
+
+$route['admin/media-upload'] = 'dashboard/Media/media_add';
+
+$route['admin/media'] = 'dashboard/Media/media_list';
+$route['admin/media/ekle'] = 'dashboard/Media/media_add';
+$route['admin/media/sil/(:num)'] = 'dashboard/Media/media_delete';
+$route['admin/media/(:num)'] = 'dashboard/Media/media_update/';
 
 
 $route['login'] = 'dashboard/User/login';
@@ -97,8 +104,20 @@ $route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
 $route['sp-admin/page'] = 'sp_dashboard/Page/page_list';
 $route['sp-admin/page/ekle'] = 'sp_dashboard/Page/page_add';
 $route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/page_delete';
-$route['sp-admin/page/durum/(:num)'] = 'sp_dashboard/Page/isActiveSetter';
 $route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
+
+$route['sp-admin/notification'] = 'sp_dashboard/Notification/notification_list';
+$route['sp-admin/notification/ekle'] = 'sp_dashboard/Notification/notification_add';
+$route['sp-admin/notification/sil/(:num)'] = 'sp_dashboard/Notification/notification_delete';
+$route['sp-admin/notification/(:num)'] = 'sp_dashboard/Notification/notification_update/';
+
+
+$route['sp-admin/media-upload'] = 'sp_dashboard/Media/media_add';
+
+$route['sp-admin/media'] = 'sp_dashboard/Media/media_list';
+$route['sp-admin/media/ekle'] = 'sp_dashboard/Media/media_add';
+$route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/media_delete';
+$route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/media_update/';
 
 
 $route['sp-login'] = 'sp_dashboard/User/login';
