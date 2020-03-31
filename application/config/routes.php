@@ -76,6 +76,10 @@ $route['admin/media/ekle'] = 'dashboard/Media/add';
 $route['admin/media/sil/(:num)'] = 'dashboard/Media/delete';
 $route['admin/media/(:num)'] = 'dashboard/Media/update/';
 
+$route['admin/ticket'] = 'dashboard/Ticket/list';
+$route['admin/ticket/ekle'] = 'dashboard/Ticket/add';
+$route['admin/ticket/sil/(:num)'] = 'dashboard/Ticket/delete';
+$route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
 
 $route['login'] = 'dashboard/User/login';
 $route['register'] = 'dashboard/User/register';
@@ -119,6 +123,10 @@ $route['sp-admin/media/ekle'] = 'sp_dashboard/Media/add';
 $route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/delete';
 $route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/update/';
 
+$route['sp-admin/ticket'] = 'sp_dashboard/Ticket/list';
+$route['sp-admin/ticket/ekle'] = 'sp_dashboard/Ticket/add';
+$route['sp-admin/ticket/sil/(:num)'] = 'sp_dashboard/Ticket/delete';
+$route['sp-admin/ticket/(:num)'] = 'sp_dashboard/Ticket/update/';
 
 $route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
 $route['404_override'] = 'My404';

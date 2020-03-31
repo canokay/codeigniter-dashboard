@@ -72,6 +72,30 @@
 
 </li>
 
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTicket" aria-expanded="true" aria-controls="collapseTicket">
+	<i class="fas fa-fw fa-cog"></i>
+	<span>Mesaj</span>
+  </a>
+	<?php 
+		if ($category=="ticket"){
+			echo ' <div id="collapseTicket" class="collapse show" aria-labelledby="headingTicket" data-parent="#accordionSidebar">';
+		}
+		else{
+			echo ' <div id="collapseTicket" class="collapse" aria-labelledby="headingTicket" data-parent="#accordionSidebar">';
+
+		}
+
+	?>
+	<div class="bg-white py-2 collapse-inner rounded">
+	  <a class="collapse-item" href="<?php echo base_url("admin/ticket/ekle")?>">Yeni Mesaj Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url("admin/ticket")?>">Mesajları Listeleyin</a>
+	</div>
+  </div>
+
+</li>
+
 <!-- Divider -->
 <hr class="sidebar-divider">
 

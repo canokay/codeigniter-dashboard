@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2020 at 06:56 PM
+-- Generation Time: Mar 31, 2020 at 11:41 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -67,6 +67,35 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ticket`
+--
+
+CREATE TABLE `ticket` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
+  `message` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_message`
+--
+
+CREATE TABLE `ticket_message` (
+  `id` int(11) NOT NULL,
+  `ticket_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `message` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -90,7 +119,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `profile_photo`) VALUES
-(1, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', 'Admin', 'User', 'admin@admin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL);
+(1, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', 'Admin', 'User', 'admin@admin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL),
+(4, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 1, 'spadmin', 'SPAdmin', 'User', 'spadmin@spadmin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL);
 
 --
 -- Indexes for dumped tables
@@ -112,6 +142,18 @@ ALTER TABLE `notification`
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ticket`
+--
+ALTER TABLE `ticket`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ticket_message`
+--
+ALTER TABLE `ticket_message`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -143,10 +185,22 @@ ALTER TABLE `pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ticket`
+--
+ALTER TABLE `ticket`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ticket_message`
+--
+ALTER TABLE `ticket_message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
