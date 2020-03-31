@@ -120,9 +120,6 @@ $route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/delete';
 $route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/update/';
 
 
-$route['sp-login'] = 'sp_dashboard/User/login';
-$route["sp-logout"] = "sp_dashboard/User/logout";
-
 $route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;

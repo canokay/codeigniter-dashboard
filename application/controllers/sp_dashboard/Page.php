@@ -13,7 +13,7 @@ class Page extends CI_Controller {
 		$this->load->model("NotificationModel");
 
 		if(!get_superuser_user()){
-            redirect(base_url("/sp-login"));
+            redirect(base_url("/login"));
 		}
 		else{
 			$this->user = get_superuser_user();
