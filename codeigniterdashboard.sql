@@ -120,7 +120,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `profile_photo`) VALUES
 (1, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 0, 'admin', 'Admin', 'User', 'admin@admin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL),
-(4, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 1, 'spadmin', 'SPAdmin', 'User', 'spadmin@spadmin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL);
+(2, '81dc9bdb52d04dc20036dbd8313ed055', NULL, 1, 'spadmin', 'SPAdmin', 'User', 'spadmin@spadmin.com', 0, 1, '2019-11-27 02:07:14.000000', NULL);
 
 --
 -- Indexes for dumped tables
@@ -200,7 +200,7 @@ ALTER TABLE `ticket_message`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
