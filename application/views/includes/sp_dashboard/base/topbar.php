@@ -64,7 +64,7 @@
         </div>
       </a>
       <?php } ?>
-      <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url("admin/notification")?>">Bütün Codeigniter 3 Bildirimleri</a>
+      <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url("sp-admin/notification")?>">Bütün Codeigniter 3 Bildirimleri</a>
     </div>
   </li>
 
@@ -81,15 +81,15 @@
       </h6>
       
       <?php  foreach ($ticket_alerts as $ticket_alert) { ?>
-      <a class="dropdown-item d-flex align-items-center" href="#">
+      <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url("sp-admin/ticket/$ticket_alert->id"); ?>">
         <div class="font-weight-bold">
           <div class="text-truncate"><?php echo $ticket_alert->title; ?></div>
-          <div class="small text-gray-500"><?php echo $ticket_alert->user_id; ?></div>
+          <div class="small text-gray-500"><?php echo $ticket_alert->username; ?></div>
         </div>
       </a>
       <?php } ?>
 
-      <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url("admin/ticket")?>">Read More Messages</a>
+      <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url("sp-admin/ticket")?>">Read More Messages</a>
     </div>
   </li>
 

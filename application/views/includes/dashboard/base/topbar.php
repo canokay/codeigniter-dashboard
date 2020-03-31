@@ -81,10 +81,10 @@
                 </h6>
                 
 								<?php  foreach ($ticket_alerts as $ticket_alert) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url("admin/ticket/$ticket_alert->id"); ?>">
                   <div class="font-weight-bold">
                     <div class="text-truncate"><?php echo $ticket_alert->title; ?></div>
-                    <div class="small text-gray-500"><?php echo $ticket_alert->user_id; ?></div>
+                    <div class="small text-gray-500"><?php echo $ticket_alert->username; ?></div>
                   </div>
                 </a>
 								<?php } ?>
