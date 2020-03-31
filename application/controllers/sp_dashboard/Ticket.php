@@ -12,11 +12,11 @@ class Ticket extends CI_Controller {
 
 		$this->load->model("DashboardModel");
 
-		if(!get_active_user()){
+		if(!get_superuser_user()){
             redirect(base_url("/login"));
 		}
 		else{
-			$this->user = get_active_user();
+			$this->user = get_superuser_user();
 			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
 			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
 		}
@@ -28,11 +28,7 @@ class Ticket extends CI_Controller {
 
 	public function list()
 	{
-		$items = $this->TicketModel->get_all(
-			array(
-				"user_id"	=>	$this->user->id
-			)
-		);
+		$items = $this->TicketModel->get_all();
 
 		$context=array(
 			"title"		=>	"Mesajlar",
