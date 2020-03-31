@@ -24,7 +24,7 @@ class Notification extends CI_Controller {
 
 	}
 
-	public function notification_list(){
+	public function list(){
 		$items = $this->NotificationModel->get_all();
 
 		$context=array(
@@ -42,7 +42,7 @@ class Notification extends CI_Controller {
 		$this->load->view("sp_dashboard/base",$context);
 	}
 
-	public function notification_add(){
+	public function add(){
 		if ($this->input->server('REQUEST_METHOD')=='GET'){		
 			$context=array(
 				"title"		=>	"Bildirim Ekle",
@@ -119,7 +119,7 @@ class Notification extends CI_Controller {
 	}
 
 
-	public function notification_update(){
+	public function update(){
 		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
 			$id = $this->uri->segment(3);
@@ -200,7 +200,7 @@ class Notification extends CI_Controller {
 					"sub_title"	=>	"Sayfa Listesi",
 					"project" 				=> 	$this->project,
 					"category" 				=>	$this->category,
-					"view" 		=>	"notification_list",
+					"view" 		=>	"list",
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
 					"notifications" 		=>	$notifications,
@@ -211,7 +211,7 @@ class Notification extends CI_Controller {
 	}
 	
 
-	public function notification_delete(){
+	public function delete(){
 		$id = $this->uri->segment(4);
 		$delete = $this->NotificationModel->delete(
             array(

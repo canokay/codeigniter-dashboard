@@ -24,7 +24,7 @@ class Media extends CI_Controller {
 	}
 
 
-	public function media_list()
+	public function list()
 	{
 		$pages = $this->MediaModel->get_all();
 
@@ -42,7 +42,7 @@ class Media extends CI_Controller {
 		$this->load->view("dashboard/base",$context);
 	}
 
-	public function media_add()
+	public function add()
 	{
 		if ($this->input->server('REQUEST_METHOD')=='GET'){		
 			$context=array(
@@ -147,7 +147,7 @@ class Media extends CI_Controller {
 					"sub_title"		=>	"Yeni Ortam Ekle",
 					"project" 		=> 	$this->project,
 					"category" 		=>	"pages",
-					"view" 			=>	"page_add",
+					"view" 			=>	"add",
 					"form_error" 	=>	"true",
 				);
 
@@ -159,7 +159,7 @@ class Media extends CI_Controller {
 	}
 
 
-	public function media_update()
+	public function update()
 	{
 		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
@@ -244,7 +244,7 @@ class Media extends CI_Controller {
 					"sub_title"	=>	"Ortam Listesi",
 					"project" 	=>	$this->project,
 					"category"	=>	"pages",
-					"view" 		=>	"page_list",
+					"view" 		=>	"list",
 					"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 					"item" 		=>	$item,
@@ -255,7 +255,7 @@ class Media extends CI_Controller {
 	}
 	
 
-	public function media_delete()
+	public function delete()
 	{
 		$id = $this->uri->segment(4);
 

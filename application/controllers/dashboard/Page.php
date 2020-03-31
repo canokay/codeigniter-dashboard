@@ -52,7 +52,7 @@ class Page extends CI_Controller {
 	}
 
 
-	public function page_list()
+	public function list()
 	{
 		$pages = $this->PageModel->get_all();
 
@@ -70,7 +70,7 @@ class Page extends CI_Controller {
 		$this->load->view("dashboard/base",$context);
 	}
 
-	public function page_add()
+	public function add()
 	{
 		if ($this->input->server('REQUEST_METHOD')=='GET'){		
 			$context=array(
@@ -137,7 +137,7 @@ class Page extends CI_Controller {
 					"sub_title"		=>	"Yeni Sayfa Ekle",
 					"project" 		=> 	$this->project,
 					"category" 		=>	"pages",
-					"view" 			=>	"page_add",
+					"view" 			=>	"add",
 					"form_error" 	=>	"true",
 				);
 
@@ -148,7 +148,7 @@ class Page extends CI_Controller {
 	}
 
 
-	public function page_update()
+	public function update()
 	{
 		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
@@ -233,7 +233,7 @@ class Page extends CI_Controller {
 					"sub_title"	=>	"Sayfa Listesi",
 					"project" 	=>	$this->project,
 					"category"	=>	"pages",
-					"view" 		=>	"page_list",
+					"view" 		=>	"list",
 					"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 					"item" 		=>	$item,
@@ -244,7 +244,7 @@ class Page extends CI_Controller {
 	}
 	
 
-	public function page_delete()
+	public function delete()
 	{
 		$id = $this->uri->segment(4);
 		$delete = $this->PageModel->delete(
