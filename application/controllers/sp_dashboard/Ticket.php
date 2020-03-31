@@ -10,14 +10,15 @@ class Ticket extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model("NotificationModel");
+		$this->load->model("DashboardModel");
 
 		if(!get_active_user()){
             redirect(base_url("/login"));
 		}
 		else{
 			$this->user = get_active_user();
-			$this->notification_alerts = $this->NotificationModel->get_all();
+			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
+			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
 		}
 		
 		$this->load->model("TicketModel");
@@ -41,6 +42,7 @@ class Ticket extends CI_Controller {
 			"view" 		=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
+			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 		);
@@ -57,7 +59,8 @@ class Ticket extends CI_Controller {
 				"category" 				=>	$this->category,
 				"view" 		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
+				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),
@@ -150,7 +153,8 @@ class Ticket extends CI_Controller {
 				"category"	=>	$this->category,
 				"view"		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
+				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),

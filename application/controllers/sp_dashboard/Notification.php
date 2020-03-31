@@ -17,7 +17,8 @@ class Notification extends CI_Controller {
 		}
 		else{
 			$this->user = get_superuser_user();
-			$this->notification_alerts = $this->NotificationModel->get_all();
+			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
+			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
 		}
 	
 		$this->load->model("NotificationModel");
@@ -35,6 +36,7 @@ class Notification extends CI_Controller {
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
+			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
@@ -52,6 +54,7 @@ class Notification extends CI_Controller {
 				"view" 					=>  $this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -109,6 +112,7 @@ class Notification extends CI_Controller {
 					"view" 					=>  $this->router->fetch_method(),
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"form_error" 	=>	"true",
 				);
 
@@ -138,6 +142,7 @@ class Notification extends CI_Controller {
 				"view" 					=>  $this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -203,6 +208,7 @@ class Notification extends CI_Controller {
 					"view" 		=>	"list",
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"notifications" 		=>	$notifications,
 				);
 				$this->load->view("dashboard/base",$context);
