@@ -47,6 +47,13 @@
 		}
 	?>
 
+	<?php if(isset($PickDateField)){ ?>
+			<!-- PickDate Css -->
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.css'> 
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.date.css'> 
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.time.css'> 
+	<?php	} ?>
+
 	<?php
 		if (isset($view_header_include)) {
 			echo "<!-- Page Style -->";
@@ -200,8 +207,26 @@
 		?>
 
 
+		<?php if(isset($PickDateField)) {?>
+				<!-- PickDate Css --> 
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.date.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.time.js'></script> 
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/translations/tr_TR.js'></script>
+				<script>
+					$(document).ready(function () {
+						$('.pickadate').pickadate({
+							format: 'd/mm/yyyy',
+						});
+						
+						$('.pickatime').pickatime({
+							format: 'HH:i',
+						});
+					});
+				</script>
+		<?php 	}?>
 
-		
+
 		<?php 
 			$ToastField = $this->session->userdata("ToastField");
 			if($ToastField){ ?>

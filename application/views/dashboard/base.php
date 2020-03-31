@@ -208,6 +208,24 @@
 		?>
 
 
+		<?php if(isset($PickDateField)) {?>
+				<!-- PickDate Css --> 
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.date.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.time.js'></script> 
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/translations/tr_TR.js'></script>
+				<script>
+					$(document).ready(function () {
+						$('.pickadate').pickadate({
+							format: 'd/mm/yyyy',
+						});
+						
+						$('.pickatime').pickatime({
+							format: 'HH:i',
+						});
+					});
+				</script>
+		<?php 	}?>
 
 		
 		<?php 
@@ -235,20 +253,12 @@
 		<?php }?>
 						
 
-
-
-
-
-
 	<?php
 			if (isset($view_footer_include)) {
 				echo "<!-- Page JS -->";
 				$this->load->view("includes/$project/$category/$view/$view_footer_include");
 			}
 		?>
-
-
-
 
 </body>
 
