@@ -31,21 +31,22 @@
 
   <!-- IziToastField Css -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css'>
-	<?php
-		if(isset($CKEditorField))
-		{	
-			echo "<!-- CKEditor JS -->";
-			echo "	<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>";
-		}
-	?>
+	<?php if(isset($CKEditorField)){ ?>
+			<!-- CKEditor JS -->
+			<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>
+	<?php 	} ?>
 
-	<?php
-		if(isset($DropzoneField))
-		{
-			echo "<!-- Dropzone Css -->";
-			echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>";
-		}
-	?>
+	<?php if(isset($DropzoneField)) { ?>
+			<!-- Dropzone Css -->
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>
+	<?php 	}?>
+	
+	<?php if(isset($PickDateField)){ ?>
+			<!-- PickDate Css -->
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.css'> 
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.date.css'> 
+			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.time.css'> 
+	<?php	} ?>
 
 	<?php
 		if (isset($view_header_include)) {
@@ -53,17 +54,6 @@
 			$this->load->view("includes/$project/$category/$view/$view_header_include");
 		}
 	?>
-<style>
-.dropzone {
-    background: white;
-    border-radius: 5px;
-    border: 5px dashed rgb(0, 135, 247);
-    border-image: none;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
 </head>
 
 <body id="page-top">
@@ -199,15 +189,30 @@
 			}		
 		?>
 
-		<?php
-			if(isset($DropzoneField))
-			{
-				echo "<!-- Dropzone Js -->";
-				echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js'></script>";
-			}
-		?>
+		<?php if(isset($DropzoneField)) { ?>
+				<!-- Dropzone Js -->
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js'></script>
+		<?php 	} ?>
 
 
+		<?php if(isset($PickDateField)) {?>
+				<!-- PickDate Css --> 
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.date.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.time.js'></script> 
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/translations/tr_TR.js'></script>
+				<script>
+					$(document).ready(function () {
+						$('.pickadate').pickadate({
+							format: 'd/mm/yyyy',
+						});
+						
+						$('.pickatime').pickatime({
+							format: 'HH:i',
+						});
+					});
+				</script>
+		<?php 	}?>
 
 		
 		<?php 
@@ -228,17 +233,12 @@
 					$(document).ready(function() {
 						$('#datatable').DataTable({
                     		"order": [[0, "desc"]],
-							"language":{"sDecimal":",","sEmptyTable":"Tabloda herhangi bir veri mevcut değil","sInfo":"_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor","sInfoEmpty":"Kayıt yok","sInfoFiltered":"(_MAX_ kayıt içerisinden bulunan)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"Sayfada _MENU_ kayıt göster","sLoadingRecords":"Yükleniyor...","sProcessing":"İşleniyor...","sSearch":"Ara:","sZeroRecords":"Eşleşen kayıt bulunamadı","oPaginate":{"sFirst":"İlk","sLast":"Son","sNext":"Sonraki","sPrevious":"Önceki"},"oAria":{"sSortAscending":": artan sütun sıralamasını aktifleştir","sSortDescending":": azalan sütun sıralamasını aktifleştir"},"select":{"rows":{"0":"","1":"1 kayıt seçildi","_":"%d kayıt seçildi"}}}
+							"language":{"sDecimal":",","sEmptyTable":"Tabloda herhangi bir veri mevcut değil","sInfo":"_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor","sInfoEmpty":"Kayıt yok","sInfoFiltered":"(_MAX_ kayıt içerisinden bulunan)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"Sayfada _MENU_ kayıt göster","sLoadingRecords":"Yükleniyor...","sProcessing":"İşleniyor...","sSearch":"Ara:","sZeroRecords":"Eşleşen kayıt bulunamadı","oPaginate":{"sFirst":"İlk","sLast":"Son","sNext":"Sonraki","sPrevious":"Önceki"},"oAria":{"sSortAscending":": artan sütun sıralamasını aktifleştir","sSortDescending":": azalan sütun sıralamasını aktifleştir"},"select":{"rows":{"0":"","1":"1 kayıt seçildi","_":"%d kayıt seçildi"}}},
 						});
 					} );
 				</script>
 		<?php }?>
 						
-
-
-
-
-
 
 	<?php
 			if (isset($view_footer_include)) {
@@ -246,9 +246,6 @@
 				$this->load->view("includes/$project/$category/$view/$view_footer_include");
 			}
 		?>
-
-
-
 
 </body>
 

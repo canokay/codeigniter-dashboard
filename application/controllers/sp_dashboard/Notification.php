@@ -10,21 +10,22 @@ class Notification extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$this->load->model("NotificationModel");
+		$this->load->model("DashboardModel");
 		
 		if(!get_superuser_user()->is_superuser == 1){
             redirect(base_url("/login"));
 		}
 		else{
 			$this->user = get_superuser_user();
-			$this->notification_alerts = $this->NotificationModel->get_all();
+			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
+			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
 		}
 	
 		$this->load->model("NotificationModel");
 
 	}
 
-	public function notification_list(){
+	public function list(){
 		$items = $this->NotificationModel->get_all();
 
 		$context=array(
@@ -35,6 +36,7 @@ class Notification extends CI_Controller {
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
+			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
@@ -42,7 +44,7 @@ class Notification extends CI_Controller {
 		$this->load->view("sp_dashboard/base",$context);
 	}
 
-	public function notification_add(){
+	public function add(){
 		if ($this->input->server('REQUEST_METHOD')=='GET'){		
 			$context=array(
 				"title"		=>	"Bildirim Ekle",
@@ -52,6 +54,7 @@ class Notification extends CI_Controller {
 				"view" 					=>  $this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -109,6 +112,7 @@ class Notification extends CI_Controller {
 					"view" 					=>  $this->router->fetch_method(),
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"form_error" 	=>	"true",
 				);
 
@@ -119,7 +123,7 @@ class Notification extends CI_Controller {
 	}
 
 
-	public function notification_update(){
+	public function update(){
 		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
 			$id = $this->uri->segment(3);
@@ -138,6 +142,7 @@ class Notification extends CI_Controller {
 				"view" 					=>  $this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -200,9 +205,10 @@ class Notification extends CI_Controller {
 					"sub_title"	=>	"Sayfa Listesi",
 					"project" 				=> 	$this->project,
 					"category" 				=>	$this->category,
-					"view" 		=>	"notification_list",
+					"view" 		=>	"list",
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"notifications" 		=>	$notifications,
 				);
 				$this->load->view("dashboard/base",$context);
@@ -211,7 +217,7 @@ class Notification extends CI_Controller {
 	}
 	
 
-	public function notification_delete(){
+	public function delete(){
 		$id = $this->uri->segment(4);
 		$delete = $this->NotificationModel->delete(
             array(

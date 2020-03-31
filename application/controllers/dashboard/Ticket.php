@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Page extends CI_Controller {
+class Ticket extends CI_Controller {
 	
 	public $project = "dashboard";
-	public $category = "page";
+	public $category = "ticket";
 	
 	public function __construct()
 	{
@@ -20,54 +20,30 @@ class Page extends CI_Controller {
 			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
 			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
 		}
-
-		$this->load->model("PageModel");
-	}
-
-
-
-
-	public function page(){
-		$page_url = $this->uri->segment(1);
-		$page = $this->PageModel->get(
-			array(
-				"url"	=> $page_url,
-			)
-		);
-		if(empty($page)){
-			echo "Site 404 Error";
-		}
-		else{
-		$context=array(
-			"title"		=>	"Anasayfa",
-			"sub_title"	=>	"Anasayfa",
-			"project" 	=>	"web",
-			"category" 	=>  "pages",
-			"view" 		=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
-			"page"		=>	$page,
-			);
-		$this->load->view("web/base",$context);
-		}
+		
+		$this->load->model("TicketModel");
+		$this->load->model("TicketMessageModel");
 	}
 
 
 	public function list()
 	{
-		$pages = $this->PageModel->get_all();
+		$items = $this->TicketModel->get_all(
+			array(
+				"user_id"	=>	$this->user->id
+			)
+		);
 
 		$context=array(
-			"title"		=>	"Sayfalar",
-			"sub_title"	=>	"Sayfa Listesi",
+			"title"		=>	"Mesajlar",
+			"sub_title"	=>	"Mesaj Listesi",
 			"project" 	=> $this->project,
 			"category" 				=>	$this->category,
 			"view" 		=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 			"ticket_alerts" 		=>	$this->ticket_alerts,
-			"items" 	=>	$pages,
+			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 		);
 		$this->load->view("dashboard/base",$context);
@@ -86,7 +62,7 @@ class Page extends CI_Controller {
 				"notification_alerts" 	=>	$this->notification_alerts,
 				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
-					"description" => "description"
+					"message" => "message"
 				),
 			);
 			$this->load->view("dashboard/base",$context);
@@ -97,6 +73,7 @@ class Page extends CI_Controller {
 			$this->load->library("form_validation");
 
 			$this->form_validation->set_rules("title", "Başlık", "required|trim");
+			$this->form_validation->set_rules("message", "Mesaj", "required|trim");
 
 			$this->form_validation->set_message(
 				array(
@@ -107,13 +84,12 @@ class Page extends CI_Controller {
 			$validate = $this->form_validation->run();
 
 			if($validate){
-				$insert = $this->PageModel->add(
+				$insert = $this->TicketModel->add(
 					array(
 						"title"         =>	$this->input->post("title"),
-						"description"   =>	$this->input->post("description"),
-						"url"           =>	AutoSlugField($this->input->post("title")),
-						"isActive"      =>	1,
-						"created_at"     =>	date("Y-m-d H:i:s"),
+						"message"   =>	$this->input->post("message"),
+						"user_id"         =>	$this->user->id,
+						"is_active"      =>	1,
 					)
 				);
 
@@ -124,7 +100,7 @@ class Page extends CI_Controller {
 						"message"		=>"Başarılı bir şekilde kayıt oldu.",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
+					redirect(base_url("admin/ticket"));
 				} else {
 					$ToastField	=	array(
 						"status"	=> "error",
@@ -132,7 +108,7 @@ class Page extends CI_Controller {
 						"message"		=>"İşlem kayıt olamadı :(",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
+					redirect(base_url("admin/ticket"));
 				}
 
 			} else {
@@ -140,7 +116,7 @@ class Page extends CI_Controller {
 					"title"			=>	"Sayfa Ekle",
 					"sub_title"		=>	"Yeni Sayfa Ekle",
 					"project" 		=> 	$this->project,
-					"category" 		=>	"pages",
+					"category" 		=>	$this->category,
 					"view" 			=>	"add",
 					"form_error" 	=>	"true",
 				);
@@ -156,96 +132,69 @@ class Page extends CI_Controller {
 	{
 		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
-			$id = $this->uri->segment(3);
+			$ticket_id = $this->uri->segment(3);
 
-			$item = $this->PageModel->get(
+			$message = $this->TicketModel->get(
 				array(
-					"id"	=> $id,
+					"id"	=> $ticket_id,
 				)
 			);
-			
+
+			$message_chat = $this->TicketMessageModel->get_all(
+				array(
+					"ticket_id"	=> $ticket_id,
+				)
+			);
+
 			$context=array(
-				"title"		=>	"Etkinlik Güncelle",
-				"sub_title"	=>	"Etkinlik Güncelle",
+				"title"		=>	"Ticket Görüntüle",
+				"sub_title"	=>	"Ticket Görüntüle",
 				"project"	=>	$this->project,
-				"category"	=>	"pages",
+				"category"	=>	$this->category,
 				"view"		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
 				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
-					"description" => "description"
+					"message" => "message"
 				),
-				"item" 		=>	$item,
+				"message" 		=>	$message,
+				"message_chat"	=>	$message_chat
 			);
 			$this->load->view("dashboard/base",$context);
 		}
 		else if ($this->input->server('REQUEST_METHOD')=='POST'){
 
-			$id = $this->uri->segment(3);
-			$this->load->library("form_validation");
-			$this->form_validation->set_rules("title", "Başlık", "required|trim");
-			$this->form_validation->set_message(
+			$ticket_id = $this->uri->segment(3);
+			
+			$insert = $this->TicketMessageModel->add(
 				array(
-					"required"  => "<b>{field}</b> alanı doldurulmalıdır"
+					"ticket_id"         =>	$ticket_id,
+					"user_id"         =>	$this->user->id,
+					"message"   =>	$this->input->post("message"),
 				)
 			);
 
-			$validate = $this->form_validation->run();
-
-			if($validate){
-
-				$update =$this->PageModel->update(
-					array(
-						"id"    => $id
-					),
-					array(
-						"title"         => $this->input->post("title"),
-						"description"   => $this->input->post("description"),
-						"url"           => AutoSlugField($this->input->post("title")),
-					)
+			if($insert){
+				$ToastField	=	array(
+					"status"	=> "success",
+					"title"		=>	"İşlem Başarılı.",
+					"message"		=>"Başarılı bir şekilde kayıt oldu.",
 				);
-				
-
-				if($update){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde güncellendi.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				} 
-				else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"Güncelleme olmadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				}
-
+				$this->session->set_flashdata("ToastField", $ToastField);
+				redirect(base_url("admin/ticket"));
 			} else {
-				$context = new stdClass();
-				$item = $this->PageModel->get(
-					array(
-						"id"	=>	$id,
-					)
+				$ToastField	=	array(
+					"status"	=> "error",
+					"title"		=>	"İşlem başarısız.",
+					"message"		=>"İşlem kayıt olamadı :(",
 				);
-				$context=array(
-					"title"		=>	"Sayfalar",
-					"sub_title"	=>	"Sayfa Listesi",
-					"project" 	=>	$this->project,
-					"category"	=>	"pages",
-					"view" 		=>	"list",
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
-					"item" 		=>	$item,
-				);
-				$this->load->view("dashboard/base",$context);
+				$this->session->set_flashdata("ToastField", $ToastField);
+				redirect(base_url("admin/ticket"));
 			}
+
+			
+
     	}
 	}
 	
@@ -253,7 +202,7 @@ class Page extends CI_Controller {
 	public function delete()
 	{
 		$id = $this->uri->segment(4);
-		$delete = $this->PageModel->delete(
+		$delete = $this->TicketModel->delete(
             array(
                 "id"	=>	$id
             )
@@ -265,7 +214,7 @@ class Page extends CI_Controller {
 				"message"		=>"Başarılı bir şekilde silindi.",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/page"));
+			redirect(base_url("admin/ticket"));
 		} 
 		else {
 			$ToastField	=	array(
@@ -274,7 +223,7 @@ class Page extends CI_Controller {
 				"message"		=>"Silme işlemi olmadı :(",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/page"));
+			redirect(base_url("admin/ticket"));
 		}
 	}
 

@@ -29,7 +29,7 @@
 	<?php
 		if (isset($view_header_include)) {
 			echo "<!-- Page Style -->";
-			$this->load->view("includes/$project/$category/$view/$view_header_include");
+			$this->load->view("includes/$project/$view/$view_header_include");
 		}
 	?>
 
@@ -37,7 +37,7 @@
 
 <body class="bg-gradient-primary">
 
-<?php $this->load->view("$project/$category/$view")   ?>
+<?php $this->load->view("$project/$view")   ?>
 
   <!-- Bootstrap core JavaScript-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -51,7 +51,7 @@
 	<?php
 			if (isset($view_footer_include)) {
 				echo "<!-- Page JS -->";
-				$this->load->view("includes/$project/$category/$view/$view_footer_include");
+				$this->load->view("includes/$project/$view/$view_footer_include");
 			}
 		?>
 

@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 
 
-	public $project = "dashboard";
-	public $category = "user";
+	public $project = "user";
 	
 	public function __construct()
 	{
@@ -21,10 +20,9 @@ class User extends CI_Controller {
             $context=array(
                 "title"					=>	"Login",
                 "project" 				=> 	$this->project,
-                "category" 				=>	$this->category,
                 "view" 					=>  $this->router->fetch_method(),
             );
-			$this->load->view("$this->project/user/base",$context);
+			$this->load->view("user/base",$context);
         }
         else if ($this->input->server('REQUEST_METHOD')=='POST'){
             $this->form_validation->set_rules('input_username', 'input_username', 'required');
@@ -40,8 +38,11 @@ class User extends CI_Controller {
 
 				if($user){
 					$this->session->set_userdata("user", $user);
-					if($user->is_active == 1){
+					if($user->is_active == 1  && $user->is_superuser == 0){
 						redirect(base_url('/admin'));
+					}
+					else if($user->is_active == 1  && $user->is_superuser == 1){
+						redirect(base_url('/sp-admin'));
 					}
 					else if($user->is_active == 0){
 						redirect(base_url('/welcome'));
@@ -55,11 +56,10 @@ class User extends CI_Controller {
                 $context=array(
                 "title"					=>	"asd",
                 "project" 				=> 	$this->project,
-                "category" 				=>	$this->category,
                 "view" 					=>  $this->router->fetch_method(),
                 "form_error"      =>  "Hata oluştu",
             );
-            $this->load->view("$this->project/user/base",$context);
+            $this->load->view("user/base",$context);
             }
 
 
@@ -83,10 +83,9 @@ class User extends CI_Controller {
 			$context=array(
                 "title"					=>	"Login",
                 "project" 				=> 	$this->project,
-                "category" 				=>	$this->category,
                 "view" 					=>  $this->router->fetch_method(),
             );
-			$this->load->view("$this->project/user/base",$context);
+			$this->load->view("user/base",$context);
 		}
 		else if ($this->input->server('REQUEST_METHOD')=='POST'){
 			$this->load->library("form_validation");
@@ -150,10 +149,9 @@ class User extends CI_Controller {
 				$context=array(
 					"title"					=>	"Login",
 					"project" 				=> 	$this->project,
-					"category" 				=>	$this->category,
 					"view" 					=>  $this->router->fetch_method(),
 				);
-				$this->load->view("$this->project/user/base",$context);
+				$this->load->view("user/base",$context);
 			}
 		}
 	}
@@ -168,9 +166,8 @@ class User extends CI_Controller {
 		$context=array(
 			"title"					=>	"Login",
 			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method(),
 		);
-		$this->load->view("$this->project/user/base",$context);
+		$this->load->view("user/base",$context);
     }
 }

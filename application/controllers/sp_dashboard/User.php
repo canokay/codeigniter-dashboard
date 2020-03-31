@@ -10,7 +10,7 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('SuperUserModel');
+        $this->load->model('UserModel');
 	}
 
 
@@ -30,7 +30,7 @@ class User extends CI_Controller {
             $this->form_validation->set_rules('input_password', 'input_password', 'required');
             
             if($this->form_validation->run() == TRUE){
-				$user = $this->SuperUserModel->get(
+				$user = $this->UserModel->get(
 					array(
 						"username"     => $this->input->post("input_username"),
 						"password"  => md5($this->input->post("input_password")),
@@ -51,7 +51,7 @@ class User extends CI_Controller {
 
 				} 
 				else {
-					redirect(base_url("sp-login"));
+					redirect(base_url("login"));
 				}
             }
             else{

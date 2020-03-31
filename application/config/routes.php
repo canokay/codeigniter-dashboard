@@ -63,19 +63,23 @@ $route['admin/tables'] = 'dashboard/Dashboard/tables';
 $route['admin/form'] = 'dashboard/Dashboard/form';
 
 
-$route['admin/page'] = 'dashboard/Page/page_list';
-$route['admin/page/ekle'] = 'dashboard/Page/page_add';
-$route['admin/page/sil/(:num)'] = 'dashboard/Page/page_delete';
-$route['admin/page/(:num)'] = 'dashboard/Page/page_update/';
+$route['admin/page'] = 'dashboard/Page/list';
+$route['admin/page/ekle'] = 'dashboard/Page/add';
+$route['admin/page/sil/(:num)'] = 'dashboard/Page/delete';
+$route['admin/page/(:num)'] = 'dashboard/Page/update/';
 
 
-$route['admin/media-upload'] = 'dashboard/Media/media_add';
+$route['admin/media-upload'] = 'dashboard/Media/add';
 
-$route['admin/media'] = 'dashboard/Media/media_list';
-$route['admin/media/ekle'] = 'dashboard/Media/media_add';
-$route['admin/media/sil/(:num)'] = 'dashboard/Media/media_delete';
-$route['admin/media/(:num)'] = 'dashboard/Media/media_update/';
+$route['admin/media'] = 'dashboard/Media/list';
+$route['admin/media/ekle'] = 'dashboard/Media/add';
+$route['admin/media/sil/(:num)'] = 'dashboard/Media/delete';
+$route['admin/media/(:num)'] = 'dashboard/Media/update/';
 
+$route['admin/ticket'] = 'dashboard/Ticket/list';
+$route['admin/ticket/ekle'] = 'dashboard/Ticket/add';
+$route['admin/ticket/sil/(:num)'] = 'dashboard/Ticket/delete';
+$route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
 
 $route['login'] = 'dashboard/User/login';
 $route['register'] = 'dashboard/User/register';
@@ -101,27 +105,28 @@ $route['sp-admin/tables'] = 'sp_dashboard/Dashboard/tables';
 $route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
 
 
-$route['sp-admin/page'] = 'sp_dashboard/Page/page_list';
-$route['sp-admin/page/ekle'] = 'sp_dashboard/Page/page_add';
-$route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/page_delete';
-$route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/page_update/';
+$route['sp-admin/page'] = 'sp_dashboard/Page/list';
+$route['sp-admin/page/ekle'] = 'sp_dashboard/Page/add';
+$route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/delete';
+$route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/update/';
 
-$route['sp-admin/notification'] = 'sp_dashboard/Notification/notification_list';
-$route['sp-admin/notification/ekle'] = 'sp_dashboard/Notification/notification_add';
-$route['sp-admin/notification/sil/(:num)'] = 'sp_dashboard/Notification/notification_delete';
-$route['sp-admin/notification/(:num)'] = 'sp_dashboard/Notification/notification_update/';
-
-
-$route['sp-admin/media-upload'] = 'sp_dashboard/Media/media_add';
-
-$route['sp-admin/media'] = 'sp_dashboard/Media/media_list';
-$route['sp-admin/media/ekle'] = 'sp_dashboard/Media/media_add';
-$route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/media_delete';
-$route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/media_update/';
+$route['sp-admin/notification'] = 'sp_dashboard/Notification/list';
+$route['sp-admin/notification/ekle'] = 'sp_dashboard/Notification/add';
+$route['sp-admin/notification/sil/(:num)'] = 'sp_dashboard/Notification/delete';
+$route['sp-admin/notification/(:num)'] = 'sp_dashboard/Notification/update/';
 
 
-$route['sp-login'] = 'sp_dashboard/User/login';
-$route["sp-logout"] = "sp_dashboard/User/logout";
+$route['sp-admin/media-upload'] = 'sp_dashboard/Media/add';
+
+$route['sp-admin/media'] = 'sp_dashboard/Media/list';
+$route['sp-admin/media/ekle'] = 'sp_dashboard/Media/add';
+$route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/delete';
+$route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/update/';
+
+$route['sp-admin/ticket'] = 'sp_dashboard/Ticket/list';
+$route['sp-admin/ticket/ekle'] = 'sp_dashboard/Ticket/add';
+$route['sp-admin/ticket/sil/(:num)'] = 'sp_dashboard/Ticket/delete';
+$route['sp-admin/ticket/(:num)'] = 'sp_dashboard/Ticket/update/';
 
 $route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
 $route['404_override'] = 'My404';
