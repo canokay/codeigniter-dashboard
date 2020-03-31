@@ -6,7 +6,7 @@ function get_active_user(){
 
     $user = $t->session->userdata("user");
 
-    if($user && $user->is_active == 1)
+    if($user && $user->is_active == 1 && $user->is_superuser == 0)
         return $user;
     else
         return false;
