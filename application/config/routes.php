@@ -83,10 +83,10 @@ $route['admin/ticket/ekle'] = 'dashboard/Ticket/add';
 $route['admin/ticket/sil/(:num)'] = 'dashboard/Ticket/delete';
 $route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
 
-$route['login'] = 'dashboard/User/login';
-$route['register'] = 'dashboard/User/register';
-$route['forgot_password'] = 'dashboard/User/forgot_password';
-$route["logout"] = "dashboard/User/logout";
+$route['login'] = 'user/User/login';
+$route['register'] = 'user/User/register';
+$route['forgot_password'] = 'user/User/forgot_password';
+$route["logout"] = "user/User/logout";
 
 
 $route['api/login'] = 'api/ApiUser/login';
