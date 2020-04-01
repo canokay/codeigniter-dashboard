@@ -52,7 +52,7 @@
                   Codeigniter 3 Bildirimleri
 								</h6>
 								<?php  foreach ($notification_alerts as $notification_alert) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url($this->uri->segment(1) . "/notification/".$notification_alert->id )?>">
                   <div class="mr-3">
                     <div class="icon-circle bg-primary">
                       <i class="fas fa-file-alt text-white"></i>
@@ -64,7 +64,7 @@
                   </div>
                 </a>
 								<?php } ?>
-                <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url("admin/notification")?>">Bütün Codeigniter 3 Bildirimleri</a>
+                <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url($this->uri->segment(1) . "/notification")?>">Bütün Codeigniter 3 Bildirimleri</a>
               </div>
             </li>
 
@@ -81,7 +81,7 @@
                 </h6>
                 
 								<?php  foreach ($ticket_alerts as $ticket_alert) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url("admin/ticket/$ticket_alert->id"); ?>">
+                <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url($this->uri->segment(1) . "/ticket/" . $ticket_alert->id); ?>">
                   <div class="font-weight-bold">
                     <div class="text-truncate"><?php echo $ticket_alert->title; ?></div>
                     <div class="small text-gray-500"><?php echo $ticket_alert->username; ?></div>
@@ -89,7 +89,7 @@
                 </a>
 								<?php } ?>
 
-                <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url("admin/ticket")?>">Read More Messages</a>
+                <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url($this->uri->segment(1) . "/ticket")?>">Read More Messages</a>
               </div>
             </li>
 
