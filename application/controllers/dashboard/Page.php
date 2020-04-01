@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Page extends CI_Controller {
 	
 	public $project = "dashboard";
-	public $category = "page";
+	public $category = "pages";
 	
 	public function __construct()
 	{
