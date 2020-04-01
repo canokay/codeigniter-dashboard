@@ -96,7 +96,7 @@ class Ticket extends CI_Controller {
 						"message"		=>"Başarılı bir şekilde kayıt oldu.",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/ticket"));
+					redirect(base_url("sp-admin/ticket"));
 				} else {
 					$ToastField	=	array(
 						"status"	=> "error",
@@ -104,7 +104,7 @@ class Ticket extends CI_Controller {
 						"message"		=>"İşlem kayıt olamadı :(",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/ticket"));
+					redirect(base_url("sp-admin/ticket"));
 				}
 
 			} else {
@@ -178,7 +178,7 @@ class Ticket extends CI_Controller {
 					"message"		=>"Başarılı bir şekilde kayıt oldu.",
 				);
 				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/ticket"));
+				redirect(base_url("sp-admin/ticket"));
 			} else {
 				$ToastField	=	array(
 					"status"	=> "error",
@@ -186,7 +186,7 @@ class Ticket extends CI_Controller {
 					"message"		=>"İşlem kayıt olamadı :(",
 				);
 				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/ticket"));
+				redirect(base_url("sp-admin/ticket"));
 			}
 
 			
@@ -210,7 +210,7 @@ class Ticket extends CI_Controller {
 				"message"		=>"Başarılı bir şekilde silindi.",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/ticket"));
+			redirect(base_url("sp-admin/ticket"));
 		} 
 		else {
 			$ToastField	=	array(
@@ -219,7 +219,7 @@ class Ticket extends CI_Controller {
 				"message"		=>"Silme işlemi olmadı :(",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/ticket"));
+			redirect(base_url("sp-admin/ticket"));
 		}
 	}
 
