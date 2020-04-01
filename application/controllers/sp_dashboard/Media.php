@@ -12,11 +12,11 @@ class Media extends CI_Controller {
 
 		$this->load->model("DashboardModel");
 
-		if(!get_active_user()){
+		if(!get_superuser_user()){
             redirect(base_url("/login"));
 		}
 		else{
-			$this->user = get_active_user();
+			$this->user = get_superuser_user();
 			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
 			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
 		}
@@ -133,7 +133,7 @@ class Media extends CI_Controller {
 						"message"		=>"Başarılı bir şekilde kayıt oldu.",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/media"));
+					redirect(base_url("sp-admin/media"));
 				} else {
 					$ToastField	=	array(
 						"status"	=> "error",
@@ -141,7 +141,7 @@ class Media extends CI_Controller {
 						"message"		=>"İşlem kayıt olamadı :(",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/media"));
+					redirect(base_url("sp-admin/media"));
 				}
 
 			} else {
@@ -224,7 +224,7 @@ class Media extends CI_Controller {
 						"message"		=>"Başarılı bir şekilde güncellendi.",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/media"));
+					redirect(base_url("sp-admin/media"));
 				} 
 				else {
 					$ToastField	=	array(
@@ -233,7 +233,7 @@ class Media extends CI_Controller {
 						"message"		=>"Güncelleme olmadı :(",
 					);
 					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/media"));
+					redirect(base_url("sp-admin/media"));
 				}
 
 			} else {
@@ -286,7 +286,7 @@ class Media extends CI_Controller {
 				"message"		=>"Başarılı bir şekilde silindi.",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/media"));
+			redirect(base_url("sp-admin/media"));
 		} 
 		else {
 			$ToastField	=	array(
@@ -295,7 +295,7 @@ class Media extends CI_Controller {
 				"message"		=>"Silme işlemi olmadı :(",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/media"));
+			redirect(base_url("sp-admin/media"));
 		}
 	}
 

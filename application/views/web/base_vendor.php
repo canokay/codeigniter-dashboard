@@ -20,16 +20,14 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
 
     <!-- Bootstrap core CSS -->
-<link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+<link href="<?php echo base_url("assets/vendor")?>/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+<link rel="apple-touch-icon" href="<?php echo base_url("assets/vendor")?>/web/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="<?php echo base_url("assets/vendor")?>/web/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="<?php echo base_url("assets/vendor")?>/web/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="mask-icon" href="<?php echo base_url("assets/vendor")?>/web/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="<?php echo base_url("assets/vendor")?>/web/img/favicons/favicon.ico">
 <meta name="theme-color" content="#563d7c">
 
 
@@ -50,7 +48,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="<?php echo base_url("assets/web")?>/css/cover.css" rel="stylesheet">
 	<?php
 		if (isset($view_header_include)) {
 			echo "<!-- Page Style -->";

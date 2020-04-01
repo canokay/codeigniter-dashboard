@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url("sp-admin")?>">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url($this->uri->segment(1))?>">
   <div class="sidebar-brand-icon rotate-n-15">
 	<i class="fas fa-laugh-wink"></i>
   </div>
@@ -13,7 +13,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-  <a class="nav-link" href="<?php echo base_url("sp-admin")?>">
+  <a class="nav-link" href="<?php echo base_url($this->uri->segment(1))?>">
 	<i class="fas fa-fw fa-tachometer-alt"></i>
 	<span>Başlangıç</span></a>
 </li>
@@ -43,8 +43,8 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url("sp-admin/page/ekle")?>">Yeni Sayfa Oluşturun</a>
-	  <a class="collapse-item" href="<?php echo base_url("sp-admin/page")?>">Sayfaları Listeleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page/ekle")?>">Yeni Sayfa Oluşturun</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page")?>">Sayfaları Listeleyin</a>
 	</div>
   </div>
 
@@ -65,8 +65,8 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url("sp-admin/media/ekle")?>">Yeni Ortam Ekleyin</a>
-	  <a class="collapse-item" href="<?php echo base_url("sp-admin/media")?>">Ortamları Listeleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media/ekle")?>">Yeni Ortam Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media")?>">Ortamları Listeleyin</a>
 	</div>
   </div>
 
@@ -89,13 +89,36 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url("sp-admin/ticket/ekle")?>">Yeni Mesaj Ekleyin</a>
-	  <a class="collapse-item" href="<?php echo base_url("sp-admin/ticket")?>">Mesajları Listeleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket/ekle")?>">Yeni Mesaj Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket")?>">Mesajları Listeleyin</a>
 	</div>
   </div>
 
 </li>
 
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotification" aria-expanded="true" aria-controls="collapseNotification">
+	<i class="fas fa-fw fa-cog"></i>
+	<span>Bildirim</span>
+  </a>
+	<?php 
+		if ($category=="notification"){
+			echo ' <div id="collapseNotification" class="collapse show" aria-labelledby="headingNotification" data-parent="#accordionSidebar">';
+		}
+		else{
+			echo ' <div id="collapseNotification" class="collapse" aria-labelledby="headingNotification" data-parent="#accordionSidebar">';
+
+		}
+
+	?>
+	<div class="bg-white py-2 collapse-inner rounded">
+		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/notification/ekle")?>">Bildirim Ekle</a>
+		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/notification/")?>">Bildirim Listele</a>
+	</div>
+  </div>
+
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider">
 

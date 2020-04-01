@@ -68,6 +68,8 @@ $route['admin/page/ekle'] = 'dashboard/Page/add';
 $route['admin/page/sil/(:num)'] = 'dashboard/Page/delete';
 $route['admin/page/(:num)'] = 'dashboard/Page/update/';
 
+$route['admin/notification'] = 'dashboard/Notification/list';
+$route['admin/notification/(:num)'] = 'dashboard/Notification/update/';
 
 $route['admin/media-upload'] = 'dashboard/Media/add';
 

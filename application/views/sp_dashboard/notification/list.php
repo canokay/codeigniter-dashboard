@@ -9,8 +9,8 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Bildirim:</div>
-                    <a class="dropdown-item" href="<?php echo base_url("sp-admin/notification/ekle")?>">Bildirim Ekle</a>
-                    <a class="dropdown-item" href="<?php echo base_url("sp-admin/notification")?>">Bildirim Listele</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Bildirim Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Bildirim Listele</a>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
 
             <?php if(empty($items)){ ?>
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php $uri = $this->uri->segment(2); echo base_url("sp-admin/$uri/ekle"); ?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 				<div class="table-responsive">
@@ -33,16 +33,16 @@
 						<tbody>
 							<?php  foreach ($items as $item) { ?>
 							<tr>
-								<td><a href="<?php echo base_url("sp-admin/notification/$item->id"); ?>"> <?php echo $item->title; ?></a></td>
+								<td><a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>"> <?php echo $item->title; ?></a></td>
 								<td><?php echo $item->created_at; ?> </td>
 								<td>
 									<button  
-										data-url="<?php echo base_url("sp-admin/notification/sil/$item->id"); ?>" 
+										data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/sil/" . $item->id); ?>" 
 										data-title="<?php echo $item->title; ?>" 
 										class="btn btn-sm btn-danger btn-outline remove-btn">
 										<i class="fa fa-trash"></i> Sil
 									</button>
-									<a href="<?php echo base_url("sp-admin/notification/$item->id"); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
+									<a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
 								</td>
 							</tr>
 							<?php } ?>
@@ -50,6 +50,7 @@
 					</table>
 				</div>
 			<?php } ?>
+
 		</div><!-- .widget -->
 	</div>
 </div>

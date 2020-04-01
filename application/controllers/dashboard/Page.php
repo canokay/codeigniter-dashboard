@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Page extends CI_Controller {
 	
 	public $project = "dashboard";
-	public $category = "page";
+	public $category = "pages";
 	
 	public function __construct()
 	{
@@ -112,7 +112,7 @@ class Page extends CI_Controller {
 						"title"         =>	$this->input->post("title"),
 						"description"   =>	$this->input->post("description"),
 						"url"           =>	AutoSlugField($this->input->post("title")),
-						"isActive"      =>	1,
+						"is_active"      =>	1,
 						"created_at"     =>	date("Y-m-d H:i:s"),
 					)
 				);
