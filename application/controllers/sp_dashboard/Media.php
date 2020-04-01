@@ -40,6 +40,7 @@ class Media extends CI_Controller {
 			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$pages,
 			"DataTablesField"	=> "datatable",
+			"page_title_add_button" => 1
 		);
 		$this->load->view("dashboard/base",$context);
 	}

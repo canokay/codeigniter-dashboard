@@ -45,6 +45,7 @@ class Ticket extends CI_Controller {
 			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
+			"page_title_add_button" => 1
 		);
 		$this->load->view("dashboard/base",$context);
 	}
