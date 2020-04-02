@@ -37,6 +37,11 @@
                 <button type="submit" class="btn btn-primary btn-md btn-outline">Güncelle</button>
                 <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2)); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
             </form>
+			<?php if (isset($form_errors)) { ?>
+				<div class="alert alert-danger mt-3" role="alert">
+					<?php echo $form_errors?>
+				</div>
+			<?php } ?>
 
 		</div><!-- .widget -->
 	</div>

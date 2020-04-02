@@ -27,22 +27,12 @@
 						<thead>
 							<th>Başlık</th>
 							<th>Oluşturma Tarihi</th>
-							<th>İşlem</th>
 						</thead>
 						<tbody>
 							<?php  foreach ($items as $item) { ?>
 							<tr>
 								<td><a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>"> <?php echo $item->title; ?></a></td>
 								<td><?php echo $item->created_at; ?> </td>
-								<td>
-									<button  
-										data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" 
-										data-title="<?php echo $item->title; ?>" 
-										class="btn btn-sm btn-danger btn-outline remove-btn">
-										<i class="fa fa-trash"></i> Sil
-									</button>
-									<a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
-								</td>
 							</tr>
 							<?php } ?>
 						</tbody>

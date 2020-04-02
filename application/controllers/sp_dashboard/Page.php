@@ -30,16 +30,17 @@ class Page extends CI_Controller {
 		$pages = $this->PageModel->get_all();
 
 		$context=array(
-			"title"		=>	"Sayfalar",
-			"sub_title"	=>	"Sayfa Listesi",
+			"title"					=>	"Sayfalar",
+			"sub_title"				=>	"Sayfa Listesi",
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
-			"view" 		=>  $this->router->fetch_method(),
+			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 			"ticket_alerts" 		=>	$this->ticket_alerts,
-			"items" 	=>	$pages,
-			"DataTablesField"	=> "datatable",
+			"items" 				=>	$pages,
+			"DataTablesField"		=> "datatable",
+			"page_title_add_button" => 1
 		);
 		$this->load->view("sp_dashboard/base",$context);
 	}
@@ -48,16 +49,16 @@ class Page extends CI_Controller {
 	{
 		if ($this->input->server('REQUEST_METHOD')=='GET'){		
 			$context=array(
-				"title"		=>	"Sayfa Ekle",
-				"sub_title"	=>	"Yeni Sayfa Ekle",
-				"project" 				=> 	$this->project,
-				"category" 				=>	$this->category,
-				"view" 		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
+				"title"				=>	"Sayfa Ekle",
+				"sub_title"			=>	"Yeni Sayfa Ekle",
+				"project" 			=> 	$this->project,
+				"category" 			=>	$this->category,
+				"view" 				=>	$this->router->fetch_method(),
+				"user" 				=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 			"ticket_alerts" 		=>	$this->ticket_alerts,
-				"CKEditorField"	=>	array(
-					"description" => "description"
+				"CKEditorField"		=>	array(
+					"description"	=> "description"
 				),
 			);
 			$this->load->view("sp_dashboard/base",$context);
@@ -68,6 +69,7 @@ class Page extends CI_Controller {
 			$this->load->library("form_validation");
 
 			$this->form_validation->set_rules("title", "Başlık", "required|trim");
+			$this->form_validation->set_rules("description", "İçerik", "required|trim");
 
 			$this->form_validation->set_message(
 				array(
@@ -110,14 +112,19 @@ class Page extends CI_Controller {
 			} 
 			else {
 				$context=array(
-					"title"			=>	"Sayfa Ekle",
-					"sub_title"		=>	"Yeni Sayfa Ekle",
-					"project" 		=> 	$this->project,
-					"category" 		=>	$this->category,
-					"view" 			=>	$this->router->fetch_method(),
-					"form_error" 	=>	"true",
+					"title"					=>	"Sayfa Ekle",
+					"sub_title"				=>	"Yeni Sayfa Ekle",
+					"project" 				=> 	$this->project,
+					"category" 				=>	$this->category,
+					"view" 					=>	$this->router->fetch_method(),
+					"user" 					=>	$this->user,
+					"notification_alerts" 	=>	$this->notification_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
+					"CKEditorField"			=>	array(
+						"description" => "description"
+					),
+					"form_errors"	=> validation_errors(),
 				);
-
 				$this->load->view("sp_dashboard/base",$context);
 
 			}
@@ -138,11 +145,11 @@ class Page extends CI_Controller {
 			);
 			
 			$context=array(
-				"title"		=>	"Etkinlik Güncelle",
-				"sub_title"	=>	"Etkinlik Güncelle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
+				"title"					=>	"Sayfa Güncelle",
+				"sub_title"				=>	"Sayfa Güncelle",
+				"project"				=>	$this->project,
+				"category"				=>	$this->category,
+				"view"					=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
 				"ticket_alerts" 		=>	$this->ticket_alerts,
@@ -156,8 +163,12 @@ class Page extends CI_Controller {
 		else if ($this->input->server('REQUEST_METHOD')=='POST'){
 
 			$id = $this->uri->segment(3);
+
 			$this->load->library("form_validation");
+
 			$this->form_validation->set_rules("title", "Başlık", "required|trim");
+			$this->form_validation->set_rules("description", "İçerik", "required|trim");
+			
 			$this->form_validation->set_message(
 				array(
 					"required"  => "<b>{field}</b> alanı doldurulmalıdır"
@@ -200,21 +211,28 @@ class Page extends CI_Controller {
 				}
 			} 
 			else {
+				$id = $this->uri->segment(3);
+
 				$item = $this->PageModel->get(
 					array(
-						"id"	=>	$id,
+						"id"	=> $id,
 					)
 				);
+				
 				$context=array(
-					"title"		=>	"Sayfalar",
-					"sub_title"	=>	"Sayfa Listesi",
-					"project" 	=>	$this->project,
-					"category"	=>	$this->category,
-					"view" 		=>	"list",
+					"title"					=>	"Sayfa Güncelle",
+					"sub_title"				=>	"Sayfa Güncelle",
+					"project"				=>	$this->project,
+					"category"				=>	$this->category,
+					"view"					=>	$this->router->fetch_method(),
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
+					"CKEditorField"			=>	array(
+						"description" => "description"
+					),
 					"item" 		=>	$item,
+					"form_errors"	=> validation_errors(),
 				);
 				$this->load->view("sp_dashboard/base",$context);
 			}
@@ -234,16 +252,16 @@ class Page extends CI_Controller {
 			$ToastField	=	array(
 				"status"	=> "success",
 				"title"		=>	"İşlem Başarılı.",
-				"message"		=>"Başarılı bir şekilde silindi.",
+				"message"	=>	"Başarılı bir şekilde silindi.",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
 			redirect(base_url("sp-admin/page"));
 		} 
 		else {
 			$ToastField	=	array(
-				"status"	=> "error",
+				"status"	=>	"error",
 				"title"		=>	"İşlem başarısız.",
-				"message"		=>"Silme işlemi olmadı :(",
+				"message"	=>	"Silme işlemi olmadı :(",
 			);
 			$this->session->set_flashdata("ToastField", $ToastField);
 			redirect(base_url("sp-admin/page"));

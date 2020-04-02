@@ -40,6 +40,7 @@ class Media extends CI_Controller {
 			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$pages,
 			"DataTablesField"	=> "datatable",
+			"page_title_add_button" => 1
 		);
 		$this->load->view("dashboard/base",$context);
 	}
@@ -149,7 +150,7 @@ class Media extends CI_Controller {
 					"title"			=>	"Ortam Ekle",
 					"sub_title"		=>	"Yeni Ortam Ekle",
 					"project" 		=> 	$this->project,
-					"category" 		=>	"pages",
+					"category"	=>	$this->category,
 					"view" 			=>	"add",
 					"form_error" 	=>	"true",
 				);
@@ -178,7 +179,7 @@ class Media extends CI_Controller {
 				"title"		=>	"Ortam Güncelle",
 				"sub_title"	=>	"Ortam Güncelle",
 				"project"	=>	$this->project,
-				"category"	=>	"pages",
+				"category"	=>	$this->category,
 				"view"		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
@@ -247,7 +248,7 @@ class Media extends CI_Controller {
 					"title"		=>	"Ortamlar",
 					"sub_title"	=>	"Ortam Listesi",
 					"project" 	=>	$this->project,
-					"category"	=>	"pages",
+					"category"	=>	$this->category,
 					"view" 		=>	"list",
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,

@@ -83,10 +83,16 @@ $route['admin/ticket/ekle'] = 'dashboard/Ticket/add';
 $route['admin/ticket/sil/(:num)'] = 'dashboard/Ticket/delete';
 $route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
 
-$route['login'] = 'dashboard/User/login';
-$route['register'] = 'dashboard/User/register';
-$route['forgot_password'] = 'dashboard/User/forgot_password';
-$route["logout"] = "dashboard/User/logout";
+
+$route['admin/users'] = 'dashboard/UserSettings/list';
+$route['admin/settings/profile'] = 'dashboard/UserSettings/update/';
+$route['admin/settings/security'] = 'dashboard/UserSettings/security/';
+
+
+$route['login'] = 'user/User/login';
+$route['register'] = 'user/User/register';
+$route['forgot_password'] = 'user/User/forgot_password';
+$route["logout"] = "user/User/logout";
 
 
 $route['api/login'] = 'api/ApiUser/login';
@@ -129,6 +135,12 @@ $route['sp-admin/ticket'] = 'sp_dashboard/Ticket/list';
 $route['sp-admin/ticket/ekle'] = 'sp_dashboard/Ticket/add';
 $route['sp-admin/ticket/sil/(:num)'] = 'sp_dashboard/Ticket/delete';
 $route['sp-admin/ticket/(:num)'] = 'sp_dashboard/Ticket/update/';
+
+
+$route['sp-admin/users'] = 'sp_dashboard/UserSettings/list';
+$route['sp-admin/settings/profile'] = 'sp_dashboard/UserSettings/update/';
+$route['sp-admin/settings/security'] = 'sp_dashboard/UserSettings/security/';
+
 
 $route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
 $route['404_override'] = 'My404';

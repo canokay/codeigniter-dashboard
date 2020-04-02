@@ -113,23 +113,30 @@ class Notification extends CI_Controller {
 					redirect(base_url("sp-admin/notification"));
 				}
 
-			} else {
-				$context = new stdClass();
-				$notifications = $this->NotificationModel->get_all(
+			} 
+			else {
+				$id = $this->uri->segment(3);
+
+				$notification = $this->NotificationModel->get(
 					array(
-						"id"	=>	$id,
+						"id"	=> $id,
 					)
 				);
+	
 				$context=array(
-					"title"		=>	"Sayfalar",
-					"sub_title"	=>	"Sayfa Listesi",
+					"title"		=>	$notification->title,
+					"sub_title"	=>	$notification->title,
 					"project" 				=> 	$this->project,
 					"category" 				=>	$this->category,
-					"view" 		=>	"list",
+					"view" 					=>  $this->router->fetch_method(),
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
 					"ticket_alerts" 		=>	$this->ticket_alerts,
-					"notifications" 		=>	$notifications,
+					"CKEditorField"	=>	array(
+						"description" => "description"
+					),
+					"notification" 		=>	$notification,
+					"form_errors"	=> validation_errors(),
 				);
 				$this->load->view("dashboard/base",$context);
 			}

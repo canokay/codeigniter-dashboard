@@ -119,6 +119,31 @@
   </div>
 
 </li>
+
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+	<i class="fas fa-fw fa-cog"></i>
+	<span>Hesap</span>
+  </a>
+	<?php 
+		if ($category=="settings"){
+			echo ' <div id="collapseUser" class="collapse show" aria-labelledby="headingUser" data-parent="#accordionSidebar">';
+		}
+		else{
+			echo ' <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">';
+
+		}
+
+	?>
+	<div class="bg-white py-2 collapse-inner rounded">
+		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/users/")?>">Hesap Listele</a>
+		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/settings/profile")?>">Hesabımı Güncelle</a>
+		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/settings/security")?>">Hesap Güvenliği</a>
+	</div>
+  </div>
+
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider">
 
