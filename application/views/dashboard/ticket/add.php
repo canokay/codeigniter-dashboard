@@ -34,6 +34,11 @@
 				</div>
 				<button type="submit" class="btn btn-primary btn-md">Kaydet</button>
 			</form>
+			<?php if (isset($form_errors)) { ?>
+				<div class="alert alert-danger mt-3" role="alert">
+					<?php echo $form_errors?>
+				</div>
+			<?php } ?>
 
 		</div><!-- .widget -->
 	</div>

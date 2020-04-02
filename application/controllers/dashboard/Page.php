@@ -98,6 +98,7 @@ class Page extends CI_Controller {
 			$this->load->library("form_validation");
 
 			$this->form_validation->set_rules("title", "Başlık", "required|trim");
+			$this->form_validation->set_rules("description", "İçerik", "required|trim");
 
 			$this->form_validation->set_message(
 				array(
@@ -136,16 +137,23 @@ class Page extends CI_Controller {
 					redirect(base_url("admin/page"));
 				}
 
-			} else {
+			}
+			else {
 				$context=array(
-					"title"			=>	"Sayfa Ekle",
-					"sub_title"		=>	"Yeni Sayfa Ekle",
-					"project" 		=> 	$this->project,
-					"category" 		=>	"pages",
-					"view" 			=>	"add",
-					"form_error" 	=>	"true",
+					"title"		=>	"Sayfa Ekle",
+					"sub_title"	=>	"Yeni Sayfa Ekle",
+					"project"	=>	$this->project,
+					"category"	=>	$this->category,
+					"view"		=>	$this->router->fetch_method(),
+					"user" 					=>	$this->user,
+					"notification_alerts" 	=>	$this->notification_alerts,
+					"ticket_alerts" 		=>	$this->ticket_alerts,
+					"CKEditorField"	=>	array(
+						"description" => "description"
+					),
+					"item" 		=>	$item,
+					"form_errors"	=> validation_errors(),
 				);
-
 				$this->load->view("dashboard/base",$context);
 
 			}
@@ -184,8 +192,12 @@ class Page extends CI_Controller {
 		else if ($this->input->server('REQUEST_METHOD')=='POST'){
 
 			$id = $this->uri->segment(3);
+			
 			$this->load->library("form_validation");
+
 			$this->form_validation->set_rules("title", "Başlık", "required|trim");
+			$this->form_validation->set_rules("description", "İçerik", "required|trim");
+
 			$this->form_validation->set_message(
 				array(
 					"required"  => "<b>{field}</b> alanı doldurulmalıdır"
@@ -227,23 +239,28 @@ class Page extends CI_Controller {
 					redirect(base_url("admin/page"));
 				}
 
-			} else {
-				$context = new stdClass();
+			} 
+			else {
 				$item = $this->PageModel->get(
 					array(
 						"id"	=>	$id,
 					)
 				);
+
 				$context=array(
-					"title"		=>	"Sayfalar",
-					"sub_title"	=>	"Sayfa Listesi",
-					"project" 	=>	$this->project,
-					"category"	=>	"pages",
-					"view" 		=>	"list",
+					"title"		=>	"Sayfa Güncelle",
+					"sub_title"	=>	"Sayfa Güncelle",
+					"project"	=>	$this->project,
+					"category"	=>	$this->category,
+					"view"		=>	$this->router->fetch_method(),
 					"user" 					=>	$this->user,
 					"notification_alerts" 	=>	$this->notification_alerts,
 					"ticket_alerts" 		=>	$this->ticket_alerts,
+					"CKEditorField"	=>	array(
+						"description" => "description"
+					),
 					"item" 		=>	$item,
+					"form_errors"	=> validation_errors(),
 				);
 				$this->load->view("dashboard/base",$context);
 			}

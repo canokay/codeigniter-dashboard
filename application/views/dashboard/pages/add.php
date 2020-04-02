@@ -32,8 +32,18 @@
 					<textarea name="description" id="description" rows="10" cols="80">
 					</textarea>
 				</div>
+				<div class="form-group">
+					<?php
+						echo json_encode($form_error);
+					?>
+				</div>
 				<button type="submit" class="btn btn-primary btn-md">Kaydet</button>
 			</form>
+			<?php if (isset($form_errors)) { ?>
+				<div class="alert alert-danger mt-3" role="alert">
+					<?php echo $form_errors?>
+				</div>
+			<?php } ?>
 		</div><!-- .widget -->
 	</div>
 </div>

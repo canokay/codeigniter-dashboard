@@ -70,6 +70,11 @@
                                 
                                 <button type="submit" class="btn btn-primary btn-md">Gönder</button>
                             </form>
+                            <?php if (isset($form_errors)) { ?>
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    <?php echo $form_errors?>
+                                </div>
+                            <?php } ?>
                         </div><!-- .widget-body -->
                     </div><!-- .widget -->
                 </div><!-- END column -->

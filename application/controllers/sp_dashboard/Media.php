@@ -80,85 +80,11 @@ class Media extends CI_Controller {
 						"url"	=>	"media/" . $this->upload->data("file_name"),
 					)
 				);
-/*
-				$data = $this->MediaModel->get(
-					array(
-						"name"	=>	$this->upload->data("file_name"),
-						"url"	=>	"media/" . $this->upload->data("file_name"),
-					)
-				);
-				
-				echo json_encode($data);
-*/
 			}
 			else{
-				/*
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"Yükleme başarısız.",
-					"message"		=>"Yükleme olamadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);*/
 				echo "Error";
 			}
 
-			/*
-
-			$this->load->library("form_validation");
-
-			$this->form_validation->set_rules("title", "Başlık", "required|trim");
-
-			$this->form_validation->set_message(
-				array(
-					"required"  => "<b>{field}</b> alanı doldurulmalıdır"
-				)
-			);
-
-			$validate = $this->form_validation->run();
-
-			if($validate){
-				$insert = $this->MediaModel->add(
-					array(
-						"title"         =>	$this->input->post("title"),
-						"description"   =>	$this->input->post("description"),
-						"url"           =>	AutoSlugField($this->input->post("title")),
-						"isActive"      =>	1,
-						"created_at"     =>	date("Y-m-d H:i:s"),
-					)
-				);
-
-				if($insert){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde kayıt oldu.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("sp-admin/media"));
-				} else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"İşlem kayıt olamadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("sp-admin/media"));
-				}
-
-			} else {
-				$context=array(
-					"title"			=>	"Ortam Ekle",
-					"sub_title"		=>	"Yeni Ortam Ekle",
-					"project" 		=> 	$this->project,
-					"category" 		=>	"pages",
-					"view" 			=>	"add",
-					"form_error" 	=>	"true",
-				);
-
-				$this->load->view("dashboard/base",$context);
-
-			}
-			*/
 		}
 	}
 
@@ -237,7 +163,8 @@ class Media extends CI_Controller {
 					redirect(base_url("sp-admin/media"));
 				}
 
-			} else {
+			} 
+			else {
 				$context = new stdClass();
 				$item = $this->MediaModel->get(
 					array(
