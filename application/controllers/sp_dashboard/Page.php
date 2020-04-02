@@ -139,11 +139,11 @@ class Page extends CI_Controller {
 			);
 			
 			$context=array(
-				"title"		=>	"Etkinlik Güncelle",
-				"sub_title"	=>	"Etkinlik Güncelle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
+				"title"					=>	"Sayfa Güncelle",
+				"sub_title"				=>	"Sayfa Güncelle",
+				"project"				=>	$this->project,
+				"category"				=>	$this->category,
+				"view"					=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
 				"ticket_alerts" 		=>	$this->ticket_alerts,

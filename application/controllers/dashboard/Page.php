@@ -42,7 +42,7 @@ class Page extends CI_Controller {
 			"title"		=>	"Anasayfa",
 			"sub_title"	=>	"Anasayfa",
 			"project" 	=>	"web",
-			"category" 	=>  "pages",
+			"category" 	=>  $this->category,
 			"view" 		=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
@@ -166,10 +166,10 @@ class Page extends CI_Controller {
 			);
 			
 			$context=array(
-				"title"		=>	"Etkinlik Güncelle",
-				"sub_title"	=>	"Etkinlik Güncelle",
+				"title"		=>	"Sayfa Güncelle",
+				"sub_title"	=>	"Sayfa Güncelle",
 				"project"	=>	$this->project,
-				"category"	=>	"pages",
+				"category"	=>	$this->category,
 				"view"		=>	$this->router->fetch_method(),
 				"user" 					=>	$this->user,
 				"notification_alerts" 	=>	$this->notification_alerts,
