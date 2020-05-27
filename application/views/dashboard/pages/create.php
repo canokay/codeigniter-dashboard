@@ -18,7 +18,7 @@
         <!-- Card Body -->
         <div class="card-body">
 
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>" method="post">
+			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/create")?>" method="post">
 				<div class="form-group">
 					<label for="pageName">Sayfa Adı</label>
 					<input type="text" class="form-control" id="eventName" name="title" placeholder="Sayfa Adı">
@@ -32,11 +32,7 @@
 					<textarea name="description" id="description" rows="10" cols="80">
 					</textarea>
 				</div>
-				<div class="form-group">
-					<?php
-						echo json_encode($form_error);
-					?>
-				</div>
+
 				<button type="submit" class="btn btn-primary btn-md">Kaydet</button>
 			</form>
 			<?php if (isset($form_errors)) { ?>

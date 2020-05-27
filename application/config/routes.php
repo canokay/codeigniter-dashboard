@@ -62,11 +62,19 @@ $route['admin/other'] = 'dashboard/Dashboard/other';
 $route['admin/tables'] = 'dashboard/Dashboard/tables';
 $route['admin/form'] = 'dashboard/Dashboard/form';
 
-
+/*
 $route['admin/page'] = 'dashboard/Page/list';
 $route['admin/page/ekle'] = 'dashboard/Page/add';
 $route['admin/page/sil/(:num)'] = 'dashboard/Page/delete';
-$route['admin/page/(:num)'] = 'dashboard/Page/update/';
+$route['admin/page/(:num)'] = 'dashboard/Page/show/';
+*/
+
+$route['admin/page'] = 'dashboard/Page/list';
+$route['admin/page/(:num)'] = 'dashboard/Page/show/';
+$route['admin/page/create'] = 'dashboard/Page/create';
+$route['admin/page/(:num)/edit'] = 'dashboard/Page/edit/';
+$route['admin/page/(:num)/delete'] = 'dashboard/Page/delete/';
+
 
 $route['admin/notification'] = 'dashboard/Notification/list';
 $route['admin/notification/(:num)'] = 'dashboard/Notification/update/';
