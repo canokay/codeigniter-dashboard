@@ -92,16 +92,20 @@ $route['admin/settings/profile'] = 'dashboard/UserSettings/show/';
 $route['admin/settings/security'] = 'dashboard/UserSettings/security/';
 
 
-$route['login'] = 'user/User/login';
-$route['register'] = 'user/User/register';
-$route['forgot_password'] = 'user/User/forgot_password';
-$route["logout"] = "user/User/logout";
+$route['login']['GET'] = 'user/User/login_form';
+$route['login']['POST'] = 'user/User/login';
+$route['register']['GET'] = 'user/User/register_form';
+$route['register']['POST'] = 'user/User/register';
+$route['forgot_password']['GET'] = 'user/User/forgot_password_form';
+$route['forgot_password']['POST'] = 'user/User/forgot_password';
+$route["logout"]['GET'] = "user/User/logout";
 
 
-$route['api/login'] = 'api/ApiUser/login';
-$route['api/register'] = 'api/ApiUser/register';
-$route['api/forgot_password'] = 'api/ApiUser/forgot_password';
-$route["api/logout"] = "api/ApiUser/logout";
+$route['api/login']['POST'] = 'api/ApiUser/login';
+$route['api/register']['POST'] = 'api/ApiUser/register';
+$route['api/forgot_password']['POST'] = 'api/ApiUser/forgot_password';
+$route["api/logout"]['GET'] = "api/ApiUser/logout";
+
 
 $route['sp-admin']['GET'] = 'sp_dashboard/Dashboard/index';
 
