@@ -10,8 +10,6 @@ class Dashboard extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model("DashboardModel");
-		
 		login_required();
 	}
 

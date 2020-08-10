@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/controllers/CRID_Controller.php';
-
-class Page extends CRID_Controller {
+class Page extends CI_Controller {
 	
 	public function __construct()
 	{
@@ -27,6 +25,7 @@ class Page extends CRID_Controller {
 				"validation" => "required|trim")
 			);
 			$this->load->model("PageModel");
+		login_required();
 
 	}
 

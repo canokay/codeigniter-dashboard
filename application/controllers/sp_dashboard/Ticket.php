@@ -10,16 +10,7 @@ class Ticket extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model("DashboardModel");
-
-		if(!get_superuser_user()){
-            redirect(base_url("/login"));
-		}
-		else{
-			$this->user = get_superuser_user();
-			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
-			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
-		}
+		login_required_spuser();
 		
 		$this->load->model("TicketModel");
 		$this->load->model("TicketMessageModel");
