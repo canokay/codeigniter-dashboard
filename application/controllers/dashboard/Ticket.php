@@ -10,23 +10,14 @@ class Ticket extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model("DashboardModel");
-
-		if(!get_active_user()){
-            redirect(base_url("/login"));
-		}
-		else{
-			$this->user = get_active_user();
-			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
-			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
-		}
+		login_required();
 		
 		$this->load->model("TicketModel");
 		$this->load->model("TicketMessageModel");
 	}
 
 
-	public function list()
+	public function index()
 	{
 		$items = $this->TicketModel->get_all(
 			array(
@@ -50,9 +41,8 @@ class Ticket extends CI_Controller {
 		$this->load->view("dashboard/base",$context);
 	}
 
-	public function add()
-	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){		
+	public function create()
+	{		
 			$context=array(
 				"title"		=>	"Sayfa Ekle",
 				"sub_title"	=>	"Yeni Sayfa Ekle",
@@ -69,7 +59,8 @@ class Ticket extends CI_Controller {
 			$this->load->view("dashboard/base",$context);
 		}
 
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
+		public function store()
+{
 
 			$this->load->library("form_validation");
 
@@ -131,13 +122,12 @@ class Ticket extends CI_Controller {
 				$this->load->view("dashboard/base",$context);
 
 			}
-		}
+
 	}
 
 
-	public function update()
+	public function show()
 	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
 			$ticket_id = $this->uri->segment(3);
 
@@ -169,90 +159,127 @@ class Ticket extends CI_Controller {
 				"message_chat"	=>	$message_chat
 			);
 			$this->load->view("dashboard/base",$context);
-		}
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
 
-			$ticket_id = $this->uri->segment(3);
+	}
+	
+	public function edit()
+	{
 			
-			$this->load->library("form_validation");
+			$ticket_id = $this->uri->segment(3);
 
-			$this->form_validation->set_rules("message", "Mesaj", "required|trim");
-
-			$this->form_validation->set_message(
+			$message = $this->TicketModel->get(
 				array(
-					"required"  => "<b>{field}</b> alanı doldurulmalıdır"
+					"id"	=> $ticket_id,
 				)
 			);
 
-			$validate = $this->form_validation->run();
-			
-			if($validate){
-				$insert = $this->TicketMessageModel->add(
-					array(
-						"ticket_id"         =>	$ticket_id,
-						"user_id"         =>	$this->user->id,
-						"message"   =>	$this->input->post("message"),
-					)
-				);
+			$message_chat = $this->TicketMessageModel->get_all(
+				array(
+					"ticket_id"	=> $ticket_id,
+				)
+			);
 
-				if($insert){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde kayıt oldu.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/ticket"));
-				} else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"İşlem kayıt olamadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/ticket"));
-				}
-			}
-			else{
-				$ticket_id = $this->uri->segment(3);
+			$context=array(
+				"title"		=>	"Ticket Görüntüle",
+				"sub_title"	=>	"Ticket Görüntüle",
+				"project"	=>	$this->project,
+				"category"	=>	$this->category,
+				"view"		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
+				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
+				"CKEditorField"	=>	array(
+					"message" => "message"
+				),
+				"message" 		=>	$message,
+				"message_chat"	=>	$message_chat
+			);
+			$this->load->view("dashboard/base",$context);
+		
 
-				$message = $this->TicketModel->get(
-					array(
-						"id"	=> $ticket_id,
-					)
-				);
-	
-				$message_chat = $this->TicketMessageModel->get_all(
-					array(
-						"ticket_id"	=> $ticket_id,
-					)
-				);
-	
-				$context=array(
-					"title"		=>	"Ticket Görüntüle",
-					"sub_title"	=>	"Ticket Görüntüle",
-					"project"	=>	$this->project,
-					"category"	=>	$this->category,
-					"view"		=>	$this->router->fetch_method(),
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
-					"CKEditorField"	=>	array(
-						"message" => "message"
-					),
-					"message" 		=>	$message,
-					"message_chat"	=>	$message_chat,
-					"form_errors"	=> validation_errors(),
-				);
-				$this->load->view("dashboard/base",$context);
-			}
-			
-
-    	}
 	}
 	
+	public function update(){
 
-	public function delete()
+		$ticket_id = $this->uri->segment(3);
+		
+		$this->load->library("form_validation");
+
+		$this->form_validation->set_rules("message", "Mesaj", "required|trim");
+
+		$this->form_validation->set_message(
+			array(
+				"required"  => "<b>{field}</b> alanı doldurulmalıdır"
+			)
+		);
+
+		$validate = $this->form_validation->run();
+		
+		if($validate){
+			$insert = $this->TicketMessageModel->add(
+				array(
+					"ticket_id"         =>	$ticket_id,
+					"user_id"         =>	$this->user->id,
+					"message"   =>	$this->input->post("message"),
+				)
+			);
+
+			if($insert){
+				$ToastField	=	array(
+					"status"	=> "success",
+					"title"		=>	"İşlem Başarılı.",
+					"message"		=>"Başarılı bir şekilde kayıt oldu.",
+				);
+				$this->session->set_flashdata("ToastField", $ToastField);
+				redirect(base_url("admin/ticket"));
+			} else {
+				$ToastField	=	array(
+					"status"	=> "error",
+					"title"		=>	"İşlem başarısız.",
+					"message"		=>"İşlem kayıt olamadı :(",
+				);
+				$this->session->set_flashdata("ToastField", $ToastField);
+				redirect(base_url("admin/ticket"));
+			}
+		}
+		else{
+			$ticket_id = $this->uri->segment(3);
+
+			$message = $this->TicketModel->get(
+				array(
+					"id"	=> $ticket_id,
+				)
+			);
+
+			$message_chat = $this->TicketMessageModel->get_all(
+				array(
+					"ticket_id"	=> $ticket_id,
+				)
+			);
+
+			$context=array(
+				"title"		=>	"Ticket Görüntüle",
+				"sub_title"	=>	"Ticket Görüntüle",
+				"project"	=>	$this->project,
+				"category"	=>	$this->category,
+				"view"		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
+				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
+				"CKEditorField"	=>	array(
+					"message" => "message"
+				),
+				"message" 		=>	$message,
+				"message_chat"	=>	$message_chat,
+				"form_errors"	=> validation_errors(),
+			);
+			$this->load->view("dashboard/base",$context);
+		}
+		
+
+	}
+
+	public function destroy()
 	{
 		$id = $this->uri->segment(4);
 		$delete = $this->TicketModel->delete(

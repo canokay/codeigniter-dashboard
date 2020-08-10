@@ -10,22 +10,13 @@ class UserSettings extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$this->load->model("DashboardModel");
-		
-		if(!get_active_user()){
-            redirect(base_url("/login"));
-		}
-		else{
-			$this->user = get_active_user();
-			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
-			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
-		}
+		login_required();
 	
 		$this->load->model("UserModel");
 
 	}
 
-	public function list(){
+	public function index(){
 		$items = $this->UserModel->get_all();
 
 		$context=array(
@@ -43,9 +34,8 @@ class UserSettings extends CI_Controller {
 		$this->load->view("dashboard/base",$context);
 	}
 
-	public function update()
+	public function create()
 	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
 			$context=array(
 				"title"		=>	"Hesap Ayarları",
@@ -62,7 +52,7 @@ class UserSettings extends CI_Controller {
 			);
 			$this->load->view("dashboard/base",$context);
 		}
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
+		public function update(){
 
 			$this->load->library("form_validation");
 
@@ -128,13 +118,13 @@ class UserSettings extends CI_Controller {
 				$this->load->view("dashboard/base",$context);	
 			}
 			 
-		}
+		
 	}
 
-
+/*
 	public function security()
 	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){
+		public function create(){
 			
 			$item = $this->UserModel->get(
 				array(
@@ -158,7 +148,7 @@ class UserSettings extends CI_Controller {
 			);
 			$this->load->view("dashboard/base",$context);
 		}
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
+		public function update(){
 
 			$this->load->library("form_validation");
 
@@ -224,7 +214,7 @@ class UserSettings extends CI_Controller {
 		}
 		
 	}
-
+*/
 
 	public function change_password()
 	{

@@ -49,99 +49,114 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Web/homepage';
 
-$route['admin'] = 'dashboard/Dashboard/homepage';
-$route['admin/animations'] = 'dashboard/Dashboard/animations';
-$route['admin/borders'] = 'dashboard/Dashboard/borders';
-$route['admin/buttons'] = 'dashboard/Dashboard/buttons';
-$route['admin/cards'] = 'dashboard/Dashboard/cards';
-$route['admin/charts'] = 'dashboard/Dashboard/charts';
-$route['admin/colors'] = 'dashboard/Dashboard/colors';
-$route['admin/other'] = 'dashboard/Dashboard/other';
-$route['admin/tables'] = 'dashboard/Dashboard/tables';
-$route['admin/form'] = 'dashboard/Dashboard/form';
+$route['default_controller'] = 'Web/index';
+
+$route['admin']['GET'] = 'dashboard/Dashboard/index';
+
+$route['admin/page']['GET'] = 'dashboard/Page/index';
+$route['admin/page']['POST'] = 'dashboard/Page/store';
+$route['admin/page/create']['GET']  = 'dashboard/Page/create';
+$route['admin/page/(:num)']['GET'] = 'dashboard/Page/show/';
+$route['admin/page/(:num)']['POST'] = 'dashboard/Page/update/';
+$route['admin/page/(:num)/edit']['GET'] = 'dashboard/Page/edit/';
+$route['admin/page/(:num)/delete']['GET'] = 'dashboard/Page/delete/';
+$route['admin/page/(:num)/delete']['POST'] = 'dashboard/Page/destroy/';
+
+$route['admin/notification']['GET'] = 'dashboard/Notification/index';
+$route['admin/notification/(:num)']['GET'] = 'dashboard/Notification/show/';
+
+$route['admin/media-upload']['GET'] = 'dashboard/Media/create';
+$route['admin/media-upload']['POST'] = 'dashboard/Media/store';
+
+$route['admin/media']['GET'] = 'dashboard/Media/index';
+$route['admin/media']['POST'] = 'dashboard/Media/store';
+$route['admin/media/create']['GET']  = 'dashboard/Media/create';
+$route['admin/media/delete/(:num)']['GET'] = 'dashboard/Media/destroy';
+$route['admin/media/(:num)']['GET'] = 'dashboard/Media/show/';
+$route['admin/media/(:num)/edit']['GET'] = 'dashboard/Media/edşt/';
+$route['admin/media/(:num)']['POST'] = 'dashboard/Media/update/';
+
+$route['admin/ticket']['GET'] = 'dashboard/Ticket/index';
+$route['admin/ticket']['POST'] = 'dashboard/Ticket/store';
+$route['admin/ticket/create']['GET']  = 'dashboard/Ticket/create';
+$route['admin/ticket/delete/(:num)']['GET'] = 'dashboard/Ticket/destroy';
+$route['admin/ticket/(:num)']['GET'] = 'dashboard/Ticket/show/';
+$route['admin/ticket/(:num)/edit']['GET'] = 'dashboard/Ticket/edit/';
+$route['admin/ticket/(:num)']['POST'] = 'dashboard/Ticket/update/';
 
 
-$route['admin/page'] = 'dashboard/Page/list';
-$route['admin/page/ekle'] = 'dashboard/Page/add';
-$route['admin/page/sil/(:num)'] = 'dashboard/Page/delete';
-$route['admin/page/(:num)'] = 'dashboard/Page/update/';
-
-$route['admin/notification'] = 'dashboard/Notification/list';
-$route['admin/notification/(:num)'] = 'dashboard/Notification/update/';
-
-$route['admin/media-upload'] = 'dashboard/Media/add';
-
-$route['admin/media'] = 'dashboard/Media/list';
-$route['admin/media/ekle'] = 'dashboard/Media/add';
-$route['admin/media/sil/(:num)'] = 'dashboard/Media/delete';
-$route['admin/media/(:num)'] = 'dashboard/Media/update/';
-
-$route['admin/ticket'] = 'dashboard/Ticket/list';
-$route['admin/ticket/ekle'] = 'dashboard/Ticket/add';
-$route['admin/ticket/sil/(:num)'] = 'dashboard/Ticket/delete';
-$route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
-
-
-$route['admin/users'] = 'dashboard/UserSettings/list';
-$route['admin/settings/profile'] = 'dashboard/UserSettings/update/';
+$route['admin/users']['GET'] = 'dashboard/UserSettings/index';
+$route['admin/users']['POST'] = 'dashboard/UserSettings/store';
+$route['admin/settings/profile'] = 'dashboard/UserSettings/show/';
 $route['admin/settings/security'] = 'dashboard/UserSettings/security/';
 
 
-$route['login'] = 'user/User/login';
-$route['register'] = 'user/User/register';
-$route['forgot_password'] = 'user/User/forgot_password';
-$route["logout"] = "user/User/logout";
+$route['login']['GET'] = 'user/User/login_form';
+$route['login']['POST'] = 'user/User/login';
+$route['register']['GET'] = 'user/User/register_form';
+$route['register']['POST'] = 'user/User/register';
+$route['forgot_password']['GET'] = 'user/User/forgot_password_form';
+$route['forgot_password']['POST'] = 'user/User/forgot_password';
+$route["logout"]['GET'] = "user/User/logout";
 
 
-$route['api/login'] = 'api/ApiUser/login';
-$route['api/register'] = 'api/ApiUser/register';
-$route['api/forgot_password'] = 'api/ApiUser/forgot_password';
-$route["api/logout"] = "api/ApiUser/logout";
+$route['api/login']['POST'] = 'api/ApiUser/login';
+$route['api/register']['POST'] = 'api/ApiUser/register';
+$route['api/forgot_password']['POST'] = 'api/ApiUser/forgot_password';
+$route["api/logout"]['GET'] = "api/ApiUser/logout";
 
 
-$route['sp-admin'] = 'sp_dashboard/Dashboard/homepage';
-$route['sp-admin/animations'] = 'sp_dashboard/Dashboard/animations';
-$route['sp-admin/borders'] = 'sp_dashboard/Dashboard/borders';
-$route['sp-admin/buttons'] = 'sp_dashboard/Dashboard/buttons';
-$route['sp-admin/cards'] = 'sp_dashboard/Dashboard/cards';
-$route['sp-admin/charts'] = 'sp_dashboard/Dashboard/charts';
-$route['sp-admin/colors'] = 'sp_dashboard/Dashboard/colors';
-$route['sp-admin/other'] = 'sp_dashboard/Dashboard/other';
-$route['sp-admin/tables'] = 'sp_dashboard/Dashboard/tables';
-$route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
+$route['sp-admin']['GET'] = 'sp_dashboard/Dashboard/index';
 
 
-$route['sp-admin/page'] = 'sp_dashboard/Page/list';
-$route['sp-admin/page/ekle'] = 'sp_dashboard/Page/add';
-$route['sp-admin/page/sil/(:num)'] = 'sp_dashboard/Page/delete';
-$route['sp-admin/page/(:num)'] = 'sp_dashboard/Page/update/';
 
-$route['sp-admin/notification'] = 'sp_dashboard/Notification/list';
-$route['sp-admin/notification/ekle'] = 'sp_dashboard/Notification/add';
-$route['sp-admin/notification/sil/(:num)'] = 'sp_dashboard/Notification/delete';
-$route['sp-admin/notification/(:num)'] = 'sp_dashboard/Notification/update/';
+$route['sp-admin/page']['GET'] = 'sp_dashboard/Page/index';
+$route['sp-admin/page']['POST'] = 'sp_dashboard/Page/store';
+$route['sp-admin/page/create']['GET']  = 'sp_dashboard/Page/create';
+$route['sp-admin/page/delete/(:num)']['GET'] = 'sp_dashboard/Page/destroy';
+$route['sp-admin/page/(:num)']['GET'] = 'sp_dashboard/Page/show/';
+$route['sp-admin/page/(:num)/edit']['GET'] = 'sp_dashboard/Page/edit/';
+$route['sp-admin/page/(:num)']['POST'] = 'sp_dashboard/Page/update/';
 
-
-$route['sp-admin/media-upload'] = 'sp_dashboard/Media/add';
-
-$route['sp-admin/media'] = 'sp_dashboard/Media/list';
-$route['sp-admin/media/ekle'] = 'sp_dashboard/Media/add';
-$route['sp-admin/media/sil/(:num)'] = 'sp_dashboard/Media/delete';
-$route['sp-admin/media/(:num)'] = 'sp_dashboard/Media/update/';
-
-$route['sp-admin/ticket'] = 'sp_dashboard/Ticket/list';
-$route['sp-admin/ticket/ekle'] = 'sp_dashboard/Ticket/add';
-$route['sp-admin/ticket/sil/(:num)'] = 'sp_dashboard/Ticket/delete';
-$route['sp-admin/ticket/(:num)'] = 'sp_dashboard/Ticket/update/';
+$route['sp-admin/notification']['GET'] = 'sp_dashboard/Notification/index';
+$route['sp-admin/notification']['POST'] = 'sp_dashboard/Notification/store';
+$route['sp-admin/notification/create']['GET']  = 'sp_dashboard/Notification/create';
+$route['sp-admin/notification/delete/(:num)']['GET'] = 'sp_dashboard/Notification/destroy';
+$route['sp-admin/notification/(:num)']['GET'] = 'sp_dashboard/Notification/show/';
+$route['sp-admin/notification/(:num)/edit']['GET'] = 'sp_dashboard/Notification/edit/';
+$route['sp-admin/notification/(:num)']['POST'] = 'sp_dashboard/Notification/update/';
 
 
-$route['sp-admin/users'] = 'sp_dashboard/UserSettings/list';
-$route['sp-admin/settings/profile'] = 'sp_dashboard/UserSettings/update/';
+$route['sp-admin/media-upload'] = 'sp_dashboard/Media/create';
+
+$route['sp-admin/media']['GET'] = 'sp_dashboard/Media/index';
+$route['sp-admin/media']['POST'] = 'sp_dashboard/Media/store';
+$route['sp-admin/media/create']['GET']  = 'sp_dashboard/Media/create';
+$route['sp-admin/media/delete/(:num)']['GET'] = 'sp_dashboard/Media/destroy';
+$route['sp-admin/media/(:num)']['GET'] = 'sp_dashboard/Media/show/';
+$route['sp-admin/media/(:num)/edit']['GET'] = 'sp_dashboard/Media/edit/';
+$route['sp-admin/media/(:num)']['POST'] = 'sp_dashboard/Media/update/';
+
+$route['sp-admin/ticket']['GET'] = 'sp_dashboard/Ticket/index';
+$route['sp-admin/ticket']['POST'] = 'sp_dashboard/Ticket/store';
+$route['sp-admin/ticket/create']['GET']  = 'sp_dashboard/Ticket/create';
+$route['sp-admin/ticket/delete/(:num)']['GET'] = 'sp_dashboard/Ticket/destroy';
+$route['sp-admin/ticket/(:num)']['GET'] = 'sp_dashboard/Ticket/show/';
+$route['sp-admin/ticket/(:num)/edit']['GET'] = 'sp_dashboard/Ticket/edit/';
+$route['sp-admin/ticket/(:num)']['POST'] = 'sp_dashboard/Ticket/update/';
+
+
+$route['sp-admin/users']['GET'] = 'sp_dashboard/UserSettings/index';
+$route['sp-admin/users']['POST'] = 'sp_dashboard/UserSettings/store';
+$route['sp-admin/settings/profile'] = 'sp_dashboard/UserSettings/show/';
+$route['sp-admin/settings/profile/edit'] = 'sp_dashboard/UserSettings/edit/';
 $route['sp-admin/settings/security'] = 'sp_dashboard/UserSettings/security/';
 
 
-$route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
+$route['welcome']['GET'] = 'welcome_dashboard/WelcomeDashboard/index';
+
+
+$route['(:any)'] = 'Web/show';
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
