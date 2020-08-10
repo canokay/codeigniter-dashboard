@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['admin'] = 'dashboard/Dashboard/homepage';
 
 /*
 $route['admin/page'] = 'dashboard/Page/list';
@@ -85,6 +84,7 @@ $route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
 $route['admin/users'] = 'dashboard/UserSettings/list';
 $route['admin/settings/profile'] = 'dashboard/UserSettings/update/';
 $route['default_controller'] = 'Web/index';
+$route['admin']['GET'] = 'dashboard/Dashboard/index';
 $route['admin/settings/security'] = 'dashboard/UserSettings/security/';
 
 
@@ -99,8 +99,8 @@ $route['api/register'] = 'api/ApiUser/register';
 $route['api/forgot_password'] = 'api/ApiUser/forgot_password';
 $route["api/logout"] = "api/ApiUser/logout";
 
+$route['sp-admin']['GET'] = 'sp_dashboard/Dashboard/index';
 
-$route['sp-admin'] = 'sp_dashboard/Dashboard/homepage';
 
 
 $route['sp-admin/page'] = 'sp_dashboard/Page/list';
@@ -132,6 +132,6 @@ $route['sp-admin/settings/profile'] = 'sp_dashboard/UserSettings/update/';
 $route['sp-admin/settings/security'] = 'sp_dashboard/UserSettings/security/';
 
 
-$route['welcome'] = 'welcome_dashboard/WelcomeDashboard/homepage';
+$route['welcome']['GET'] = 'welcome_dashboard/WelcomeDashboard/index';
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;

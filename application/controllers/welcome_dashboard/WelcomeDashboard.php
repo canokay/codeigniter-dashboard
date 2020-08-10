@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class WelcomeDashboard extends CI_Controller {
 
 	public $project = "welcome_dashboard";
-	public $category = "pages";
+	public $category = "welcome_dashboard";
 	public $user = "";
 
 	public function __construct(){
@@ -20,7 +20,7 @@ class WelcomeDashboard extends CI_Controller {
 	}
 
 	
-	public function homepage()
+	public function index()
 	{
 			$context=array(
 				"title"					=>	"Hoş Geldiniz.",

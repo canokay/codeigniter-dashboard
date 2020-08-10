@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
 
 	public $project = "dashboard";
-	public $category = "example";
+	public $category = "dashboard";
 	
 	public function __construct()
 	{
@@ -12,18 +12,11 @@ class Dashboard extends CI_Controller {
 
 		$this->load->model("DashboardModel");
 		
-		if(!get_active_user()){
-            redirect(base_url("/login"));
-		}
-		else{
-			$this->user = get_active_user();
-			$this->notification_alerts = $this->DashboardModel->get_notification_alerts();
-			$this->ticket_alerts = $this->DashboardModel->get_ticket_alerts();
-		}
+		login_required();
 	}
 
 
-	public function homepage()
+	public function index()
 	{
 		$context=array(
 			"title"					=>	"Dashboard",
@@ -33,8 +26,7 @@ class Dashboard extends CI_Controller {
 			"view" 					=>  $this->router->fetch_method(),
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
-			"view_footer_include"	=> "homepage_script",
+			"ticket_alerts" 		=>	$this->ticket_alerts
 			
 		);
 		$this->load->view("$this->project/base",$context);
