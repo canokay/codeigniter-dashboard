@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Web/homepage';
 
 $route['admin'] = 'dashboard/Dashboard/homepage';
 
@@ -85,6 +84,7 @@ $route['admin/ticket/(:num)'] = 'dashboard/Ticket/update/';
 
 $route['admin/users'] = 'dashboard/UserSettings/list';
 $route['admin/settings/profile'] = 'dashboard/UserSettings/update/';
+$route['default_controller'] = 'Web/index';
 $route['admin/settings/security'] = 'dashboard/UserSettings/security/';
 
 
