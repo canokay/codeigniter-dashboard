@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Ortam:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Ortam Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Ortam Ekle</a>
                     <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Ortam Listele</a>
                 </div>
             </div>
@@ -21,7 +21,7 @@
             <?php if(empty($items)){ ?>
             
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/create")?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 
@@ -41,7 +41,7 @@
                         <td><?php echo $item->url; ?></td>
                         <td>
                             <button  
-                                data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/sil/" . $item->id); ?>" 
+                                data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/delete/$item->id"); ?>" 
                                 data-title="<?php echo $item->name; ?>" 
                                 class="btn btn-sm btn-danger btn-outline remove-btn">
                                 <i class="fa fa-trash"></i> Sil

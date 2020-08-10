@@ -17,36 +17,29 @@
 
         <!-- Card Body -->
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="widget">
-                        <div class="widget-body">
-                            <p>
-                                <b> Kalıcı bağlantı: </b> 
-                                    <a href="<?php echo base_url($item->url)?>" target="_blank">
-                                        <?php echo base_url($item->url)?>
-                                    </a>
-                            </p>
-
-                            <?php echo $item->description; ?>
-                        
-                        </div><!-- .widget-body -->
-                    </div><!-- .widget -->
-                </div><!-- END column -->
-            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <b><?php echo $item->title; ?> </b> - kayıdı silinecek. Onaylıyor musunuz?
+                            </div><!-- .widget-body -->
+                        </div><!-- .widget -->
+                    </div><!-- END column -->
+                </div>
         </div><!-- .widget -->
 
         <div class="card-footer text-center">
-            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3) . "/delete/"); ?>"
-                class="btn btn-danger col-md-5">
+        <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3) . "/" . $this->uri->segment(4)); ?>" method="post">
+            <button type="submit"  class="btn btn-danger col-md-5">
                 <i class="fa fa-trash"></i>
                     Sil
+            </button>
+            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3));?>"  
+                class="btn btn-dark col-md-5">
+                    İptal
             </a>
-            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id . "/edit"); ?>" 
-                class="btn btn-warning col-md-5">
-                <i class="fas fa-pen-square"></i>
-                    Düzenle
-            </a>
+
+        </form>
         </div><!-- card-footer -->
 	</div>
 </div>

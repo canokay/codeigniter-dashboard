@@ -43,7 +43,7 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page/ekle")?>">Yeni Sayfa Oluşturun</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page/create")?>">Yeni Sayfa Oluşturun</a>
 	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page")?>">Sayfaları Listeleyin</a>
 	</div>
   </div>
@@ -65,7 +65,7 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media/ekle")?>">Yeni Ortam Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media/create")?>">Yeni Ortam Ekleyin</a>
 	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media")?>">Ortamları Listeleyin</a>
 	</div>
   </div>
@@ -89,7 +89,7 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket/ekle")?>">Yeni Mesaj Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket/create")?>">Yeni Mesaj Ekleyin</a>
 	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket")?>">Mesajları Listeleyin</a>
 	</div>
   </div>

@@ -3,45 +3,185 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page extends CI_Controller {
 	
+	public $project = "dashboard";
+	public $category = "pages";
+	public $verbose_name = "Sayfa";
+	public $verbose_name_plural = "Sayfalar";
+	
 	public function __construct()
 	{
 		parent::__construct();
 
-		$this->project = "dashboard";
-		$this->category = "pages";
-		$this->verbose_name  = "Sayfa";
-		$this->verbose_name_plural  = "Sayfalar";
-		$this->fileds  = array("title","description");
-
-		$this->editable_fileds  = array(
-			"title" => array(
-				"name" => "title", 
-				"label" => "Baslik", 
-				"validation" => "required|trim")
-			,
-			"description" => array(
-				"name" => "description", 
-				"label" => "Icerik", 
-				"validation" => "required|trim")
-			);
-			$this->load->model("PageModel");
 		login_required();
 
+		$this->load->model("PageModel");
 	}
 
 
-	public function update()
+	public function index()
 	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){
-			
-			$id = $this->uri->segment(3);
+		$items = $this->PageModel->get_all();
 
-			$item = $this->PageModel->get(
+		$context=array(
+			"title"		=>	$this->verbose_name_plural,
+			"sub_title"	=>	$this->verbose_name . " Listesi",
+			"items" 	=>	$items,
+			"DataTablesField"	=> "datatable",
+			"page_title_add_button" => 1
+		);
+		render_view($context);
+	}
+
+	public function create()
+	{
+		$context=array(
+			"title"		=>	$this->verbose_name . " Oluştur",
+			"sub_title"	=>	$this->verbose_name . " Ekle",
+			"CKEditorField"	=>	array(
+				"description" => "description"
+			),
+		);
+		render_view($context);
+	}
+	
+
+	public function store()
+	{
+
+		$this->load->library("form_validation");
+
+		$this->form_validation->set_rules("title", "Başlık", "required|trim");
+		$this->form_validation->set_rules("description", "İçerik", "required|trim");
+
+		$this->form_validation->set_message(
+			array(
+				"required"  => "<b>{field}</b> alanı doldurulmalıdır"
+			)
+		);
+
+		$validate = $this->form_validation->run();
+
+		if($validate){
+			$insert = $this->PageModel->add(
 				array(
-					"id"	=> $id,
+					"title"         =>	$this->input->post("title"),
+					"description"   =>	$this->input->post("description"),
+					"url"           =>	AutoSlugField($this->input->post("title")),
+					"is_active"      =>	1,
+					"created_at"     =>	date("Y-m-d H:i:s"),
+				)
+			);
+
+			toast_field_insert($insert);
+
+		}
+
+		else {
+			$context=array(
+				"title"		=>	"Sayfa Ekle",
+				"sub_title"	=>	"Yeni Sayfa Ekle",
+				"project"	=>	$this->project,
+				"category"	=>	$this->category,
+				"view"		=>	$this->router->fetch_method(),
+				"user" 					=>	$this->user,
+				"notification_alerts" 	=>	$this->notification_alerts,
+				"ticket_alerts" 		=>	$this->ticket_alerts,
+				"CKEditorField"	=>	array(
+					"description" => "description"
+				),
+				"form_errors"	=> validation_errors(),
+			);
+			$this->load->view("dashboard/base",$context);
+
+		}
+	}
+
+
+	public function edit()
+	{			
+		$id = $this->uri->segment(3);
+
+		$item = $this->PageModel->get(
+			array(
+				"id"	=> $id,
+			)
+		);
+		
+		get_object_or_404($item);
+		
+		$context=array(
+			"title"		=>	$item->title . " - Düzenle",
+			"sub_title"	=>	"Sayfa Güncelle",
+			"CKEditorField"	=>	array(
+				"description" => "description"
+			),
+			"item" 		=>	$item,
+		);
+		render_view($context);
+	}
+
+	public function show()
+	{			
+		$id = $this->uri->segment(3);
+
+		$item = $this->PageModel->get(
+			array(
+				"id"	=> $id,
+			)
+		);
+
+		get_object_or_404($item);
+		
+		$context=array(
+			"title"		=>	$item->title,
+			"sub_title"	=>	$item->title,
+			"item" 		=>	$item,
+		);
+		render_view($context);
+	}
+
+	public function update(){
+
+		$id = $this->uri->segment(3);
+		
+		$this->load->library("form_validation");
+
+		$this->form_validation->set_rules("title", "Başlık", "required|trim");
+		$this->form_validation->set_rules("description", "İçerik", "required|trim");
+
+		$this->form_validation->set_message(
+			array(
+				"required"  => "<b>{field}</b> alanı doldurulmalıdır"
+			)
+		);
+
+		$validate = $this->form_validation->run();
+
+		if($validate){
+
+			$update =$this->PageModel->update(
+				array(
+					"id"    => $id
+				),
+				array(
+					"title"         => $this->input->post("title"),
+					"description"   => $this->input->post("description"),
+					"url"           => AutoSlugField($this->input->post("title")),
 				)
 			);
 			
+			toast_field_update($update);
+
+		} 
+		else {
+			$item = $this->PageModel->get(
+				array(
+					"id"	=>	$id,
+				)
+			);
+		
+			get_object_or_404($item);
+		
 			$context=array(
 				"title"		=>	"Sayfa Güncelle",
 				"sub_title"	=>	"Sayfa Güncelle",
@@ -55,87 +195,45 @@ class Page extends CI_Controller {
 					"description" => "description"
 				),
 				"item" 		=>	$item,
+				"form_errors"	=> validation_errors(),
 			);
 			$this->load->view("dashboard/base",$context);
 		}
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
-			$id = $this->uri->segment(3);
-			
-			$this->load->library("form_validation");
+	}
+	
+	public function delete()
+	{			
+		$id = $this->uri->segment(3);
 
-			$this->form_validation->set_rules("title", "Başlık", "required|trim");
-			$this->form_validation->set_rules("description", "İçerik", "required|trim");
-
-			$this->form_validation->set_message(
-				array(
-					"required"  => "<b>{field}</b> alanı doldurulmalıdır"
-				)
-			);
-
-			$validate = $this->form_validation->run();
-
-			if($validate){
-
-				$update =$this->PageModel->update(
-					array(
-						"id"    => $id
-					),
-					array(
-						"title"         => $this->input->post("title"),
-						"description"   => $this->input->post("description"),
-						"url"           => AutoSlugField($this->input->post("title")),
-					)
-				);
-				
-
-				if($update){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde güncellendi.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				} 
-				else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"Güncelleme olmadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				}
-
-			} 
-			else {
-				$item = $this->PageModel->get(
-					array(
-						"id"	=>	$id,
-					)
-				);
-
-				$context=array(
-					"title"		=>	"Sayfa Güncelle",
-					"sub_title"	=>	"Sayfa Güncelle",
-					"project"	=>	$this->project,
-					"category"	=>	$this->category,
-					"view"		=>	$this->router->fetch_method(),
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
-					"CKEditorField"	=>	array(
-						"description" => "description"
-					),
-					"item" 		=>	$item,
-					"form_errors"	=> validation_errors(),
-				);
-				$this->load->view("dashboard/base",$context);
-			}
-    	}
+		$item = $this->PageModel->get(
+			array(
+				"id"	=> $id,
+			)
+		);
+		
+		get_object_or_404($item);
+		
+		
+		$context=array(
+			"title"		=>	$item->title,
+			"sub_title"	=>	$item->title,
+			"item" 		=>	$item,
+		);
+		render_view($context);
 	}
 	
 
+	public function destroy()
+	{
+		$id = $this->uri->segment(3);
+		$delete = $this->PageModel->delete(
+            array(
+                "id"	=>	$id
+            )
+		);
 
+		toast_field_delete($delete);
+		
+	}
 
 }

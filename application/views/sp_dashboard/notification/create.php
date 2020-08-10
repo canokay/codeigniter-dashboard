@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Bildirim:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Bildirim Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Bildirim Ekle</a>
                     <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Bildirim Listele</a>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 
         <!-- Card Body -->
         <div class="card-body">
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>" method="post">
+			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>" method="post">
 				<input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>" >
 				<div class="form-group">
 					<div class="row">

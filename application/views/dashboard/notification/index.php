@@ -19,20 +19,18 @@
 
             <?php if(empty($items)){ ?>
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/". $this->uri->segment(2) . "/create")?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 				<div class="table-responsive">
 					<table id="datatable" class="table table-hover table-striped">
 						<thead>
 							<th>Başlık</th>
-							<th>Oluşturma Tarihi</th>
 						</thead>
 						<tbody>
 							<?php  foreach ($items as $item) { ?>
 							<tr>
 								<td><a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>"> <?php echo $item->title; ?></a></td>
-								<td><?php echo $item->created_at; ?> </td>
 							</tr>
 							<?php } ?>
 						</tbody>

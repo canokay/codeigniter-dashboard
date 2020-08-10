@@ -9,8 +9,8 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Sayfa:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Sayfa Ekle</a>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Sayfa Listele</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>"><?php echo $verbose_name;?> Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>"><?php echo $verbose_name;?> Listele</a>
                 </div>
             </div>
         </div>
@@ -22,14 +22,12 @@
             <?php if(empty($items)){ ?>
             
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/". $this->uri->segment(2) . "/create")?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 
 			<table id="datatable" class="table table-hover table-striped">
                 <thead>
-                    <th>#id</th>
-                    <th>Url</th>
                     <th>Başlık</th>
                     <th>Durumu</th>
                     <th>İşlem</th>
@@ -38,9 +36,7 @@
                     <?php  foreach ($items as $item) { ?>
                         
                     <tr>
-                        <td><?php echo $item->id; ?></td>
-                        <td><a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>"> <?php echo $item->url; ?></a></td>
-                        <td><?php echo $item->title; ?></td>
+                        <td><a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>"> <?php echo $item->title; ?></a></td>
                         <td>
 							<div class="m-b-lg m-r-xl inline-block">
                                 <input 
@@ -55,12 +51,12 @@
                         </td>
                         <td>
                             <button  
-                                data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" 
+                                data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id . "/delete"); ?>" 
                                 data-title="<?php echo $item->title; ?>" 
-                                class="btn btn-sm btn-danger btn-outline remove-btn">
+                                class="btn btn-md btn-danger btn-outline remove-btn">
                                 <i class="fa fa-trash"></i> Sil
                             </button>
-                            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" class="btn btn-xs btn-primary btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</a>
+                            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id . "/edit"); ?>" class="btn btn-warning "><i class="fas fa-pen-square"></i> Düzenle</a>
                         </td>
                     </tr>
                     <?php } ?>

@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Ticket:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Ticket Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Ticket Ekle</a>
                     <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Ticket Listele</a>
                 </div>
             </div>
@@ -18,7 +18,7 @@
         <!-- Card Body -->
         <div class="card-body">
 
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>" method="post">
+			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>" method="post">
 				<div class="form-group">
 					<label for="pageName">Mesaj Adı</label>
 					<input type="text" class="form-control" id="eventName" name="title" placeholder="Mesaj Adı">

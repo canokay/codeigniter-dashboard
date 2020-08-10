@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Sayfa:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Sayfa Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Sayfa Ekle</a>
                     <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Sayfa Listele</a>
                 </div>
             </div>
@@ -17,7 +17,6 @@
 
         <!-- Card Body -->
         <div class="card-body">
-            <?php if(isset($item)): ?> 
                 <div class="row">
                     <div class="col-md-12">
                         <h4 class="m-b-lg">
@@ -27,6 +26,14 @@
                     <div class="col-md-12">
                         <div class="widget">
                             <div class="widget-body">
+                            
+                                <p>
+                                    <b> Kalıcı bağlantı: </b> 
+                                        <a href="<?php echo base_url($item->url)?>" target="_blank">
+                                            <?php echo base_url($item->url)?>
+                                        </a>
+                                </p>
+                            
                                 <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" method="post">
                                     <div class="form-group">
                                         <label>Başlık</label>
@@ -39,8 +46,10 @@
                                         <?php echo $item->description; ?>
                                         </textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-md btn-outline">Güncelle</button>
-                                    <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2)); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
+                                    <div class="form-group text-center">
+                                        <button type="submit" class="btn btn-primary btn-md btn-outline col-md-5">Güncelle</button>
+                                        <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3)); ?>" class="btn btn-md btn-danger btn-outline col-md-5">İptal</a>
+                                    </div>
                                 </form>
                                 <?php if (isset($form_errors)) { ?>
                                     <div class="alert alert-danger mt-3" role="alert">
@@ -51,10 +60,6 @@
                         </div><!-- .widget -->
                     </div><!-- END column -->
                 </div>
-            <?php else: ?>
-            Kayıt bulunamadı :(
-            <?php endif; ?>
-
         </div><!-- .widget -->
 	</div>
 </div>

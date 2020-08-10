@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Sayfa:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/ekle")?>">Sayfa Ekle</a>
+                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Sayfa Ekle</a>
                     <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Sayfa Listele</a>
                 </div>
             </div>
@@ -17,7 +17,6 @@
 
         <!-- Card Body -->
         <div class="card-body">
-            <?php if(isset($item)): ?> 
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="m-b-lg">
@@ -53,10 +52,6 @@
                     </div><!-- .widget -->
                 </div><!-- END column -->
             </div>
-            <?php else: ?>
-            Kayıt bulunamadı :(
-            <?php endif; ?>
-
         </div><!-- .widget -->
 	</div>
 </div>

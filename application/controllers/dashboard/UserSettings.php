@@ -16,7 +16,7 @@ class UserSettings extends CI_Controller {
 
 	}
 
-	public function list(){
+	public function index(){
 		$items = $this->UserModel->get_all();
 
 		$context=array(
@@ -34,9 +34,8 @@ class UserSettings extends CI_Controller {
 		$this->load->view("dashboard/base",$context);
 	}
 
-	public function update()
+	public function create()
 	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){
 			
 			$context=array(
 				"title"		=>	"Hesap Ayarları",
@@ -53,7 +52,7 @@ class UserSettings extends CI_Controller {
 			);
 			$this->load->view("dashboard/base",$context);
 		}
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
+		public function update(){
 
 			$this->load->library("form_validation");
 
@@ -119,13 +118,13 @@ class UserSettings extends CI_Controller {
 				$this->load->view("dashboard/base",$context);	
 			}
 			 
-		}
+		
 	}
 
-
+/*
 	public function security()
 	{
-		if ($this->input->server('REQUEST_METHOD')=='GET'){
+		public function create(){
 			
 			$item = $this->UserModel->get(
 				array(
@@ -149,7 +148,7 @@ class UserSettings extends CI_Controller {
 			);
 			$this->load->view("dashboard/base",$context);
 		}
-		else if ($this->input->server('REQUEST_METHOD')=='POST'){
+		public function update(){
 
 			$this->load->library("form_validation");
 
@@ -215,7 +214,7 @@ class UserSettings extends CI_Controller {
 		}
 		
 	}
-
+*/
 
 	public function change_password()
 	{
