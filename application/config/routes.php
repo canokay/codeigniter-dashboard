@@ -52,15 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Web/homepage';
 
 $route['admin'] = 'dashboard/Dashboard/homepage';
-$route['admin/animations'] = 'dashboard/Dashboard/animations';
-$route['admin/borders'] = 'dashboard/Dashboard/borders';
-$route['admin/buttons'] = 'dashboard/Dashboard/buttons';
-$route['admin/cards'] = 'dashboard/Dashboard/cards';
-$route['admin/charts'] = 'dashboard/Dashboard/charts';
-$route['admin/colors'] = 'dashboard/Dashboard/colors';
-$route['admin/other'] = 'dashboard/Dashboard/other';
-$route['admin/tables'] = 'dashboard/Dashboard/tables';
-$route['admin/form'] = 'dashboard/Dashboard/form';
 
 /*
 $route['admin/page'] = 'dashboard/Page/list';
@@ -110,15 +101,6 @@ $route["api/logout"] = "api/ApiUser/logout";
 
 
 $route['sp-admin'] = 'sp_dashboard/Dashboard/homepage';
-$route['sp-admin/animations'] = 'sp_dashboard/Dashboard/animations';
-$route['sp-admin/borders'] = 'sp_dashboard/Dashboard/borders';
-$route['sp-admin/buttons'] = 'sp_dashboard/Dashboard/buttons';
-$route['sp-admin/cards'] = 'sp_dashboard/Dashboard/cards';
-$route['sp-admin/charts'] = 'sp_dashboard/Dashboard/charts';
-$route['sp-admin/colors'] = 'sp_dashboard/Dashboard/colors';
-$route['sp-admin/other'] = 'sp_dashboard/Dashboard/other';
-$route['sp-admin/tables'] = 'sp_dashboard/Dashboard/tables';
-$route['sp-admin/form'] = 'sp_dashboard/Dashboard/form';
 
 
 $route['sp-admin/page'] = 'sp_dashboard/Page/list';
