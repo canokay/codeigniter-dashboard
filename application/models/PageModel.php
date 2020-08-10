@@ -13,7 +13,7 @@ class PageModel extends CI_Model
 
     public function get($where = array())
     {
-        return $this->db->where($where)->get("pages")->row();
+        return $this->db->where($where)->get($this->tableName)->row();
     }
 
     public function get_all($where = array())

@@ -9,20 +9,36 @@ class Web extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model("PageModel");
 	}
 
 
-	public function homepage()
+	public function index()
 	{
 		$context=array(
 			"title"					=>	"Codeigniter 3x",
 			"sub_title"				=>	"Codeigniter",
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"view_footer_include"	=> "homepage_script",
+			"view" 					=>  $this->router->fetch_method()
 		);
 		$this->load->view("$this->project/base",$context);
+	}
+
+	public function show()
+	{
+		
+		$id = $this->uri->segment(1);
+
+		$item = $this->PageModel->get(
+			array(
+				"url"	=> $id,
+			)
+		);
+
+		
+		
+		echo $item->description;
 	}
 
 

@@ -155,5 +155,8 @@ $route['sp-admin/settings/security'] = 'sp_dashboard/UserSettings/security/';
 
 
 $route['welcome']['GET'] = 'welcome_dashboard/WelcomeDashboard/index';
+
+
+$route['(:any)'] = 'Web/show';
 $route['404_override'] = 'My404';
 $route['translate_uri_dashes'] = FALSE;
