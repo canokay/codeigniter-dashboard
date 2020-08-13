@@ -10,7 +10,7 @@ function render_view($context){
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
     $context['notification_alerts'] 	=	$t->notification_alerts;
     $context['ticket_alerts'] 		=	$t->ticket_alerts;
-    return $t->load->view($t->project . "/base",$context);
+    return $t->load->view($t->project . "/layout",$context);
 }
 
 function render_card_header($card_header_title){

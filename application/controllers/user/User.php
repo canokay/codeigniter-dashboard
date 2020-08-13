@@ -21,7 +21,7 @@ class User extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"view" 					=>  $this->router->fetch_method(),
 		);
-		$this->load->view("user/base",$context);
+		$this->load->view("user/layout",$context);
 	}
 	
 	public function login(){
@@ -59,7 +59,7 @@ class User extends CI_Controller {
                 "view" 					=>  "login_form",
                 "form_error"      =>  "Hata oluştu",
             );
-            $this->load->view("user/base",$context);
+            $this->load->view("user/layout",$context);
             }
 	}
     
@@ -78,7 +78,7 @@ class User extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"view" 					=>  $this->router->fetch_method(),
 		);
-		$this->load->view("user/base",$context);
+		$this->load->view("user/layout",$context);
 	}
 
 	public function register()
@@ -148,7 +148,7 @@ class User extends CI_Controller {
 				"project" 				=> 	$this->project,
 				"view" 					=>  "register_form",
 			);
-			$this->load->view("user/base",$context);
+			$this->load->view("user/layout",$context);
 		}
 	}
 
@@ -166,6 +166,6 @@ class User extends CI_Controller {
 			"project" 				=> 	$this->project,
 			"view" 					=>  $this->router->fetch_method(),
 		);
-		$this->load->view("user/base",$context);
+		$this->load->view("user/layout",$context);
     }
 }

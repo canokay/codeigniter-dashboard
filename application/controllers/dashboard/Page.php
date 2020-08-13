@@ -80,18 +80,12 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"		=>	"Sayfa Ekle",
 				"sub_title"	=>	"Yeni Sayfa Ekle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 
 		}
 	}
@@ -185,19 +179,13 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"		=>	"Sayfa Güncelle",
 				"sub_title"	=>	"Sayfa Güncelle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"item" 		=>	$item,
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 	}
 	

@@ -5,6 +5,8 @@ class Page extends CI_Controller {
 
 	public $project = "sp_dashboard";
 	public $category = "pages";
+	public $verbose_name = "Sayfa";
+	public $verbose_name_plural = "Sayfalar";
 
 	public function __construct()
 	{
@@ -21,37 +23,25 @@ class Page extends CI_Controller {
 		$pages = $this->PageModel->get_all();
 
 		$context=array(
-			"title"					=>	"Sayfalar",
-			"sub_title"				=>	"Sayfa Listesi",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
+			"title"		=>	$this->verbose_name_plural,
+			"sub_title"	=>	$this->verbose_name . " Listesi",
 			"items" 				=>	$pages,
 			"DataTablesField"		=> "datatable",
 			"page_title_add_button" => 1
 		);
-		$this->load->view("sp_dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function create()
 	{		
 		$context=array(
-			"title"				=>	"Sayfa Ekle",
-			"sub_title"			=>	"Yeni Sayfa Ekle",
-			"project" 			=> 	$this->project,
-			"category" 			=>	$this->category,
-			"view" 				=>	$this->router->fetch_method(),
-			"user" 				=>	$this->user,
-		"notification_alerts" 	=>	$this->notification_alerts,
-		"ticket_alerts" 		=>	$this->ticket_alerts,
+			"title"		=>	$this->verbose_name . " Oluştur",
+			"sub_title"	=>	$this->verbose_name . " Ekle",
 			"CKEditorField"		=>	array(
 				"description"	=> "description"
 			),
 		);
-		$this->load->view("sp_dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function store()
@@ -104,18 +94,12 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"					=>	"Sayfa Ekle",
 				"sub_title"				=>	"Yeni Sayfa Ekle",
-				"project" 				=> 	$this->project,
-				"category" 				=>	$this->category,
-				"view" 					=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"			=>	array(
 					"description" => "description"
 				),
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("sp_dashboard/base",$context);
+			render_view($context);
 
 		}
 	}
@@ -134,18 +118,12 @@ class Page extends CI_Controller {
 		$context=array(
 			"title"					=>	"Sayfa Güncelle",
 			"sub_title"				=>	"Sayfa Güncelle",
-			"project"				=>	$this->project,
-			"category"				=>	$this->category,
-			"view"					=>	$this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 			"item" 		=>	$item,
 		);
-		$this->load->view("sp_dashboard/base",$context);
+		render_view($context);
 	}
 
 
@@ -162,18 +140,12 @@ class Page extends CI_Controller {
 		$context=array(
 			"title"					=>	"Sayfa Güncelle",
 			"sub_title"				=>	"Sayfa Güncelle",
-			"project"				=>	$this->project,
-			"category"				=>	$this->category,
-			"view"					=>	$this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 			"item" 		=>	$item,
 		);
-		$this->load->view("sp_dashboard/base",$context);
+		render_view($context);
 	}
 		
 	public function update()
@@ -238,19 +210,13 @@ class Page extends CI_Controller {
 			$context=array(
 				"title"					=>	"Sayfa Güncelle",
 				"sub_title"				=>	"Sayfa Güncelle",
-				"project"				=>	$this->project,
-				"category"				=>	$this->category,
-				"view"					=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"			=>	array(
 					"description" => "description"
 				),
 				"item" 		=>	$item,
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("sp_dashboard/base",$context);
+			render_view($context);
 		}
     	
 	}

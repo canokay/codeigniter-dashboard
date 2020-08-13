@@ -5,6 +5,8 @@ class Dashboard extends CI_Controller {
 
 	public $project = "sp_dashboard";
 	public $category = "sp_dashboard";
+	public $verbose_name = "Dashboard";
+	public $verbose_name_plural = "Dashboard";
 	
 	public function __construct()
 	{
@@ -18,17 +20,14 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$context=array(
-			"title"					=>	"sp_dashboard",
-			"sub_title"				=>	"Kontrol Paneli",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
+			"title"		=>	$this->verbose_name,
+			"sub_title"	=>	$this->verbose_name,
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 			"ticket_alerts" 		=>	$this->ticket_alerts
 			
 		);
-		$this->load->view("$this->project/base",$context);
+		render_view($context);
 	}
 
 }

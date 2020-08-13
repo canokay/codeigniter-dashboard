@@ -51,9 +51,9 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.4/examples/cover/cover.css" rel="stylesheet">
 	<?php
-		if (isset($view_header_include)) {
+		if (isset($style_include)) {
 			echo "<!-- Page Style -->";
-			$this->load->view("includes/$project/$category/$view/$view_header_include");
+			$this->load->view("$project/$category/$view/style");?>
 		}
 	?>
 

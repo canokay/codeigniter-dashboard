@@ -45,9 +45,9 @@
 	?>
 
 	<?php
-		if (isset($view_header_include)) {
+		if (isset($style_include)) {
 			echo "<!-- Page Style -->";
-			$this->load->view("includes/$project/$category/$view/$view_header_include");
+			$this->load->view("$project/$category/$view/style");?>
 		}
 	?>
 
@@ -59,7 +59,7 @@
   <div id="wrapper">
 
     <!-- Left Sidebar -->
-			<?php $this->load->view("includes/$project/base/left_sidebar")   ?>
+			<?php $this->load->view("$project/components/left_sidebar")   ?>
     <!-- End of Left Sidebar -->
 
     <!-- Content Wrapper -->
@@ -69,7 +69,7 @@
       <div id="content">
 
         <!-- Topbar -->
-				<?php $this->load->view("includes/$project/base/topbar")   ?>
+				<?php $this->load->view("$project/components/topbar")   ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -96,11 +96,9 @@
 							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Listele</a>';
 						}
 						else if (isset($page_title_delete_button)) {
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/sil") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
+							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/delete") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
 						}
-						else if(isset($page_title_button)){
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $page_title_button) .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Git</a>';
-						}
+
 					?>
 				</div>
 			</div>
@@ -229,9 +227,9 @@
 
 
 	<?php
-			if (isset($view_footer_include)) {
+			if (isset($script_include)) {
 				echo "<!-- Page JS -->";
-				$this->load->view("includes/$project/$category/$view/$view_footer_include");
+				$this->load->view("$project/$category/$view/script");
 			}
 		?>
 
