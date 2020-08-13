@@ -5,6 +5,8 @@ class Dashboard extends CI_Controller {
 
 	public $project = "sp_dashboard";
 	public $category = "sp_dashboard";
+	public $verbose_name = "Dashboard";
+	public $verbose_name_plural = "Dashboard";
 	
 	public function __construct()
 	{

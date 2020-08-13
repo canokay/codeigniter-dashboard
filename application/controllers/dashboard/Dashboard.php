@@ -5,6 +5,8 @@ class Dashboard extends CI_Controller {
 
 	public $project = "dashboard";
 	public $category = "dashboard";
+	public $verbose_name = "Dashboard";
+	public $verbose_name_plural = "Kontrol Paneli";
 	
 	public function __construct()
 	{

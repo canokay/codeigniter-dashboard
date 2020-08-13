@@ -5,6 +5,8 @@ class Page extends CI_Controller {
 
 	public $project = "sp_dashboard";
 	public $category = "pages";
+	public $verbose_name = "Sayfa";
+	public $verbose_name_plural = "Sayfalar";
 
 	public function __construct()
 	{

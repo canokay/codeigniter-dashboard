@@ -5,7 +5,9 @@ class UserSettings extends CI_Controller {
 
 	public $project = "dashboard";
 	public $category = "settings";
-	public $user = "";
+	public $verbose_name = "Ayar";
+	public $verbose_name_plural = "Ayarlar";
+	
 
 	public function __construct(){
 		parent::__construct();

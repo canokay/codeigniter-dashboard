@@ -5,6 +5,8 @@ class Ticket extends CI_Controller {
 	
 	public $project = "sp_dashboard";
 	public $category = "ticket";
+	public $verbose_name = "Mesaj";
+	public $verbose_name_plural = "Mesajlar";
 	
 	public function __construct()
 	{

@@ -5,7 +5,9 @@ class Notification extends CI_Controller {
 
 	public $project = "sp_dashboard";
 	public $category = "notification";
-	public $user = "";
+	public $verbose_name = "Bildirim";
+	public $verbose_name_plural = "Bildirimler";
+	
 
 	public function __construct(){
 		parent::__construct();

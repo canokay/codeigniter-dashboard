@@ -5,6 +5,8 @@ class Media extends CI_Controller {
 	
 	public $project = "dashboard";
 	public $category = "media";
+	public $verbose_name = "Ortam";
+	public $verbose_name_plural = "Ortamlar";
 	
 	public function __construct()
 	{
