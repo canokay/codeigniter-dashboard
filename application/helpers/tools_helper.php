@@ -122,13 +122,6 @@ function response_and_redirect($response, $url = ""){
     }
 }
 
-
-
-function convert_randevu_time($time){
-    return date("H:i",strtotime($time)); 
-}
-
-
 function get_detail_page($PATH){
 echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $PATH);
 }

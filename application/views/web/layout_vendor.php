@@ -50,9 +50,9 @@
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url("assets/web")?>/css/cover.css" rel="stylesheet">
 	<?php
-		if (isset($view_header_include)) {
+		if (isset($style_include)) {
 			echo "<!-- Page Style -->";
-			$this->load->view("includes/$project/$category/$view/$view_header_include");
+			$this->load->view("$project/$category/$view/style");?>
 		}
 	?>
 

@@ -20,40 +20,37 @@
 	?>
 
   <!-- Custom fonts for this template-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url("assets/vendor")?>fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-
   <!-- Custom styles for this template-->
-  <link href="<?php echo base_url("assets/dashboard/")?>css/sb-admin-2.css" rel="stylesheet">  
+  <link href="<?php echo base_url("assets/vendor")?>css/sb-admin-2.css" rel="stylesheet">  
 
   <!-- IziToastField Css -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css'>
-	<?php if(isset($CKEditorField)){ ?>
-			<!-- CKEditor JS -->
-			<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>
-	<?php 	} ?>
-
-	<?php if(isset($DropzoneField)) { ?>
-			<!-- Dropzone Css -->
-			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>
-	<?php 	}?>
-	
-	<?php if(isset($PickDateField)){ ?>
-			<!-- PickDate Css -->
-			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.css'> 
-			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.date.css'> 
-			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.time.css'> 
-	<?php	} ?>
-
 	<?php
-		if (isset($view_header_include)) {
-			echo "<!-- Page Style -->";
-			$this->load->view("includes/$project/$category/$view/$view_header_include");
+		if(isset($CKEditorField))
+		{	
+			echo "<!-- CKEditor JS -->";
+			echo "	<script src='https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js'></script>";
 		}
 	?>
+
+	<?php
+		if(isset($DropzoneField))
+		{
+			echo "<!-- Dropzone Css -->";
+			echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css'>";
+		}
+	?>
+
+	<?php
+		if (isset($style_include)) {
+			echo "<!-- Page Style -->";
+			$this->load->view("$project/$category/$view/style");?>
+		}
+	?>
+
 </head>
 
 <body id="page-top">
@@ -62,7 +59,7 @@
   <div id="wrapper">
 
     <!-- Left Sidebar -->
-			<?php $this->load->view("includes/$project/base/left_sidebar")   ?>
+			<?php $this->load->view("$project/components/left_sidebar")   ?>
     <!-- End of Left Sidebar -->
 
     <!-- Content Wrapper -->
@@ -72,13 +69,14 @@
       <div id="content">
 
         <!-- Topbar -->
-				<?php $this->load->view("includes/$project/base/topbar")   ?>
+				<?php $this->load->view("$project/components/topbar")   ?>
         <!-- End of Topbar -->
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-			<!-- Page Heading -->
-			<div class="row">
+          <!-- Page Heading -->
+		  <div class="row">
 				<div class="col col-md-8 text-left">
 					<?php
 						if (isset($sub_title)) {
@@ -98,16 +96,14 @@
 							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Listele</a>';
 						}
 						else if (isset($page_title_delete_button)) {
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/sil") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
+							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/delete") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
 						}
-						else if(isset($page_title_button)){
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $page_title_button) .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Git</a>';
-						}
+
 					?>
 				</div>
 			</div>
 
-			<!-- End Page Heading -->
+          <!-- End Page Heading -->
 
 					<?php $this->load->view("$project/$category/$view")   ?>
         </div>
@@ -128,18 +124,18 @@
   </a>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+  <script src="<?php echo base_url("assets/vendor")?>vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url("assets/vendor")?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url("assets/vendor")?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- SweetAlert2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
   <!-- Custom scripts for all pages-->
-  <script src="<?php echo base_url("assets/dashboard/")?>js/sb-admin-2.min.js"></script>
+  <script src="<?php echo base_url("assets/vendor")?>js/sb-admin-2.min.js"></script>
 
   <!-- IziToast JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
@@ -189,30 +185,15 @@
 			}		
 		?>
 
-		<?php if(isset($DropzoneField)) { ?>
-				<!-- Dropzone Js -->
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js'></script>
-		<?php 	} ?>
+		<?php
+			if(isset($DropzoneField))
+			{
+				echo "<!-- Dropzone Js -->";
+				echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js'></script>";
+			}
+		?>
 
 
-		<?php if(isset($PickDateField)) {?>
-				<!-- PickDate Css --> 
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js'></script>
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.date.js'></script>
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.time.js'></script> 
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/translations/tr_TR.js'></script>
-				<script>
-					$(document).ready(function () {
-						$('.pickadate').pickadate({
-							format: 'd/mm/yyyy',
-						});
-						
-						$('.pickatime').pickatime({
-							format: 'HH:i',
-						});
-					});
-				</script>
-		<?php 	}?>
 
 		
 		<?php 
@@ -232,20 +213,28 @@
 				<script>
 					$(document).ready(function() {
 						$('#datatable').DataTable({
-                    		"order": [[0, "desc"]],
-							"language":{"sDecimal":",","sEmptyTable":"Tabloda herhangi bir veri mevcut değil","sInfo":"_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor","sInfoEmpty":"Kayıt yok","sInfoFiltered":"(_MAX_ kayıt içerisinden bulunan)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"Sayfada _MENU_ kayıt göster","sLoadingRecords":"Yükleniyor...","sProcessing":"İşleniyor...","sSearch":"Ara:","sZeroRecords":"Eşleşen kayıt bulunamadı","oPaginate":{"sFirst":"İlk","sLast":"Son","sNext":"Sonraki","sPrevious":"Önceki"},"oAria":{"sSortAscending":": artan sütun sıralamasını aktifleştir","sSortDescending":": azalan sütun sıralamasını aktifleştir"},"select":{"rows":{"0":"","1":"1 kayıt seçildi","_":"%d kayıt seçildi"}}},
+                        "order": [[0, "desc"]],
+                        "language":{"sDecimal":",","sEmptyTable":"Tabloda herhangi bir veri mevcut değil","sInfo":"_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor","sInfoEmpty":"Kayıt yok","sInfoFiltered":"(_MAX_ kayıt içerisinden bulunan)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"Sayfada _MENU_ kayıt göster","sLoadingRecords":"Yükleniyor...","sProcessing":"İşleniyor...","sSearch":"Ara:","sZeroRecords":"Eşleşen kayıt bulunamadı","oPaginate":{"sFirst":"İlk","sLast":"Son","sNext":"Sonraki","sPrevious":"Önceki"},"oAria":{"sSortAscending":": artan sütun sıralamasını aktifleştir","sSortDescending":": azalan sütun sıralamasını aktifleştir"},"select":{"rows":{"0":"","1":"1 kayıt seçildi","_":"%d kayıt seçildi"}}}
 						});
 					} );
 				</script>
 		<?php }?>
 						
 
+
+
+
+
+
 	<?php
-			if (isset($view_footer_include)) {
+			if (isset($script_include)) {
 				echo "<!-- Page JS -->";
-				$this->load->view("includes/$project/$category/$view/$view_footer_include");
+				$this->load->view("$project/$category/$view/script");
 			}
 		?>
+
+
+
 
 </body>
 
