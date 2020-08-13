@@ -19,17 +19,10 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$context=array(
-			"title"					=>	"Dashboard",
-			"sub_title"				=>	"Kontrol Paneli",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts
-			
+			"title"		=>	$this->verbose_name_plural,
+			"sub_title"	=>	$this->verbose_name . " Listesi",
 		);
-		$this->load->view("$this->project/base",$context);
+		render_view($context);
 	}
 
 

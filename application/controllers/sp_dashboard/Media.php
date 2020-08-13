@@ -23,37 +23,25 @@ class Media extends CI_Controller {
 		$items = $this->MediaModel->get_all();
 
 		$context=array(
-			"title"		=>	"Ortamlar",
-			"sub_title"	=>	"Ortam Listesi",
-			"project" 	=> $this->project,
-			"category" 				=>	$this->category,
-			"view" 		=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
+			"title"		=>	$this->verbose_name_plural,
+			"sub_title"	=>	$this->verbose_name . " Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function create()
 	{		
 		$context=array(
-			"title"		=>	"Ortam Ekle",
-			"sub_title"	=>	"Yeni Ortam Ekle",
-			"project" 	=> $this->project,
-			"category" 				=>	$this->category,
-			"view" 		=>	$this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
+			"title"		=>	$this->verbose_name . " Oluştur",
+			"sub_title"	=>	$this->verbose_name . " Ekle",
 			"DropzoneField"	=>	array(
 				"dropzone" => "dropzone"
 			),
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function store()
@@ -94,18 +82,12 @@ class Media extends CI_Controller {
 		$context=array(
 			"title"		=>	"Ortam Güncelle",
 			"sub_title"	=>	"Ortam Güncelle",
-			"project"	=>	$this->project,
-			"category"	=>	$this->category,
-			"view"		=>	$this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"DropzoneField"	=>	array(
 				"dropzone" => "dropzone"
 			),
 			"item" 		=>	$item,
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 	public function edit()
 	{	
@@ -120,18 +102,12 @@ class Media extends CI_Controller {
 		$context=array(
 			"title"		=>	"Ortam Güncelle",
 			"sub_title"	=>	"Ortam Güncelle",
-			"project"	=>	$this->project,
-			"category"	=>	$this->category,
-			"view"		=>	$this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"DropzoneField"	=>	array(
 				"dropzone" => "dropzone"
 			),
 			"item" 		=>	$item,
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function update()
@@ -200,7 +176,7 @@ class Media extends CI_Controller {
 				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"item" 		=>	$item,
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 	}
 	

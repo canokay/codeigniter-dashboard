@@ -28,37 +28,25 @@ class Ticket extends CI_Controller {
 		);
 
 		$context=array(
-			"title"		=>	"Mesajlar",
-			"sub_title"	=>	"Mesaj Listesi",
-			"project" 	=> $this->project,
-			"category" 				=>	$this->category,
-			"view" 		=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
+			"title"		=>	$this->verbose_name_plural,
+			"sub_title"	=>	$this->verbose_name . " Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function create()
 	{		
 			$context=array(
-				"title"		=>	"Sayfa Ekle",
-				"sub_title"	=>	"Yeni Sayfa Ekle",
-				"project" 	=> $this->project,
-				"category" 				=>	$this->category,
-				"view" 		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
+				"title"		=>	$this->verbose_name . " Oluştur",
+				"sub_title"	=>	$this->verbose_name . " Ekle",
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 
 		public function store()
@@ -110,18 +98,12 @@ class Ticket extends CI_Controller {
 				$context=array(
 					"title"		=>	"Sayfa Ekle",
 					"sub_title"	=>	"Yeni Sayfa Ekle",
-					"project" 	=> $this->project,
-					"category" 				=>	$this->category,
-					"view" 		=>	$this->router->fetch_method(),
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"CKEditorField"	=>	array(
 						"message" => "message"
 					),
 					"form_errors"	=> validation_errors(),
 				);
-				$this->load->view("dashboard/base",$context);
+				render_view($context);
 
 			}
 
@@ -148,19 +130,13 @@ class Ticket extends CI_Controller {
 			$context=array(
 				"title"		=>	"Ticket Görüntüle",
 				"sub_title"	=>	"Ticket Görüntüle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),
 				"message" 		=>	$message,
 				"message_chat"	=>	$message_chat
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 
 	}
 	
@@ -184,19 +160,13 @@ class Ticket extends CI_Controller {
 			$context=array(
 				"title"		=>	"Ticket Görüntüle",
 				"sub_title"	=>	"Ticket Görüntüle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),
 				"message" 		=>	$message,
 				"message_chat"	=>	$message_chat
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		
 
 	}
@@ -262,12 +232,6 @@ class Ticket extends CI_Controller {
 			$context=array(
 				"title"		=>	"Ticket Görüntüle",
 				"sub_title"	=>	"Ticket Görüntüle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),
@@ -275,7 +239,7 @@ class Ticket extends CI_Controller {
 				"message_chat"	=>	$message_chat,
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 		
 

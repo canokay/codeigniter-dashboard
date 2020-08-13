@@ -24,34 +24,22 @@ class Notification extends CI_Controller {
 		$context=array(
 			"title"		=>	"Bildirim",
 			"sub_title"	=>	"Bildirim Listesi",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
 		);
-		$this->load->view("sp_dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function create(){
 		$context=array(
 			"title"		=>	"Bildirim Ekle",
 			"sub_title"	=>	"Yeni Bildirim Ekle",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function store()
@@ -101,18 +89,12 @@ class Notification extends CI_Controller {
 			$context=array(
 				"title"		=>	"Bildirim Ekle",
 				"sub_title"	=>	"Yeni Bildirim Ekle",
-				"project" 				=> 	$this->project,
-				"category" 				=>	$this->category,
-				"view" 					=>  $this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 
 		}
 	}
@@ -130,18 +112,12 @@ class Notification extends CI_Controller {
 		$context=array(
 			"title"		=>	$notification->title,
 			"sub_title"	=>	$notification->title,
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 			"notification" 		=>	$notification,
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function edit(){
@@ -157,18 +133,12 @@ class Notification extends CI_Controller {
 		$context=array(
 			"title"		=>	$notification->title,
 			"sub_title"	=>	$notification->title,
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 			"notification" 		=>	$notification,
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function update(){
@@ -226,19 +196,13 @@ class Notification extends CI_Controller {
 			$context=array(
 				"title"		=>	$notification->title,
 				"sub_title"	=>	$notification->title,
-				"project" 				=> 	$this->project,
-				"category" 				=>	$this->category,
-				"view" 					=>  $this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"notification" 		=>	$notification,
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 	}
 

@@ -24,16 +24,10 @@ class UserSettings extends CI_Controller {
 		$context=array(
 			"title"		=>	"Kullanıcılar",
 			"sub_title"	=>	"Kullanıcı Listesi",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function create()
@@ -42,17 +36,11 @@ class UserSettings extends CI_Controller {
 			$context=array(
 				"title"		=>	"Hesap Ayarları",
 				"sub_title"	=>	"Hesap Ayarları",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				)
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 		public function update(){
 
@@ -106,18 +94,12 @@ class UserSettings extends CI_Controller {
 				$context=array(
 					"title"		=>	"Hesap Ayarları",
 					"sub_title"	=>	"Hesap Ayarları",
-					"project"	=>	$this->project,
-					"category"	=>	$this->category,
-					"view"		=>	$this->router->fetch_method(),
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"CKEditorField"	=>	array(
 						"description" => "description"
 					),
 					"form_errors"	=> validation_errors(),
 				);
-				$this->load->view("dashboard/base",$context);	
+				render_view($context);	
 			}
 			 
 		
@@ -137,18 +119,12 @@ class UserSettings extends CI_Controller {
 			$context=array(
 				"title"		=>	"Hesap Güvenliği",
 				"sub_title"	=>	"Hesap Güvenliği",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"item" 		=>	$item,
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 		public function update(){
 

@@ -24,16 +24,10 @@ class UserSettings extends CI_Controller {
 		$context=array(
 			"title"		=>	"Kullanıcılar",
 			"sub_title"	=>	"Kullanıcı Listesi",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
-		$this->load->view("dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function create()
@@ -46,20 +40,14 @@ class UserSettings extends CI_Controller {
 			);
 			
 			$context=array(
-				"title"		=>	"Kullanıcı Güncelle",
-				"sub_title"	=>	"Kullanıcı Güncelle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
+				"title"		=>	$this->verbose_name . " Oluştur",
+				"sub_title"	=>	$this->verbose_name . " Ekle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"item" 		=>	$item,
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 		public function update(){
 			$this->load->library("form_validation");
@@ -117,19 +105,13 @@ class UserSettings extends CI_Controller {
 				$context=array(
 					"title"		=>	"Kullanıcı Güncelle",
 					"sub_title"	=>	"Kullanıcı Güncelle",
-					"project"	=>	$this->project,
-					"category"	=>	$this->category,
-					"view"		=>	$this->router->fetch_method(),
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"CKEditorField"	=>	array(
 						"description" => "description"
 					),
 					"item" 		=>	$item,
 					"form_errors"	=> validation_errors(),
 				);
-				$this->load->view("dashboard/base",$context);
+				render_view($context);
 
 			}
 			 
@@ -149,18 +131,12 @@ class UserSettings extends CI_Controller {
 			$context=array(
 				"title"		=>	"Kullanıcı Güncelle",
 				"sub_title"	=>	"Kullanıcı Güncelle",
-				"project"	=>	$this->project,
-				"category"	=>	$this->category,
-				"view"		=>	$this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"item" 		=>	$item,
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 		public function update(){
 			$this->load->library("form_validation");
@@ -231,19 +207,13 @@ class UserSettings extends CI_Controller {
 				$context=array(
 					"title"		=>	"Kullanıcı Güncelle",
 					"sub_title"	=>	"Kullanıcı Güncelle",
-					"project"	=>	$this->project,
-					"category"	=>	$this->category,
-					"view"		=>	$this->router->fetch_method(),
-					"user" 					=>	$this->user,
-					"notification_alerts" 	=>	$this->notification_alerts,
-					"ticket_alerts" 		=>	$this->ticket_alerts,
 					"CKEditorField"	=>	array(
 						"description" => "description"
 					),
 					"item" 		=>	$item,
 					"form_errors"	=> validation_errors(),
 				);
-				$this->load->view("dashboard/base",$context);	
+				render_view($context);	
 			}
 		}
 		

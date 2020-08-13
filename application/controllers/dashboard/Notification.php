@@ -24,16 +24,10 @@ class Notification extends CI_Controller {
 		$context=array(
 			"title"		=>	"Bildirim",
 			"sub_title"	=>	"Bildirim Listesi",
-			"project" 				=> 	$this->project,
-			"category" 				=>	$this->category,
-			"view" 					=>  $this->router->fetch_method(),
-			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts,
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
-		$this->load->view("sp_dashboard/base",$context);
+		render_view($context);
 	}
 
 	public function show(){
@@ -92,19 +86,13 @@ class Notification extends CI_Controller {
 			$context=array(
 				"title"		=>	$notification->title,
 				"sub_title"	=>	$notification->title,
-				"project" 				=> 	$this->project,
-				"category" 				=>	$this->category,
-				"view" 					=>  $this->router->fetch_method(),
-				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"notification" 		=>	$notification,
 				"form_errors"	=> validation_errors(),
 			);
-			$this->load->view("dashboard/base",$context);
+			render_view($context);
 		}
 	}
 	
