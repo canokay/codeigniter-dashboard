@@ -1,7 +1,7 @@
 <div class="col-xl-12 col-lg-12">
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
-		<?php render_card_header_and_button($sub_title);?>
+		<?php render_card_header_and_button($card_title);?>
 
         <!-- Card Body -->
         <div class="card-body">

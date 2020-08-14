@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 	{
 		$context=array(
 			"title"		=>	$this->verbose_name_plural,
-			"sub_title"	=>	$this->verbose_name . " Listesi",
+			"card_title"	=>	$this->verbose_name . " Listesi",
 		);
 		render_view($context);
 	}

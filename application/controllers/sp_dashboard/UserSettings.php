@@ -23,7 +23,7 @@ class UserSettings extends CI_Controller {
 
 		$context=array(
 			"title"		=>	"Kullanıcılar",
-			"sub_title"	=>	"Kullanıcı Listesi",
+			"card_title"	=>	"Kullanıcı Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
@@ -41,7 +41,7 @@ class UserSettings extends CI_Controller {
 			
 			$context=array(
 				"title"		=>	$this->verbose_name . " Oluştur",
-				"sub_title"	=>	$this->verbose_name . " Ekle",
+				"card_title"	=>	$this->verbose_name . " Ekle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -104,7 +104,7 @@ class UserSettings extends CI_Controller {
 				
 				$context=array(
 					"title"		=>	"Kullanıcı Güncelle",
-					"sub_title"	=>	"Kullanıcı Güncelle",
+					"card_title"	=>	"Kullanıcı Güncelle",
 					"CKEditorField"	=>	array(
 						"description" => "description"
 					),
@@ -130,7 +130,7 @@ class UserSettings extends CI_Controller {
 			
 			$context=array(
 				"title"		=>	"Kullanıcı Güncelle",
-				"sub_title"	=>	"Kullanıcı Güncelle",
+				"card_title"	=>	"Kullanıcı Güncelle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -206,7 +206,7 @@ class UserSettings extends CI_Controller {
 				
 				$context=array(
 					"title"		=>	"Kullanıcı Güncelle",
-					"sub_title"	=>	"Kullanıcı Güncelle",
+					"card_title"	=>	"Kullanıcı Güncelle",
 					"CKEditorField"	=>	array(
 						"description" => "description"
 					),

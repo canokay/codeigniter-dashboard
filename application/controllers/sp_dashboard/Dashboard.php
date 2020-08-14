@@ -21,7 +21,7 @@ class Dashboard extends CI_Controller {
 	{
 		$context=array(
 			"title"		=>	$this->verbose_name,
-			"sub_title"	=>	$this->verbose_name,
+			"card_title"	=>	$this->verbose_name,
 			"user" 					=>	$this->user,
 			"notification_alerts" 	=>	$this->notification_alerts,
 			"ticket_alerts" 		=>	$this->ticket_alerts

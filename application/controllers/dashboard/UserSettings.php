@@ -23,7 +23,7 @@ class UserSettings extends CI_Controller {
 
 		$context=array(
 			"title"		=>	"Kullanıcılar",
-			"sub_title"	=>	"Kullanıcı Listesi",
+			"card_title"	=>	"Kullanıcı Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
@@ -35,7 +35,7 @@ class UserSettings extends CI_Controller {
 			
 			$context=array(
 				"title"		=>	"Hesap Ayarları",
-				"sub_title"	=>	"Hesap Ayarları",
+				"card_title"	=>	"Hesap Ayarları",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				)
@@ -93,7 +93,7 @@ class UserSettings extends CI_Controller {
 			else{
 				$context=array(
 					"title"		=>	"Hesap Ayarları",
-					"sub_title"	=>	"Hesap Ayarları",
+					"card_title"	=>	"Hesap Ayarları",
 					"CKEditorField"	=>	array(
 						"description" => "description"
 					),
@@ -118,7 +118,7 @@ class UserSettings extends CI_Controller {
 			
 			$context=array(
 				"title"		=>	"Hesap Güvenliği",
-				"sub_title"	=>	"Hesap Güvenliği",
+				"card_title"	=>	"Hesap Güvenliği",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),

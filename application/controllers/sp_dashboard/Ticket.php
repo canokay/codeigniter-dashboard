@@ -25,7 +25,7 @@ class Ticket extends CI_Controller {
 
 		$context=array(
 			"title"		=>	$this->verbose_name_plural,
-			"sub_title"	=>	$this->verbose_name . " Listesi",
+			"card_title"	=>	$this->verbose_name . " Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
@@ -37,7 +37,7 @@ class Ticket extends CI_Controller {
 	{		
 		$context=array(
 			"title"		=>	$this->verbose_name . " Oluştur",
-			"sub_title"	=>	$this->verbose_name . " Ekle",
+			"card_title"	=>	$this->verbose_name . " Ekle",
 			"CKEditorField"	=>	array(
 				"message" => "message"
 			),
@@ -94,7 +94,7 @@ class Ticket extends CI_Controller {
 		else {
 			$context=array(
 				"title"		=>	"Sayfa Ekle",
-				"sub_title"	=>	"Yeni Sayfa Ekle",
+				"card_title"	=>	"Yeni Sayfa Ekle",
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),
@@ -122,7 +122,7 @@ class Ticket extends CI_Controller {
 
 		$context=array(
 			"title"		=>	"Ticket Görüntüle",
-			"sub_title"	=>	"Ticket Görüntüle",
+			"card_title"	=>	"Ticket Görüntüle",
 			"CKEditorField"	=>	array(
 				"message" => "message"
 			),
@@ -150,7 +150,7 @@ class Ticket extends CI_Controller {
 
 		$context=array(
 			"title"		=>	"Ticket Görüntüle",
-			"sub_title"	=>	"Ticket Görüntüle",
+			"card_title"	=>	"Ticket Görüntüle",
 			"CKEditorField"	=>	array(
 				"message" => "message"
 			),
@@ -222,7 +222,7 @@ class Ticket extends CI_Controller {
 
 			$context=array(
 				"title"		=>	"Ticket Görüntüle",
-				"sub_title"	=>	"Ticket Görüntüle",
+				"card_title"	=>	"Ticket Görüntüle",
 				"CKEditorField"	=>	array(
 					"message" => "message"
 				),

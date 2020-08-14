@@ -79,8 +79,8 @@
 		  <div class="row">
 				<div class="col col-md-8 text-left">
 					<?php
-						if (isset($sub_title)) {
-							echo "<h1 class='h3 mb-4 text-gray-800'>$sub_title</h1>";
+						if (isset($card_title)) {
+							echo "<h1 class='h3 mb-4 text-gray-800'>$card_title</h1>";
 							}
 							else{
 								echo "<h1 class='h3 mb-4 text-gray-800'>Dashboard</h1>";

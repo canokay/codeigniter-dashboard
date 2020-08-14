@@ -17,7 +17,7 @@ class Web extends CI_Controller {
 	{
 		$context=array(
 			"title"					=>	"Codeigniter 3x",
-			"sub_title"				=>	"Codeigniter",
+			"card_title"				=>	"Codeigniter",
 			"project" 				=> 	$this->project,
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method()
