@@ -122,17 +122,7 @@ function response_and_redirect($response, $url = ""){
     }
 }
 
-function get_detail_page($PATH){
-echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $PATH);
+function create_url(){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) ."/create");
 }
-
-
-function get_update_page($PATH){
-    echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $PATH);
-}
-
-
-function get_delete_page($PATH){
-    echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/sil/" . $PATH);
-}
-

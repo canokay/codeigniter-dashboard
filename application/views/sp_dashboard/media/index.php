@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Ortam:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Ortam Ekle</a>
+                    <a class="dropdown-item" href="<?php echo create_url()?>">Ortam Ekle</a>
                     <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Ortam Listele</a>
                 </div>
             </div>
