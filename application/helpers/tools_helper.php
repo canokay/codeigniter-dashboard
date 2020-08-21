@@ -122,7 +122,49 @@ function response_and_redirect($response, $url = ""){
     }
 }
 
+function index_url(){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
+}
+
+
+function store_url(){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
+}
+
+
 function create_url(){
     $t = &get_instance();
     return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) ."/create");
+}
+
+
+function show_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item);
+}
+
+
+function update_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item);
+}
+
+
+function edit_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/edit");
+}
+
+
+function delete_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/delete");
+}
+
+
+function destroy_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/destroy");
 }
