@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <div class="widget-body">
-                            <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" method="post">
+                            <form action="<?php echo edit_url($item->id); ?>" method="post">
                                 <div class="form-group">
                                     <label>Başlık</label>
                                     <input class="form-control" placeholder="Başlık" name="title" value="<?php echo $item->title; ?>">
