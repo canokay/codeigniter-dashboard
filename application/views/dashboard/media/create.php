@@ -18,7 +18,7 @@
         <!-- Card Body -->
         <div class="card-body">
 
-				<form action="<?php echo base_url($this->uri->segment(1) . "/" . "media-upload")?>" class="dropzone" id="dropForm">
+				<form action="<?php echo create_url()?>" class="dropzone" id="dropForm">
 					<div class="dz-message" data-dz-message>
 						<span>Yüklemek için dosyaları sürükleyip bırakın </span> <br>
 						<span>ya da</span><br>
