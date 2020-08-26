@@ -22,7 +22,7 @@
             <?php if(empty($items)){ ?>
             
                 <div class="alert alert-info text-center">
-                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo base_url($this->uri->segment(1) . "/". $this->uri->segment(2) . "/create")?>">tıklayınız</a></p>
+                    <p>Burada herhangi bir veri bulunmamaktadır. Eklemek için lütfen <a href="<?php echo create_url()?>">tıklayınız</a></p>
                 </div>
             <?php } else { ?>
 
