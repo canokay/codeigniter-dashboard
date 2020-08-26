@@ -183,3 +183,8 @@ function homepage_url(){
     $t = &get_instance();
     return base_url($t->uri->segment(1));
 }
+
+function detail_url($category, $slug){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $category . "/" . $slug);
+}
