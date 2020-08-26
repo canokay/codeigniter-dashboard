@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="form-group text-center">
                                         <button type="submit" class="btn btn-primary btn-md btn-outline col-md-5">Güncelle</button>
-                                        <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3)); ?>" class="btn btn-md btn-danger btn-outline col-md-5">İptal</a>
+                                        <a href="<?php echo show_url($item->id); ?>" class="btn btn-md btn-danger btn-outline col-md-5">İptal</a>
                                     </div>
                                 </form>
                                 <?php if (isset($form_errors)) { ?>

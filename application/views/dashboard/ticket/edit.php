@@ -61,7 +61,7 @@
                             <?php } ?>
 
 
-                            <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $message->id); ?>" method="post">
+                            <form action="<?php echo edit_url($message->id); ?>" method="post">
                                 <div class="form-group">
                                     <label for="pageDescription">Mesaj Gönder</label>
                                     <textarea name="message" id="message" rows="10" cols="80">

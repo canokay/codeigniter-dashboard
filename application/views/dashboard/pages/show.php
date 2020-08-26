@@ -42,7 +42,7 @@
                 <i class="fa fa-trash"></i>
                     Sil
             </a>
-            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id . "/edit"); ?>" 
+            <a href="<?php echo edit_url($item->id)); ?>" 
                 class="btn btn-warning col-md-5">
                 <i class="fas fa-pen-square"></i>
                     Düzenle

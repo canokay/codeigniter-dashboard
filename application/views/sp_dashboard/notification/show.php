@@ -18,7 +18,7 @@
         <!-- Card Body -->
         <div class="card-body">
 
-            <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $notification->id); ?>" method="post">
+            <form action="<?php echo edit_url($notification->id); ?>" method="post">
                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>" >
                 <div class="form-group">
                     <label>Başlık</label>
@@ -35,7 +35,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-md btn-outline">Güncelle</button>
-                <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2)); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
+                <a href="<?php echo index_url(); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
             </form>
 			<?php if (isset($form_errors)) { ?>
 				<div class="alert alert-danger mt-3" role="alert">

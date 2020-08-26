@@ -29,12 +29,12 @@
         </div><!-- .widget -->
 
         <div class="card-footer text-center">
-        <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3) . "/" . $this->uri->segment(4)); ?>" method="post">
+        <form action="<?php echo delete_url($item->id); ?>" method="post">
             <button type="submit"  class="btn btn-danger col-md-5">
                 <i class="fa fa-trash"></i>
                     Sil
             </button>
-            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3));?>"  
+            <a href="<?php echo index_url();?>"  
                 class="btn btn-dark col-md-5">
                     İptal
             </a>

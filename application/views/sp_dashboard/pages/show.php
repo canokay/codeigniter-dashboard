@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <div class="widget-body">
-                            <form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>" method="post">
+                            <form action="<?php echo update_url($item->id); ?>" method="post">
                                 <div class="form-group">
                                     <label>Başlık</label>
                                     <input class="form-control" placeholder="Başlık" name="title" value="<?php echo $item->title; ?>">
@@ -41,7 +41,7 @@
                                     </textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-md btn-outline">Güncelle</button>
-                                <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2)); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
+                                <a href="<?php echo index_url(); ?>" class="btn btn-md btn-danger btn-outline">İptal</a>
                             </form>
                             <?php if (isset($form_errors)) { ?>
                                 <div class="alert alert-danger mt-3" role="alert">

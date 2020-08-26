@@ -56,7 +56,7 @@
                                 class="btn btn-md btn-danger btn-outline remove-btn">
                                 <i class="fa fa-trash"></i> Sil
                             </button>
-                            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id . "/edit"); ?>" class="btn btn-warning "><i class="fas fa-pen-square"></i> Düzenle</a>
+                            <a href="<?php echo edit_url($item->id); ?>" class="btn btn-warning "><i class="fas fa-pen-square"></i> Düzenle</a>
                         </td>
                     </tr>
                     <?php } ?>
