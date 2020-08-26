@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url($this->uri->segment(1))?>">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo homepage_url()?>">
   <div class="sidebar-brand-icon rotate-n-15">
 	<i class="fas fa-laugh-wink"></i>
   </div>
@@ -13,7 +13,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-  <a class="nav-link" href="<?php echo base_url($this->uri->segment(1))?>">
+  <a class="nav-link" href="<?php echo homepage_url()?>">
 	<i class="fas fa-fw fa-tachometer-alt"></i>
 	<span>Başlangıç</span></a>
 </li>

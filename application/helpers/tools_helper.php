@@ -168,3 +168,9 @@ function destroy_url($item){
     $t = &get_instance();
     return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/destroy");
 }
+
+
+function homepage_url(){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1));
+}
