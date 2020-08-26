@@ -90,13 +90,13 @@
 				<div class="col col-md-4 text-right" >
 					<?php
 						if (isset($page_title_add_button)) {
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/create") . '"'.' class="btn btn-xs btn-primary btn-outline  " style="text-align: right" > Ekle</a>';
+							echo '<a href="'. create_url() . '"'.' class="btn btn-xs btn-primary btn-outline  " style="text-align: right" > Ekle</a>';
 						}
 						else if (isset($page_title_list_button)) {
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Listele</a>';
+							echo '<a href="'. index_url() .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Listele</a>';
 						}
 						else if (isset($page_title_delete_button)) {
-							echo '<a href="'. base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/delete") .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
+							echo '<a href="'. delete_url() .'"'.' class="btn btn-xs btn-danger btn-outline  " style="text-align: right" > Sil</a>';
 						}
 
 					?>
