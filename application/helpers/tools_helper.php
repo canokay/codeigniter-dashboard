@@ -122,21 +122,30 @@ function response_and_redirect($response, $url = ""){
     }
 }
 
-function index_url(){
+function index_url($item){
     $t = &get_instance();
-    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
+    if(isset($item))
+        return base_url($t->uri->segment(1) . "/" . $item);
+    else
+        return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
 }
 
 
-function store_url(){
+function store_url($item){
     $t = &get_instance();
-    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
+    if(isset($item))
+        return base_url($t->uri->segment(1) . "/" . $item);
+    else
+        return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
 }
 
 
-function create_url(){
+function create_url($item){
     $t = &get_instance();
-    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) ."/create");
+    if(isset($item))
+        return base_url($t->uri->segment(1) . "/" . $item);
+    else
+        return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) ."/create");
 }
 
 
