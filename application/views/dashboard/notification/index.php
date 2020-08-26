@@ -30,7 +30,7 @@
 						<tbody>
 							<?php  foreach ($items as $item) { ?>
 							<tr>
-								<td><a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id); ?>"> <?php echo $item->title; ?></a></td>
+								<td><a href="<?php echo show_url($item->id); ?>"> <?php echo $item->title; ?></a></td>
 							</tr>
 							<?php } ?>
 						</tbody>
