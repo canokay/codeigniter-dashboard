@@ -42,7 +42,7 @@
                         <td>
 							<div class="m-b-lg m-r-xl inline-block">
                                 <input 
-                                    data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/durum/" . $item->id); ?>"
+                                    data-url="<?php echo status_url($item->id); ?>"
                                     class="isActive"
                                     type="checkbox" 
                                     data-switchery

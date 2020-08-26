@@ -178,6 +178,11 @@ function destroy_url($item){
     return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/destroy");
 }
 
+function status_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/status");
+}
+
 
 function homepage_url(){
     $t = &get_instance();
