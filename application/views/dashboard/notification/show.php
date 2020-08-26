@@ -9,7 +9,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Bildirim :</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Bildirim  Listele</a>
+                    <a class="dropdown-item" href="<?php echo index_url()?>">Bildirim  Listele</a>
                 </div>
             </div>
         </div>
