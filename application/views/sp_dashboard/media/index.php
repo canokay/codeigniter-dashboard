@@ -41,7 +41,7 @@
                         <td><?php echo $item->url; ?></td>
                         <td>
                             <button  
-                                data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/delete/" . $item->id); ?>" 
+                                data-url=<?php echo delete_url($item->id); ?>" 
                                 data-title="<?php echo $item->name; ?>" 
                                 class="btn btn-sm btn-danger btn-outline remove-btn">
                                 <i class="fa fa-trash"></i> Sil

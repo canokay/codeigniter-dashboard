@@ -51,7 +51,7 @@
                         </td>
                         <td>
                             <button  
-                                data-url="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $item->id . "/delete"); ?>" 
+                                data-url="<?php echo delete_url($item->id); ?>" 
                                 data-title="<?php echo $item->title; ?>" 
                                 class="btn btn-md btn-danger btn-outline remove-btn">
                                 <i class="fa fa-trash"></i> Sil

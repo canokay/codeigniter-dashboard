@@ -37,7 +37,7 @@
         </div><!-- .widget -->
 
         <div class="card-footer text-center">
-            <a href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3) . "/delete/"); ?>"
+            <a href="<?php echo delete_url($item->id); ?>"
                 class="btn btn-danger col-md-5">
                 <i class="fa fa-trash"></i>
                     Sil
