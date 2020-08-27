@@ -27,7 +27,7 @@ class Dashboard extends CI_Controller {
 			"ticket_alerts" 		=>	$this->ticket_alerts
 			
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 }

@@ -27,7 +27,7 @@ class Notification extends CI_Controller {
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function show(){
@@ -92,7 +92,7 @@ class Notification extends CI_Controller {
 				"notification" 		=>	$notification,
 				"form_errors"	=> validation_errors(),
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 	}
 	

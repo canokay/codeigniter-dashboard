@@ -27,7 +27,7 @@ class UserSettings extends CI_Controller {
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function create()
@@ -40,7 +40,7 @@ class UserSettings extends CI_Controller {
 					"description" => "description"
 				)
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 		public function update(){
 
@@ -99,7 +99,7 @@ class UserSettings extends CI_Controller {
 					),
 					"form_errors"	=> validation_errors(),
 				);
-				render_view($context);	
+				render_dashboard_view($context);	
 			}
 			 
 		
@@ -124,7 +124,7 @@ class UserSettings extends CI_Controller {
 				),
 				"item" 		=>	$item,
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 		public function update(){
 

@@ -50,12 +50,12 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.4/examples/cover/cover.css" rel="stylesheet">
-	<?php
-		if (isset($style_include)) {
-			echo "<!-- Page Style -->";
-			$this->load->view("$project/$category/$view/style");?>
-		}
-	?>
+
+
+    <?php if (isset($style_include)) { ?>
+			<!-- Page Style -->
+			<?php $this->load->view("$project/$category/$view/style");?>
+    <?php }?>
 
 </head>
   </head>
@@ -80,6 +80,12 @@
       <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
     </div>
   </footer>
+
+  <?php if (isset($script_include)) { ?>
+    <!-- Page JS -->
+    <?php $this->load->view("$project/$category/$view/script"); ?>
+  <?php }?>
+
 </div>
 </body>
 </html>

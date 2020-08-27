@@ -5,6 +5,14 @@ function render_view($context){
     $context['project'] =  $t->project;
     $context['category'] =  $t->category;
     $context['view'] =  $t->router->fetch_method();
+    return $t->load->view($t->project . "/layout",$context);
+}
+
+function render_dashboard_view($context){
+    $t = &get_instance();
+    $context['project'] =  $t->project;
+    $context['category'] =  $t->category;
+    $context['view'] =  $t->router->fetch_method();
     $context['user'] 					=	$t->user;
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
