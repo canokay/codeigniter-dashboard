@@ -22,7 +22,7 @@ class Web extends CI_Controller {
 			"category" 				=>	$this->category,
 			"view" 					=>  $this->router->fetch_method()
 		);
-		$this->load->view("$this->project/base",$context);
+	render_view($context);
 	}
 
 	public function show()

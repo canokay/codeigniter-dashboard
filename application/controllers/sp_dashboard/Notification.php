@@ -28,7 +28,7 @@ class Notification extends CI_Controller {
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function create(){
@@ -39,7 +39,7 @@ class Notification extends CI_Controller {
 				"description" => "description"
 			),
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function store()
@@ -94,7 +94,7 @@ class Notification extends CI_Controller {
 				),
 				"form_errors"	=> validation_errors(),
 			);
-			render_view($context);
+			render_dashboard_view($context);
 
 		}
 	}
@@ -117,7 +117,7 @@ class Notification extends CI_Controller {
 			),
 			"notification" 		=>	$notification,
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function edit(){
@@ -138,7 +138,7 @@ class Notification extends CI_Controller {
 			),
 			"notification" 		=>	$notification,
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function update(){
@@ -202,7 +202,7 @@ class Notification extends CI_Controller {
 				"notification" 		=>	$notification,
 				"form_errors"	=> validation_errors(),
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 	}
 

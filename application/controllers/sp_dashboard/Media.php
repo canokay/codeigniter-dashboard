@@ -29,7 +29,7 @@ class Media extends CI_Controller {
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function create()
@@ -41,7 +41,7 @@ class Media extends CI_Controller {
 				"dropzone" => "dropzone"
 			),
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function store()
@@ -87,7 +87,7 @@ class Media extends CI_Controller {
 			),
 			"item" 		=>	$item,
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 	public function edit()
 	{	
@@ -107,7 +107,7 @@ class Media extends CI_Controller {
 			),
 			"item" 		=>	$item,
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function update()
@@ -176,7 +176,7 @@ class Media extends CI_Controller {
 				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"item" 		=>	$item,
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 	}
 	

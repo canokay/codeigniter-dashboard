@@ -34,7 +34,7 @@ class Ticket extends CI_Controller {
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
 		);
-		render_view($context);
+		render_dashboard_view($context);
 	}
 
 	public function create()
@@ -46,7 +46,7 @@ class Ticket extends CI_Controller {
 					"message" => "message"
 				),
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 
 		public function store()
@@ -103,7 +103,7 @@ class Ticket extends CI_Controller {
 					),
 					"form_errors"	=> validation_errors(),
 				);
-				render_view($context);
+				render_dashboard_view($context);
 
 			}
 
@@ -136,7 +136,7 @@ class Ticket extends CI_Controller {
 				"message" 		=>	$message,
 				"message_chat"	=>	$message_chat
 			);
-			render_view($context);
+			render_dashboard_view($context);
 
 	}
 	
@@ -166,7 +166,7 @@ class Ticket extends CI_Controller {
 				"message" 		=>	$message,
 				"message_chat"	=>	$message_chat
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		
 
 	}
@@ -239,7 +239,7 @@ class Ticket extends CI_Controller {
 				"message_chat"	=>	$message_chat,
 				"form_errors"	=> validation_errors(),
 			);
-			render_view($context);
+			render_dashboard_view($context);
 		}
 		
 
