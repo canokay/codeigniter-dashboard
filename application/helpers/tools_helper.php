@@ -122,17 +122,74 @@ function response_and_redirect($response, $url = ""){
     }
 }
 
-function get_detail_page($PATH){
-echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $PATH);
+function index_url($item=""){
+    $t = &get_instance();
+    if($item =="")
+        return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
+    else
+        return base_url($t->uri->segment(1) . "/" . $item);
 }
 
 
-function get_update_page($PATH){
-    echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $PATH);
+function store_url($item=""){
+    $t = &get_instance();
+    if($item =="")
+        return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2));
+    else
+        return base_url($t->uri->segment(1) . "/" . $item);
 }
 
 
-function get_delete_page($PATH){
-    echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/sil/" . $PATH);
+function create_url($item=""){
+    $t = &get_instance();
+    if($item =="")
+        return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) ."/create");
+    else
+        return base_url($t->uri->segment(1) . "/" . $item . "/create");
 }
 
+
+function show_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item);
+}
+
+
+function update_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item);
+}
+
+
+function edit_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/edit");
+}
+
+
+function delete_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/delete");
+}
+
+
+function destroy_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/destroy");
+}
+
+function status_url($item){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $t->uri->segment(2) . "/" . $item . "/status");
+}
+
+
+function homepage_url(){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1));
+}
+
+function detail_url($category, $slug){
+    $t = &get_instance();
+    return base_url($t->uri->segment(1) . "/" . $category . "/" . $slug);
+}

@@ -24,7 +24,7 @@ class WelcomeDashboard extends CI_Controller {
 	{
 			$context=array(
 				"title"					=>	"Hoş Geldiniz.",
-				"sub_title"				=>	"Hoş Geldiniz",
+				"card_title"				=>	"Hoş Geldiniz",
 				"project" 				=> 	$this->project,
 				"category" 				=>	$this->category,
 				"view" 					=>  $this->router->fetch_method(),

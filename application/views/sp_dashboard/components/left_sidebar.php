@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url($this->uri->segment(1))?>">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo homepage_url()?>">
   <div class="sidebar-brand-icon rotate-n-15">
 	<i class="fas fa-laugh-wink"></i>
   </div>
@@ -13,7 +13,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-  <a class="nav-link" href="<?php echo base_url($this->uri->segment(1))?>">
+  <a class="nav-link" href="<?php echo homepage_url()?>">
 	<i class="fas fa-fw fa-tachometer-alt"></i>
 	<span>Başlangıç</span></a>
 </li>
@@ -43,8 +43,8 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page/create")?>">Yeni Sayfa Oluşturun</a>
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/page")?>">Sayfaları Listeleyin</a>
+	  <a class="collapse-item" href="<?php echo create_url("page")?>">Yeni Sayfa Oluşturun</a>
+	  <a class="collapse-item" href="<?php echo index_url("page")?>">Sayfaları Listeleyin</a>
 	</div>
   </div>
 
@@ -65,8 +65,8 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media/create")?>">Yeni Ortam Ekleyin</a>
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/media")?>">Ortamları Listeleyin</a>
+	  <a class="collapse-item" href="<?php echo create_url("media")?>">Yeni Ortam Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo index_url("media")?>">Ortamları Listeleyin</a>
 	</div>
   </div>
 
@@ -89,8 +89,8 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket/create")?>">Yeni Mesaj Ekleyin</a>
-	  <a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/ticket")?>">Mesajları Listeleyin</a>
+	  <a class="collapse-item" href="<?php echo create_url("ticket")?>">Yeni Mesaj Ekleyin</a>
+	  <a class="collapse-item" href="<?php echo index_url("ticket")?>">Mesajları Listeleyin</a>
 	</div>
   </div>
 
@@ -113,8 +113,8 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/notification/create")?>">Bildirim Ekle</a>
-		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/notification/")?>">Bildirim Listele</a>
+		<a class="collapse-item" href="<?php echo create_url("notification")?>">Bildirim Ekle</a>
+		<a class="collapse-item" href="<?php echo index_url("notification")?>">Bildirim Listele</a>
 	</div>
   </div>
 
@@ -137,9 +137,9 @@
 
 	?>
 	<div class="bg-white py-2 collapse-inner rounded">
-		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/users/")?>">Hesap Listele</a>
-		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/settings/profile")?>">Hesabımı Güncelle</a>
-		<a class="collapse-item" href="<?php echo base_url($this->uri->segment(1) . "/settings/security")?>">Hesap Güvenliği</a>
+		<a class="collapse-item" href="<?php echo index_url("users")?>">Hesap Listele</a>
+		<a class="collapse-item" href="<?php echo index_url("settings/profile")?>">Hesabımı Güncelle</a>
+		<a class="collapse-item" href="<?php echo index_url("settings/security")?>">Hesap Güvenliği</a>
 	</div>
   </div>
 

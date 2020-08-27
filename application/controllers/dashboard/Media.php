@@ -24,7 +24,7 @@ class Media extends CI_Controller {
 
 		$context=array(
 			"title"		=>	$this->verbose_name_plural,
-			"sub_title"	=>	$this->verbose_name . " Listesi",
+			"card_title"	=>	$this->verbose_name . " Listesi",
 			"items" 	=>	$pages,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
@@ -36,7 +36,7 @@ class Media extends CI_Controller {
 	{	
 		$context=array(
 			"title"		=>	$this->verbose_name . " Oluştur",
-			"sub_title"	=>	$this->verbose_name . " Ekle",
+			"card_title"	=>	$this->verbose_name . " Ekle",
 			"DropzoneField"	=>	array(
 				"dropzone" => "dropzone"
 			),
@@ -113,7 +113,7 @@ class Media extends CI_Controller {
 		} else {
 			$context=array(
 				"title"			=>	"Ortam Ekle",
-				"sub_title"		=>	"Yeni Ortam Ekle",
+				"card_title"		=>	"Yeni Ortam Ekle",
 				"project" 		=> 	$this->project,
 				"category"	=>	$this->category,
 				"view" 			=>	"add",
@@ -139,7 +139,7 @@ class Media extends CI_Controller {
 			
 			$context=array(
 				"title"		=>	"Ortam Güncelle",
-				"sub_title"	=>	"Ortam Güncelle",
+				"card_title"	=>	"Ortam Güncelle",
 				"DropzoneField"	=>	array(
 					"dropzone" => "dropzone"
 				),
@@ -163,7 +163,7 @@ class Media extends CI_Controller {
 			
 			$context=array(
 				"title"		=>	"Ortam Güncelle",
-				"sub_title"	=>	"Ortam Güncelle",
+				"card_title"	=>	"Ortam Güncelle",
 				"DropzoneField"	=>	array(
 					"dropzone" => "dropzone"
 				),
@@ -229,7 +229,7 @@ class Media extends CI_Controller {
 			);
 			$context=array(
 				"title"		=>	"Ortamlar",
-				"sub_title"	=>	"Ortam Listesi",
+				"card_title"	=>	"Ortam Listesi",
 				"project" 	=>	$this->project,
 				"category"	=>	$this->category,
 				"view" 		=>	"list",

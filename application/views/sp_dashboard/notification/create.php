@@ -1,16 +1,17 @@
 <div class="col-xl-12 col-lg-12">
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
+		<?php render_card_header_and_button($card_title);?>
 		<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary"><?php echo $sub_title;?></h6>
+            <h6 class="m-0 font-weight-bold text-primary"><?php echo $card_title;?></h6>
             <div class="dropdown no-arrow">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Bildirim:</div>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) ."/create")?>">Bildirim Ekle</a>
-                    <a class="dropdown-item" href="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>">Bildirim Listele</a>
+                    <a class="dropdown-item" href="<?php echo create_url()?>">Bildirim Ekle</a>
+                    <a class="dropdown-item" href="<?php echo index_url()?>">Bildirim Listele</a>
                 </div>
             </div>
         </div>
@@ -18,7 +19,7 @@
 
         <!-- Card Body -->
         <div class="card-body">
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>" method="post">
+			<form action="<?php echo create_url()?>" method="post">
 				<input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>" >
 				<div class="form-group">
 					<div class="row">

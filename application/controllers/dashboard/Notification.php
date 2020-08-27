@@ -23,7 +23,7 @@ class Notification extends CI_Controller {
 
 		$context=array(
 			"title"		=>	"Bildirim",
-			"sub_title"	=>	"Bildirim Listesi",
+			"card_title"	=>	"Bildirim Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable"
 		);
@@ -85,7 +85,7 @@ class Notification extends CI_Controller {
 
 			$context=array(
 				"title"		=>	$notification->title,
-				"sub_title"	=>	$notification->title,
+				"card_title"	=>	$notification->title,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),

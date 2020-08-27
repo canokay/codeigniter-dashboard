@@ -1,11 +1,11 @@
 <div class="col-xl-12 col-lg-12">
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
-		<?php render_card_header_and_button($sub_title);?>
+		<?php render_card_header_and_button($card_title);?>
 
         <!-- Card Body -->
         <div class="card-body">
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2))?>" method="post">
+			<form action="<?php echo create_url()?>" method="post">
 				<div class="form-group">
 					<label for="pageName">Sayfa Adı</label>
 					<input type="text" class="form-control" id="eventName" name="title" placeholder="Sayfa Adı">

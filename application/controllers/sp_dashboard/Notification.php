@@ -23,7 +23,7 @@ class Notification extends CI_Controller {
 
 		$context=array(
 			"title"		=>	"Bildirim",
-			"sub_title"	=>	"Bildirim Listesi",
+			"card_title"	=>	"Bildirim Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
@@ -34,7 +34,7 @@ class Notification extends CI_Controller {
 	public function create(){
 		$context=array(
 			"title"		=>	"Bildirim Ekle",
-			"sub_title"	=>	"Yeni Bildirim Ekle",
+			"card_title"	=>	"Yeni Bildirim Ekle",
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
@@ -88,7 +88,7 @@ class Notification extends CI_Controller {
 		else {
 			$context=array(
 				"title"		=>	"Bildirim Ekle",
-				"sub_title"	=>	"Yeni Bildirim Ekle",
+				"card_title"	=>	"Yeni Bildirim Ekle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -111,7 +111,7 @@ class Notification extends CI_Controller {
 
 		$context=array(
 			"title"		=>	$notification->title,
-			"sub_title"	=>	$notification->title,
+			"card_title"	=>	$notification->title,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
@@ -132,7 +132,7 @@ class Notification extends CI_Controller {
 
 		$context=array(
 			"title"		=>	$notification->title,
-			"sub_title"	=>	$notification->title,
+			"card_title"	=>	$notification->title,
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
@@ -195,7 +195,7 @@ class Notification extends CI_Controller {
 
 			$context=array(
 				"title"		=>	$notification->title,
-				"sub_title"	=>	$notification->title,
+				"card_title"	=>	$notification->title,
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),

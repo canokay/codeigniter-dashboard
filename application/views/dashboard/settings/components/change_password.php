@@ -8,7 +8,7 @@
         <!-- Card Body -->
         <div class="card-body">
 
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/password")?>" method="post">
+			<form action="<?php echo update_url("password")?>" method="post">
 				<div class="form-group">
 					<label for="eventOldPassword">Eski Şifre</label>
 					<input type="password" class="form-control" id="eventOldPassword" name="old_password">

@@ -24,7 +24,7 @@ class Page extends CI_Controller {
 
 		$context=array(
 			"title"		=>	$this->verbose_name_plural,
-			"sub_title"	=>	$this->verbose_name . " Listesi",
+			"card_title"	=>	$this->verbose_name . " Listesi",
 			"items" 	=>	$items,
 			"DataTablesField"	=> "datatable",
 			"page_title_add_button" => 1
@@ -36,7 +36,7 @@ class Page extends CI_Controller {
 	{
 		$context=array(
 			"title"		=>	$this->verbose_name . " Oluştur",
-			"sub_title"	=>	$this->verbose_name . " Ekle",
+			"card_title"	=>	$this->verbose_name . " Ekle",
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
@@ -79,7 +79,7 @@ class Page extends CI_Controller {
 		else {
 			$context=array(
 				"title"		=>	"Sayfa Ekle",
-				"sub_title"	=>	"Yeni Sayfa Ekle",
+				"card_title"	=>	"Yeni Sayfa Ekle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -105,7 +105,7 @@ class Page extends CI_Controller {
 		
 		$context=array(
 			"title"		=>	$item->title . " - Düzenle",
-			"sub_title"	=>	"Sayfa Güncelle",
+			"card_title"	=>	"Sayfa Güncelle",
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
@@ -128,7 +128,7 @@ class Page extends CI_Controller {
 		
 		$context=array(
 			"title"		=>	$item->title,
-			"sub_title"	=>	$item->title,
+			"card_title"	=>	$item->title,
 			"item" 		=>	$item,
 		);
 		render_view($context);
@@ -178,7 +178,7 @@ class Page extends CI_Controller {
 		
 			$context=array(
 				"title"		=>	"Sayfa Güncelle",
-				"sub_title"	=>	"Sayfa Güncelle",
+				"card_title"	=>	"Sayfa Güncelle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
@@ -204,7 +204,7 @@ class Page extends CI_Controller {
 		
 		$context=array(
 			"title"		=>	$item->title,
-			"sub_title"	=>	$item->title,
+			"card_title"	=>	$item->title,
 			"item" 		=>	$item,
 		);
 		render_view($context);

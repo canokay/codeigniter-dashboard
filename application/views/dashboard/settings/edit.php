@@ -2,13 +2,13 @@
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
 		<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary"><?php echo $sub_title;?></h6>
+            <h6 class="m-0 font-weight-bold text-primary"><?php echo $card_title;?></h6>
         </div>
 
         <!-- Card Body -->
         <div class="card-body">
 
-			<form action="<?php echo base_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3))?>" method="post">
+			<form action="<?php echo edit_url($this->uri->segment(1) . "/" . $this->uri->segment(2) . "/" . $this->uri->segment(3))?>" method="post">
 				<div class="form-group">
 					<label for="pageName">Kullanıcı Adı</label>
 					<input type="text" class="form-control" id="eventUsername" placeholder="Kullanıcı adı" value="<?php echo $user->username ?>" disabled>
