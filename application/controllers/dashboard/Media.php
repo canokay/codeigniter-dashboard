@@ -67,63 +67,6 @@ class Media extends CI_Controller {
 			echo "Error";
 		}
 
-		/*
-
-		$this->load->library("form_validation");
-
-		$this->form_validation->set_rules("title", "Başlık", "required|trim");
-
-		$this->form_validation->set_message(
-			array(
-				"required"  => "<b>{field}</b> alanı doldurulmalıdır"
-			)
-		);
-
-		$validate = $this->form_validation->run();
-
-		if($validate){
-			$insert = $this->MediaModel->add(
-				array(
-					"title"         =>	$this->input->post("title"),
-					"description"   =>	$this->input->post("description"),
-					"url"           =>	AutoSlugField($this->input->post("title")),
-					"isActive"      =>	1,
-					"created_at"     =>	date("Y-m-d H:i:s"),
-				)
-			);
-
-			if($insert){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde kayıt oldu.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/media"));
-			} else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"İşlem kayıt olamadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/media"));
-			}
-
-		} else {
-			$context=array(
-				"title"			=>	"Ortam Ekle",
-				"card_title"		=>	"Yeni Ortam Ekle",
-				"project" 		=> 	$this->project,
-				"category"	=>	$this->category,
-				"view" 			=>	"add",
-				"form_error" 	=>	"true",
-			);
-
-			render_dashboard_view($context);
-
-		}
-		*/
 	}
 
 	public function show()
@@ -200,28 +143,11 @@ class Media extends CI_Controller {
 				)
 			);
 			
+			toast_field_update($update);
 
-			if($update){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde güncellendi.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/media"));
-			} 
-			else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"Güncelleme olmadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/media"));
-			}
-
-		} else {
-			$context = new stdClass();
+		} 
+		else {
+			
 			$item = $this->MediaModel->get(
 				array(
 					"id"	=>	$id,
@@ -260,25 +186,7 @@ class Media extends CI_Controller {
 		);
 
 
-
-		if($delete){
-			$ToastField	=	array(
-				"status"	=> "success",
-				"title"		=>	"İşlem Başarılı.",
-				"message"		=>"Başarılı bir şekilde silindi.",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/media"));
-		} 
-		else {
-			$ToastField	=	array(
-				"status"	=> "error",
-				"title"		=>	"İşlem başarısız.",
-				"message"		=>"Silme işlemi olmadı :(",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/media"));
-		}
+		toast_field_delete($delete);
 	}
 
 }

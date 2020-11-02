@@ -36,9 +36,9 @@ class Web extends CI_Controller {
 			)
 		);
 
+		get_object_or_404($item);
 		
 		
-		echo $item->description;
 	}
 
 

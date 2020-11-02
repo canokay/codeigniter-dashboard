@@ -70,25 +70,8 @@ class UserSettings extends CI_Controller {
 					)
 				);
 				
-
-				if($update){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde güncellendi.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				} 
-				else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"Güncelleme olmadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				}
+				toast_field_update($update);
+				
 			}
 			else{
 				$context=array(
@@ -155,25 +138,8 @@ class UserSettings extends CI_Controller {
 						)
 					);
 					
-		
-					if($update){
-						$ToastField	=	array(
-							"status"	=> "success",
-							"title"		=>	"İşlem Başarılı.",
-							"message"		=>"Başarılı bir şekilde güncellendi.",
-						);
-						$this->session->set_flashdata("ToastField", $ToastField);
-						redirect(base_url("admin/page"));
-					} 
-					else {
-						$ToastField	=	array(
-							"status"	=> "error",
-							"title"		=>	"İşlem başarısız.",
-							"message"		=>"Güncelleme olmadı :(",
-						);
-						$this->session->set_flashdata("ToastField", $ToastField);
-						redirect(base_url("admin/page"));
-					}
+					toast_field_update($update);
+					
 
 				}
 				else {
@@ -209,25 +175,7 @@ class UserSettings extends CI_Controller {
 					)
 				);
 				
-	
-				if($update){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde güncellendi.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				} 
-				else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"Güncelleme olmadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/page"));
-				}
+				toast_field_update($update);
 
 			}
 			else {

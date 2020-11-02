@@ -69,25 +69,8 @@ class Page extends CI_Controller {
 					"created_at"     =>	date("Y-m-d H:i:s"),
 				)
 			);
-
-			if($insert){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde kayıt oldu.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/page"));
-			}
-			else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"İşlem kayıt olamadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/page"));
-			}
+			
+			toast_field_insert($insert);
 
 		} 
 		else {
@@ -178,25 +161,8 @@ class Page extends CI_Controller {
 				)
 			);
 			
+			toast_field_update($update);
 
-			if($update){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde güncellendi.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/page"));
-			} 
-			else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"Güncelleme olmadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/page"));
-			}
 		} 
 		else {
 			$id = $this->uri->segment(3);
@@ -216,7 +182,7 @@ class Page extends CI_Controller {
 				"item" 		=>	$item,
 				"form_errors"	=> validation_errors(),
 			);
-			render_dashboard_view($context);
+			render_dashboard_edit_view($context);
 		}
     	
 	}
@@ -230,24 +196,8 @@ class Page extends CI_Controller {
                 "id"	=>	$id
             )
 		);
-		if($delete){
-			$ToastField	=	array(
-				"status"	=> "success",
-				"title"		=>	"İşlem Başarılı.",
-				"message"	=>	"Başarılı bir şekilde silindi.",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("sp-admin/page"));
-		} 
-		else {
-			$ToastField	=	array(
-				"status"	=>	"error",
-				"title"		=>	"İşlem başarısız.",
-				"message"	=>	"Silme işlemi olmadı :(",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("sp-admin/page"));
-		}
+		
+		toast_field_delete($delete);
 	}
 
 }

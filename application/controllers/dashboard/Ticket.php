@@ -74,24 +74,7 @@ class Ticket extends CI_Controller {
 						"is_active"      =>	1,
 					)
 				);
-
-				if($insert){
-					$ToastField	=	array(
-						"status"	=> "success",
-						"title"		=>	"İşlem Başarılı.",
-						"message"		=>"Başarılı bir şekilde kayıt oldu.",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/ticket"));
-				} else {
-					$ToastField	=	array(
-						"status"	=> "error",
-						"title"		=>	"İşlem başarısız.",
-						"message"		=>"İşlem kayıt olamadı :(",
-					);
-					$this->session->set_flashdata("ToastField", $ToastField);
-					redirect(base_url("admin/ticket"));
-				}
+				toast_field_insert($insert);
 
 			}
 			else {
@@ -103,7 +86,7 @@ class Ticket extends CI_Controller {
 					),
 					"form_errors"	=> validation_errors(),
 				);
-				render_dashboard_view($context);
+				render_dashboard_create_view($context);
 
 			}
 
@@ -196,23 +179,7 @@ class Ticket extends CI_Controller {
 				)
 			);
 
-			if($insert){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde kayıt oldu.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/ticket"));
-			} else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"İşlem kayıt olamadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("admin/ticket"));
-			}
+			toast_field_insert($insert);
 		}
 		else{
 			$ticket_id = $this->uri->segment(3);
@@ -253,24 +220,7 @@ class Ticket extends CI_Controller {
                 "id"	=>	$id
             )
 		);
-		if($delete){
-			$ToastField	=	array(
-				"status"	=> "success",
-				"title"		=>	"İşlem Başarılı.",
-				"message"		=>"Başarılı bir şekilde silindi.",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/ticket"));
-		} 
-		else {
-			$ToastField	=	array(
-				"status"	=> "error",
-				"title"		=>	"İşlem başarısız.",
-				"message"		=>"Silme işlemi olmadı :(",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("admin/ticket"));
-		}
+		toast_field_delete($delete);
 	}
 
 }

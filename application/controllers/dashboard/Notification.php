@@ -54,24 +54,7 @@ class Notification extends CI_Controller {
 				)
 			);
 							
-
-			if($update){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde güncellendi.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/notification"));
-			} else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"Güncelleme olmadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/notification"));
-			}
+			toast_field_update($update);
 
 		} 
 		else {

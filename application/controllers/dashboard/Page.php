@@ -23,25 +23,19 @@ class Page extends CI_Controller {
 		$items = $this->PageModel->get_all();
 
 		$context=array(
-			"title"		=>	$this->verbose_name_plural,
-			"card_title"	=>	$this->verbose_name . " Listesi",
 			"items" 	=>	$items,
-			"DataTablesField"	=> "datatable",
-			"page_title_add_button" => 1
 		);
-		render_dashboard_view($context);
+		render_dashboard_index_view($context);
 	}
 
 	public function create()
 	{
 		$context=array(
-			"title"		=>	$this->verbose_name . " Oluştur",
-			"card_title"	=>	$this->verbose_name . " Ekle",
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 		);
-		render_dashboard_view($context);
+		render_dashboard_create_view($context);
 	}
 	
 
@@ -78,14 +72,12 @@ class Page extends CI_Controller {
 
 		else {
 			$context=array(
-				"title"		=>	"Sayfa Ekle",
-				"card_title"	=>	"Yeni Sayfa Ekle",
 				"CKEditorField"	=>	array(
 					"description" => "description"
 				),
 				"form_errors"	=> validation_errors(),
 			);
-			render_dashboard_view($context);
+			render_dashboard_create_view($context);
 
 		}
 	}
@@ -104,14 +96,12 @@ class Page extends CI_Controller {
 		get_object_or_404($item);
 		
 		$context=array(
-			"title"		=>	$item->title . " - Düzenle",
-			"card_title"	=>	"Sayfa Güncelle",
 			"CKEditorField"	=>	array(
 				"description" => "description"
 			),
 			"item" 		=>	$item,
 		);
-		render_dashboard_view($context);
+		render_dashboard_edit_view($context,$item->title);
 	}
 
 	public function show()
@@ -127,11 +117,9 @@ class Page extends CI_Controller {
 		get_object_or_404($item);
 		
 		$context=array(
-			"title"		=>	$item->title,
-			"card_title"	=>	$item->title,
 			"item" 		=>	$item,
 		);
-		render_dashboard_view($context);
+		render_dashboard_show_view($context,$item->title);
 	}
 
 	public function update(){
@@ -185,7 +173,7 @@ class Page extends CI_Controller {
 				"item" 		=>	$item,
 				"form_errors"	=> validation_errors(),
 			);
-			render_dashboard_view($context);
+			render_dashboard_edit_view($context);
 		}
 	}
 	
@@ -203,11 +191,9 @@ class Page extends CI_Controller {
 		
 		
 		$context=array(
-			"title"		=>	$item->title,
-			"card_title"	=>	$item->title,
 			"item" 		=>	$item,
 		);
-		render_dashboard_view($context);
+		render_dashboard_delete_view($context,$item->title);
 	}
 	
 

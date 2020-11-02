@@ -65,24 +65,7 @@ class Notification extends CI_Controller {
 				)
 			);
 
-			
-			if($insert){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde kayıt oldu.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/notification"));
-			} else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"İşlem kayıt olamadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/notification"));
-			}
+			toast_field_insert($insert);
 
 		} 
 		else {
@@ -164,24 +147,7 @@ class Notification extends CI_Controller {
 				)
 			);
 							
-
-			if($update){
-				$ToastField	=	array(
-					"status"	=> "success",
-					"title"		=>	"İşlem Başarılı.",
-					"message"		=>"Başarılı bir şekilde güncellendi.",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/notification"));
-			} else {
-				$ToastField	=	array(
-					"status"	=> "error",
-					"title"		=>	"İşlem başarısız.",
-					"message"		=>"Güncelleme olmadı :(",
-				);
-				$this->session->set_flashdata("ToastField", $ToastField);
-				redirect(base_url("sp-admin/notification"));
-			}
+			toast_field_update($update);
 
 		} 
 		else {
@@ -216,23 +182,7 @@ class Notification extends CI_Controller {
             )
 		);
 
-		if($delete){
-			$ToastField	=	array(
-				"status"	=> "success",
-				"title"		=>	"İşlem Başarılı.",
-				"message"		=>"Başarılı bir şekilde silindi.",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("sp-admin/notification"));
-		} else {
-			$ToastField	=	array(
-				"status"	=> "error",
-				"title"		=>	"İşlem başarısız.",
-				"message"		=>"Silme işlemi olmadı :(",
-			);
-			$this->session->set_flashdata("ToastField", $ToastField);
-			redirect(base_url("sp-admin/notification"));
-		}
+		toast_field_delete($delete);
 	}
 
 
