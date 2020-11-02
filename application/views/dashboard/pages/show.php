@@ -30,7 +30,7 @@
                 <i class="fa fa-trash"></i>
                     Sil
             </a>
-            <a href="<?php echo edit_url($item->id)); ?>" 
+            <a href="<?php echo edit_url($item->id); ?>" 
                 class="btn btn-warning col-md-5">
                 <i class="fas fa-pen-square"></i>
                     Düzenle

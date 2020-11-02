@@ -22,7 +22,7 @@
                                         </a>
                                 </p>
                             
-                                <form action="<?php echo edit_url($item->id); ?>" method="post">
+                                <form action="<?php echo update_url($item->id); ?>" method="post">
                                     <div class="form-group">
                                         <label>Başlık</label>
                                         <input class="form-control" placeholder="Başlık" name="title" value="<?php echo $item->title; ?>">

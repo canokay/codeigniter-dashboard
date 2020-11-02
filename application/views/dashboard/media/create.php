@@ -6,7 +6,7 @@
         <!-- Card Body -->
         <div class="card-body">
 
-				<form action="<?php echo create_url()?>" class="dropzone" id="dropForm">
+				<form action="<?php echo store_url()?>" class="dropzone" id="dropForm">
 					<div class="dz-message" data-dz-message>
 						<span>Yüklemek için dosyaları sürükleyip bırakın </span> <br>
 						<span>ya da</span><br>

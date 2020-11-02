@@ -5,10 +5,10 @@
 
         <!-- Card Body -->
         <div class="card-body">
-			<form action="<?php echo create_url()?>" method="post">
+			<form action="<?php echo store_url()?>" method="post">
 				<div class="form-group">
 					<label for="pageName">Sayfa Adı</label>
-					<input type="text" class="form-control" id="eventName" name="title" placeholder="Sayfa Adı">
+					<input type="text" class="form-control" id="eventName" name="title" placeholder="Sayfa Adı" required>
 				</div>
 				<div class="form-group">
 					<label for="pageDescription">Sayfa İçeriği</label>
