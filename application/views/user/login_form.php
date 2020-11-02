@@ -21,12 +21,6 @@
 				<div class="form-group">
 				<input type="password" name="input_password" class="form-control form-control-user" id="inputPassword" placeholder="Şifre">
 				</div>
-				<div class="form-group">
-				  <div class="custom-control custom-checkbox small">
-					<input type="checkbox" class="custom-control-input" id="customCheck">
-					<label class="custom-control-label" for="customCheck">Remember Me</label>
-				  </div>
-				</div>
             	<button type="submit" name="submit"  class="btn btn-primary btn-user btn-block">Giriş Yap</button>
 			  </form>
     		<?php echo @$form_error;?>
