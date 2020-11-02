@@ -8,15 +8,7 @@ class My404 extends CI_Controller
    }
    public function index()
    {
-       $this->output->set_status_header('404');
-	   if(!get_active_user()){
-		   echo "Site 404 Error";
-		}  
-		else{		   
-			$context=array(
-				"project" 	=> 	"dashboard",
-			);
-			$this->load->view("dashboard/error",$context);
-		}
+      $this->output->set_status_header('404');
+	   $this->load->view("web/error");
 	}
 }
