@@ -160,8 +160,6 @@ class Media extends CI_Controller {
 				"category"	=>	$this->category,
 				"view" 		=>	"list",
 				"user" 					=>	$this->user,
-				"notification_alerts" 	=>	$this->notification_alerts,
-				"ticket_alerts" 		=>	$this->ticket_alerts,
 				"item" 		=>	$item,
 			);
 			render_dashboard_view($context);
