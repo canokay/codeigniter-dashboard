@@ -53,9 +53,6 @@ function login_required($redirect_field_name = "/login"){
     else{
         $t = &get_instance();
         $t->user = get_active_user();
-        $t->load->model("DashboardModel");
-        $t->notification_alerts = $t->DashboardModel->get_notification_alerts();
-        $t->ticket_alerts = $t->DashboardModel->get_ticket_alerts();
     }
 }
 
@@ -68,9 +65,6 @@ function login_required_spuser($redirect_field_name = "/login"){
     else{
         $t = &get_instance();
         $t->user = get_superuser_user();
-        $t->load->model("DashboardModel");
-        $t->notification_alerts = $t->DashboardModel->get_notification_alerts();
-        $t->ticket_alerts = $t->DashboardModel->get_ticket_alerts();
     }
 }
 

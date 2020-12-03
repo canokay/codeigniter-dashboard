@@ -16,8 +16,6 @@ function render_dashboard_view($context){
     $context['user'] 					=	$t->user;
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
-    $context['notification_alerts'] 	=	$t->notification_alerts;
-    $context['ticket_alerts'] 		=	$t->ticket_alerts;
     return $t->load->view($t->project . "/layout",$context);
 }
 
@@ -33,8 +31,6 @@ function render_dashboard_index_view($context){
     $context['user'] 					=	$t->user;
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
-    $context['notification_alerts'] 	=	$t->notification_alerts;
-    $context['ticket_alerts'] 		=	$t->ticket_alerts;
     return $t->load->view($t->project . "/layout",$context);
 }
 
@@ -48,8 +44,6 @@ function render_dashboard_create_view($context){
     $context['user'] 					=	$t->user;
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
-    $context['notification_alerts'] 	=	$t->notification_alerts;
-    $context['ticket_alerts'] 		=	$t->ticket_alerts;
     return $t->load->view($t->project . "/layout",$context);
 }
 
@@ -63,8 +57,6 @@ function render_dashboard_edit_view($context,$title){
     $context['card_title'] =  $title . " Güncelle";
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
-    $context['notification_alerts'] 	=	$t->notification_alerts;
-    $context['ticket_alerts'] 		=	$t->ticket_alerts;
     return $t->load->view($t->project . "/layout",$context);
 }
 
@@ -78,8 +70,6 @@ function render_dashboard_show_view($context,$title){
     $context['user'] 					=	$t->user;
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
-    $context['notification_alerts'] 	=	$t->notification_alerts;
-    $context['ticket_alerts'] 		=	$t->ticket_alerts;
     return $t->load->view($t->project . "/layout",$context);
 }
 
@@ -93,8 +83,6 @@ function render_dashboard_delete_view($context,$title){
     $context['card_title'] =  $title . " - Silinecek";
     $context['verbose_name'] =  $t->verbose_name;
     $context['verbose_name_plural'] =  $t->verbose_name_plural;
-    $context['notification_alerts'] 	=	$t->notification_alerts;
-    $context['ticket_alerts'] 		=	$t->ticket_alerts;
     return $t->load->view($t->project . "/layout",$context);
 }
 

@@ -40,60 +40,6 @@
               </div>
             </li>
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Codeigniter 3 Bildirimleri
-								</h6>
-								<?php  foreach ($notification_alerts as $notification_alert) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="<?php echo detail_url("notification", $notification_alert->id)?>">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-									</div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold"><?php echo $notification_alert->title; ?></span>
-                  </div>
-                </a>
-								<?php } ?>
-                <a class="dropdown-item text-center small text-gray-500" href="<?php echo index_url("notification")?>">Bütün Codeigniter 3 Bildirimleri</a>
-              </div>
-            </li>
-
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                
-								<?php  foreach ($ticket_alerts as $ticket_alert) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="<?php echo detail_url("ticket", $ticket_alert->id); ?>">
-                  <div class="font-weight-bold">
-                    <div class="text-truncate"><?php echo $ticket_alert->title; ?></div>
-                    <div class="small text-gray-500"><?php echo $ticket_alert->username; ?></div>
-                  </div>
-                </a>
-								<?php } ?>
-
-                <a class="dropdown-item text-center small text-gray-500" href="<?php echo index_url("ticket")?>">Read More Messages</a>
-              </div>
-            </li>
-
-            <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">

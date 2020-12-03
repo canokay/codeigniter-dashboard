@@ -23,8 +23,6 @@ class Dashboard extends CI_Controller {
 			"title"		=>	$this->verbose_name,
 			"card_title"	=>	$this->verbose_name,
 			"user" 					=>	$this->user,
-			"notification_alerts" 	=>	$this->notification_alerts,
-			"ticket_alerts" 		=>	$this->ticket_alerts
 			
 		);
 		render_dashboard_view($context);

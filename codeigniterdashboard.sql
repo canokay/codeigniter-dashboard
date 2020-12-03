@@ -38,20 +38,6 @@ CREATE TABLE `media` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notification`
---
-
-CREATE TABLE `notification` (
-  `id` int(11) NOT NULL,
-  `title` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
-  `description` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
-  `author_user_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pages`
 --
 
@@ -63,35 +49,6 @@ CREATE TABLE `pages` (
   `is_active` tinyint(4) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ticket`
---
-
-CREATE TABLE `ticket` (
-  `id` int(11) NOT NULL,
-  `title` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
-  `message` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `is_active` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ticket_message`
---
-
-CREATE TABLE `ticket_message` (
-  `id` int(11) NOT NULL,
-  `ticket_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `message` varchar(250) COLLATE utf8mb4_turkish_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -133,27 +90,9 @@ ALTER TABLE `media`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `notification`
---
-ALTER TABLE `notification`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ticket`
---
-ALTER TABLE `ticket`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ticket_message`
---
-ALTER TABLE `ticket_message`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -173,27 +112,9 @@ ALTER TABLE `media`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `notification`
---
-ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ticket`
---
-ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ticket_message`
---
-ALTER TABLE `ticket_message`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

@@ -74,53 +74,6 @@
 
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTicket" aria-expanded="true" aria-controls="collapseTicket">
-	<i class="fas fa-fw fa-cog"></i>
-	<span>Mesaj</span>
-  </a>
-	<?php 
-		if ($category=="ticket"){
-			echo ' <div id="collapseTicket" class="collapse show" aria-labelledby="headingTicket" data-parent="#accordionSidebar">';
-		}
-		else{
-			echo ' <div id="collapseTicket" class="collapse" aria-labelledby="headingTicket" data-parent="#accordionSidebar">';
-
-		}
-
-	?>
-	<div class="bg-white py-2 collapse-inner rounded">
-	  <a class="collapse-item" href="<?php echo create_url("ticket")?>">Yeni Mesaj Ekleyin</a>
-	  <a class="collapse-item" href="<?php echo index_url("ticket")?>">Mesajları Listeleyin</a>
-	</div>
-  </div>
-
-</li>
-
-
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotification" aria-expanded="true" aria-controls="collapseNotification">
-	<i class="fas fa-fw fa-cog"></i>
-	<span>Bildirim</span>
-  </a>
-	<?php 
-		if ($category=="notification"){
-			echo ' <div id="collapseNotification" class="collapse show" aria-labelledby="headingNotification" data-parent="#accordionSidebar">';
-		}
-		else{
-			echo ' <div id="collapseNotification" class="collapse" aria-labelledby="headingNotification" data-parent="#accordionSidebar">';
-
-		}
-
-	?>
-	<div class="bg-white py-2 collapse-inner rounded">
-		<a class="collapse-item" href="<?php echo index_url("notification")?>">Bildirim Listele</a>
-	</div>
-  </div>
-
-</li>
-
-
-<li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
 	<i class="fas fa-fw fa-cog"></i>
 	<span>Hesap</span>

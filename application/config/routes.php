@@ -63,8 +63,6 @@ $route['admin/page/(:num)/edit']['GET'] = 'dashboard/Page/edit/';
 $route['admin/page/(:num)/delete']['GET'] = 'dashboard/Page/delete/';
 $route['admin/page/(:num)/delete']['POST'] = 'dashboard/Page/destroy/';
 
-$route['admin/notification']['GET'] = 'dashboard/Notification/index';
-$route['admin/notification/(:num)']['GET'] = 'dashboard/Notification/show/';
 
 $route['admin/media-upload']['GET'] = 'dashboard/Media/create';
 $route['admin/media-upload']['POST'] = 'dashboard/Media/store';
@@ -77,13 +75,6 @@ $route['admin/media/(:num)']['GET'] = 'dashboard/Media/show/';
 $route['admin/media/(:num)/edit']['GET'] = 'dashboard/Media/edşt/';
 $route['admin/media/(:num)']['POST'] = 'dashboard/Media/update/';
 
-$route['admin/ticket']['GET'] = 'dashboard/Ticket/index';
-$route['admin/ticket']['POST'] = 'dashboard/Ticket/store';
-$route['admin/ticket/create']['GET']  = 'dashboard/Ticket/create';
-$route['admin/ticket/delete/(:num)']['GET'] = 'dashboard/Ticket/destroy';
-$route['admin/ticket/(:num)']['GET'] = 'dashboard/Ticket/show/';
-$route['admin/ticket/(:num)/edit']['GET'] = 'dashboard/Ticket/edit/';
-$route['admin/ticket/(:num)']['POST'] = 'dashboard/Ticket/update/';
 
 
 $route['admin/users']['GET'] = 'dashboard/UserSettings/index';
@@ -119,13 +110,6 @@ $route['sp-admin/page/(:num)']['GET'] = 'sp_dashboard/Page/show/';
 $route['sp-admin/page/(:num)/edit']['GET'] = 'sp_dashboard/Page/edit/';
 $route['sp-admin/page/(:num)']['POST'] = 'sp_dashboard/Page/update/';
 
-$route['sp-admin/notification']['GET'] = 'sp_dashboard/Notification/index';
-$route['sp-admin/notification']['POST'] = 'sp_dashboard/Notification/store';
-$route['sp-admin/notification/create']['GET']  = 'sp_dashboard/Notification/create';
-$route['sp-admin/notification/delete/(:num)']['GET'] = 'sp_dashboard/Notification/destroy';
-$route['sp-admin/notification/(:num)']['GET'] = 'sp_dashboard/Notification/show/';
-$route['sp-admin/notification/(:num)/edit']['GET'] = 'sp_dashboard/Notification/edit/';
-$route['sp-admin/notification/(:num)']['POST'] = 'sp_dashboard/Notification/update/';
 
 
 $route['sp-admin/media-upload'] = 'sp_dashboard/Media/create';
@@ -138,13 +122,6 @@ $route['sp-admin/media/(:num)']['GET'] = 'sp_dashboard/Media/show/';
 $route['sp-admin/media/(:num)/edit']['GET'] = 'sp_dashboard/Media/edit/';
 $route['sp-admin/media/(:num)']['POST'] = 'sp_dashboard/Media/update/';
 
-$route['sp-admin/ticket']['GET'] = 'sp_dashboard/Ticket/index';
-$route['sp-admin/ticket']['POST'] = 'sp_dashboard/Ticket/store';
-$route['sp-admin/ticket/create']['GET']  = 'sp_dashboard/Ticket/create';
-$route['sp-admin/ticket/delete/(:num)']['GET'] = 'sp_dashboard/Ticket/destroy';
-$route['sp-admin/ticket/(:num)']['GET'] = 'sp_dashboard/Ticket/show/';
-$route['sp-admin/ticket/(:num)/edit']['GET'] = 'sp_dashboard/Ticket/edit/';
-$route['sp-admin/ticket/(:num)']['POST'] = 'sp_dashboard/Ticket/update/';
 
 
 $route['sp-admin/users']['GET'] = 'sp_dashboard/UserSettings/index';
