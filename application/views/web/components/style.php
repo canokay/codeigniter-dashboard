@@ -1,17 +1,8 @@
-
-<link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
-
 <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo base_url("assets/web/")?>css/bootstrap.min.css">
 
 <!-- Favicons -->
-<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="mask-icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="https://getbootstrap.com/docs/4.4/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
+<link rel="icon" href="<?php echo base_url("assets/web/")?>img/favicon.png" sizes="32x32" type="image/png">
 
 
 <style>
@@ -30,5 +21,4 @@
     }
   }
 </style>
-<!-- Custom styles for this template -->
-<link href="https://getbootstrap.com/docs/4.4/examples/cover/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url("assets/web/")?>css/base.css">
