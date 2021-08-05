@@ -92,12 +92,6 @@ $route['forgot_password']['POST'] = 'user/User/forgot_password';
 $route["logout"]['GET'] = "user/User/logout";
 
 
-$route['api/login']['POST'] = 'api/ApiUser/login';
-$route['api/register']['POST'] = 'api/ApiUser/register';
-$route['api/forgot_password']['POST'] = 'api/ApiUser/forgot_password';
-$route["api/logout"]['GET'] = "api/ApiUser/logout";
-
-
 $route['sp-admin']['GET'] = 'sp_dashboard/Dashboard/index';
 
 
